@@ -47,61 +47,40 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            var table = $('#dt-user').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('index') }}",
-                columns: [{
-                        data: 'name',
-                        // name: 'users.name'
-                        searcable: true
-                    },
-                    {
-                        data: 'address',
-                        // data: 'detail_user.address'
-                        searcable: true
-                    },
-                    {
-                        data: 'phone',
-                        // data: 'detail_user.phone'
-                        searcable: true
-                    },
-                    {
-                        "data": function(data) {
-                            if (data.status == 'aktif') {
-                                return `<span class="badge bg-light-success align-content-center">Aktif</span>`;
-                            } else {
-                                return `<span class="badge bg-light-danger align-content-center">Nonaktif</span>`;
-                            }
+                var table = $('#dt-user').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: "{{ route('index') }}",
+                    columns: [{
+                            data: 'name',
+                            name: 'users.name'
+                        },
+                        {
+                            data: 'email',
+                            name: 'users.email'
+                        },
+                        {
+                            data: 'phone',
+                            name: 'detail_user.phone'
+                        },
+                        {
+                            data: 'status',
+                            name: 'detail_user.status'
+                        },
+                        {
+                            data: 'created_at',
+                            name: 'users.created_at'
+                        },
+                        {
+                            data: 'action',
+                            name: 'action'
                         }
-                    },
-                    {
-                        data: 'created_at',
-                        // data: 'users.address'
-                        searcable: true
-                    },
-                    {
-                        data: 'action',
-                        // data: 'action'
-                        searcable: true
-                    }
-                ],
-                order: [
-                    [4, 'desc']
-                ],
-                responsive: true,
-                language: {
-                    search: "Cari Data :",
-                    searchPlaceholder: "",
-                    emptyTable: "Tidak ada data pada tabel ini",
-                    info: "Menampilkan _START_ s/d _END_ dari _TOTAL_ data",
-                    infoFiltered: "(difilter dari _MAX_ total data)",
-                    infoEmpty: "Tidak ada data pada tabel ini",
-                    lengthMenu: "Menampilkan _MENU_ data",
-                    zeroRecords: "Tidak ada data pada tabel ini"
-                },
+                    ],
+                    order: [
+                        [4, 'desc']
+                    ]
+                });
             });
-        });
         
     </script>
 @endpush
