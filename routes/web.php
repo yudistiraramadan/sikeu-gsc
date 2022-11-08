@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard-relawan', [DashboardController::class, 'relawan_page'])->name('relawan');
+
 
 Route::get('/daftar-user', [UserController::class, 'index'])->name('index');
 Route::get('/tambah-user', [UserController::class, 'tambahuser'])->name('tambahuser');
