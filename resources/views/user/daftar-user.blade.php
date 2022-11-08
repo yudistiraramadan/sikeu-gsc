@@ -56,8 +56,8 @@
                         name: 'users.name'
                     },
                     {
-                        data: 'email',
-                        name: 'users.email'
+                        data: 'address',
+                        name: 'detail_user.address'
                     },
                     {
                         data: 'phone',

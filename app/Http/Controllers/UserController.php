@@ -63,5 +63,12 @@ class UserController extends Controller
         return redirect('daftar-user');
     }
 
+    public function showuser($id){
+        $user = User::join('detail_user', 'users.id', '=', 'detail_user.user_id')
+            ->get(['users.*', 'detail_user.*'])
+            ->find($id);
+        // dd($user);
+        return view('user.tampil-user', compact('user'));
+    }
 
 }
