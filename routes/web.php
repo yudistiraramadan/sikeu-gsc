@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/daftar-user', [UserController::class, 'index'])->name('index');
+Route::get('/tambah-user', [UserController::class, 'tambahuser'])->name('tambahuser');
+Route::post('/insertuser', [UserController::class, 'insertuser'])->name('insertuser');

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\DetailUser;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends Controller
@@ -33,4 +35,33 @@ class UserController extends Controller
         }
         return view('user.daftar-user');
     }
+
+    public function tambahuser()
+    {
+        return view('user.tambah-user');
+    }
+
+    public function insertuser(Request $request)
+    {
+        $data = $request->all();
+        $user = new User;
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+        $user->role_id = $data['role_id'];
+        $user->save();
+
+        $detail_user = new DetailUser;
+        $detail_user->user_id = $user->id;
+        $detail_user->photo = $data['photo'];
+        $detail_user->address = $data['address'];
+        $detail_user->phone = $data['phone'];
+        $detail_user->status = $data['status'];
+        $detail_user->gender = $data['gender'];
+        $detail_user->save();
+
+        return redirect('daftar-user');
+    }
+
+
 }
