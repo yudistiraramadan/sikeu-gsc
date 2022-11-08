@@ -22,4 +22,7 @@ Route::get('/daftar-user', [UserController::class, 'index'])->name('index');
 Route::get('/tambah-user', [UserController::class, 'tambahuser'])->name('tambahuser');
 Route::post('/insertuser', [UserController::class, 'insertuser'])->name('insertuser');
 Route::get('/show-user/{id}', [UserController::class, 'showuser'])->name('showuser');
+Route::post('/edit-user/{id}', [UserController::class, 'edituser'])->name('edituser');
+
+
 

@@ -71,4 +71,44 @@ class UserController extends Controller
         return view('user.tampil-user', compact('user'));
     }
 
+
+    public function edituser(Request $request, $id)
+    {
+        // $this->validate(
+        //     $request,
+        //     [
+        //         'nama' => 'required',
+        //         'email' => 'required',
+        //         'alamat' => 'required',
+        //         'tlpn' => 'required',
+        //         'jk' => 'required',
+        //         'status' => 'required',
+        //     ],
+        //     [
+        //         'nama.required' => 'Nama admin masih kosong.',
+        //         'email.required' => 'Email admin masih kosong.',
+        //         'alamat.required' => 'Alamat admin masih kosong.',
+        //         'tlpn.required' => 'tlpn admin masih kosong.',
+        //         'jk.required' => 'jk admin masih kosong.',
+        //         'jk.required' => 'jk admin masih kosong.',
+        //     ]
+        // );
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+        
+        $user = DetailUser::findOrFail($id);
+        $user->phone = $request->phone;
+        $user->gender = $request->gender;
+        $user->address = $request->address;
+        $user->status = $request->status;
+        // dd($user);
+        $user->save();
+
+        return redirect()->route('index')->with('toast_success', 'Data User Berhasi Diedit');
+    }
+
+
+
 }

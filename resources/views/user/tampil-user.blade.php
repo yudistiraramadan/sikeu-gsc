@@ -181,7 +181,7 @@
                     
                     <div class="form-group mb-3">
                       <label for="alamat" class="form-label">Alamat Lengkap</label>
-                      <textarea class="form-control" name="addresss" id="alamat" rows="4"></textarea>
+                      <textarea class="form-control" name="address" id="alamat" rows="4"></textarea>
                     </div>
                     <button type="submit" class="btn btn-success">Edit Data</button>
                   </form> 
