@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\DetailUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,6 +18,16 @@ class UserController extends Controller
             $data = User::join('detail_user', 'users.id', '=', 'detail_user.user_id')
                 ->select(['users.id', 'users.name', 'users.email', 'users.created_at', 'detail_user.address', 'detail_user.phone', 'detail_user.status']);
             return datatables()->of($data)
+
+                //  Merubah format waktu menjadi (1 day ago)
+                // ->addColumn('time', function ($data) {
+                //     return Carbon::parse($data->created_at)->diffForHumans();
+                // })
+
+                ->addColumn('time', function ($data) {
+                        return Carbon::now()->isoFormat('dddd, D MMM Y');
+                    })
+
                 ->addColumn('action', function ($data) {
 
                     $button = '<a data-toogle="tooltip" data-placement="top" title="Detail User" href=""><button type="button" class="btn btn-info"><i class="bi bi-info-circle"></i></button></a>';
@@ -25,13 +36,13 @@ class UserController extends Controller
                     $button .= '<a data-toogle="tooltip" data-placement="top" title="Edit" href="' . url('show-user/' . $data->id) . '"><button type="button" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button></a>';
 
                     $button .= '&nbsp;&nbsp;';
-                    $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="Hapus" href="delete/'.$data->id.'" class="delete"><button type="button" class="btn btn-danger"><i class="bi bi-trash3"></i></button></a>';
+                    $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="Hapus" href="delete/' . $data->id . '" class="delete"><button type="button" class="btn btn-danger"><i class="bi bi-trash3"></i></button></a>';
                     // $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="Hapus" href="' . $data->id . '" class="delete" id="' . $data->id . '"><i class="bi bi-trash3-fill" style="font-size: 24px;"></i></a>';
 
 
 
                     return $button;
-                })->rawColumns(['action'])->make(true);
+                })->rawColumns(['action', 'time'])->make(true);
             return DataTables::of($data)
                 ->make(true);
         }
@@ -65,7 +76,8 @@ class UserController extends Controller
         return redirect('daftar-user');
     }
 
-    public function showuser($id){
+    public function showuser($id)
+    {
         $user = User::join('detail_user', 'users.id', '=', 'detail_user.user_id')
             ->get(['users.*', 'detail_user.*'])
             ->find($id);
@@ -99,7 +111,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
-        
+
         $user = DetailUser::findOrFail($id);
         $user->phone = $request->phone;
         $user->gender = $request->gender;
@@ -111,12 +123,10 @@ class UserController extends Controller
         return redirect()->route('index')->with('toast_success', 'Data User Berhasi Diedit');
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $data = User::find($id);
         $data->delete();
         return redirect()->route('index');
     }
-
-
-
 }

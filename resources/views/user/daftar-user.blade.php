@@ -68,8 +68,8 @@
                         name: 'detail_user.status'
                     },
                     {
-                        data: 'created_at',
-                        name: 'users.created_at'
+                        data: 'time',
+                        // name: 'users.created_at'
                     },
                     {
                         data: 'action',
