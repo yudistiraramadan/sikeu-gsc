@@ -66,16 +66,16 @@
                         name: 'detail_user.phone'
                     },
                     {
-                        data: 'status',
-                        name: 'detail_user.status'
-                        // "data": function(data) {
-                        //     if (data.status == 'aktif') {
-                        //         return '<span class="badge bg-light-success">Aktif</span>';
-                        //     }
-                        //     else {
-                        //         return '<span class="badge bg-light-danger">Nonaktif</span>';
-                        //     }
-                        // }
+                        // data: 'status',
+                        // name: 'detail_user.status'
+                        "data": function(data) {
+                            if (data.status == 'aktif') {
+                                return '<span class="badge bg-light-success">Aktif</span>';
+                            }
+                            else {
+                                return '<span class="badge bg-light-danger">Nonaktif</span>';
+                            }
+                        }
                     },
                     {
                         data: 'time',

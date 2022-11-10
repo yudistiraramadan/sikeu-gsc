@@ -49,8 +49,7 @@ class UserController extends Controller
 
                     return $button;
                 })->rawColumns(['action', 'time', 'photo'])->make(true);
-            return DataTables::of($data)
-                ->make(true);
+            // return DataTables::of($data)->make(true);
         }
         return view('user.daftar-user');
     }
