@@ -31,7 +31,7 @@
                                     <th>Nama Relawan</th>
                                     <th>Alamat</th>
                                     <th>Whatsapp/Hp</th>
-                                    <th>Status</th>
+                                    <th style="text-align: center;">Status</th>
                                     <th>Ditambahkan</th>
                                     <th>Foto</th>
                                     <th style="text-align: center;">Aksi</th>
@@ -79,7 +79,7 @@
                     },
                     {
                         data: 'time',
-                        // name: 'users.created_at'
+                        name: 'users.created_at'
                     },
                     {
                         data: 'photo',
@@ -104,6 +104,15 @@
                     lengthMenu: "Menampilkan _MENU_ data",
                     zeroRecords: "Tidak ada data pada tabel ini"
                 },
+                columnDefs: [{
+                        // className: 'text-left',
+                        // targets: [0]
+                    },
+                    {
+                        className: 'text-center',
+                        targets: [3, 5, 6]
+                    }
+                ]
             });
         });
     </script>
