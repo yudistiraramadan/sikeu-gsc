@@ -21,6 +21,7 @@
                 <a href="{{ route('tambahuser') }}">
                     <button type="button" class="btn btn-success tambah mb-4">Tambah User</button>
                 </a>
+                {{-- <span class="badge bg-light-success">Success</span> --}}
 
                 <div class="responsive">
                     <div class="table-responsive">
@@ -66,6 +67,14 @@
                     {
                         data: 'status',
                         name: 'detail_user.status'
+                        // "data": function(data) {
+                        //     if (data.status == 'aktif') {
+                        //         return '<span class="badge bg-light-success">Aktif</span>';
+                        //     }
+                        //     else {
+                        //         return '<span class="badge bg-light-danger">Nonaktif</span>';
+                        //     }
+                        // }
                     },
                     {
                         data: 'time',

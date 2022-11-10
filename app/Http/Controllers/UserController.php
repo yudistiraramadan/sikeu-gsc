@@ -25,7 +25,7 @@ class UserController extends Controller
                 // })
 
                 ->addColumn('time', function ($data) {
-                        return Carbon::now()->isoFormat('dddd, D MMM Y');
+                        return Carbon::now()->isoFormat('dddd, D MMMM Y');
                     })
 
                 ->addColumn('action', function ($data) {
