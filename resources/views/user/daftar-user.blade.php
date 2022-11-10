@@ -23,7 +23,18 @@
                 </a>
                 &nbsp;
                 <a href="{{ route('exportexcel') }}">
-                    <button type="button" class="btn btn-info tambah mb-4">Export Excel</button>
+                    <button type="button" class="btn btn-primary mb-4">Export Excel</button>
+                </a>
+                &nbsp;
+                <a href="#">
+                    <button type="button" class="btn btn-danger mb-4">Export PDF</button>
+                </a>
+                &nbsp;
+                {{-- <a href="" data-toogle="tooltip" data-placement="top" name="delete" title="Hapus" href="delete/' . $data->id . '" class="delete">
+                    <i class="bi bi-trash3-fill" style="font-size: 28px; color:#FF0063"></i>
+                </a> --}}
+                <a href="">
+                    <i class="fa-solid fa-user-pen text-info" style="font-size: 30px;"></i>
                 </a>
                 {{-- <span class="badge bg-light-success">Success</span> --}}
 

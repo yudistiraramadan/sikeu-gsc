@@ -44,8 +44,8 @@ class UserController extends Controller
                     $button .= '<a data-toogle="tooltip" data-placement="top" title="Edit" href="' . url('show-user/' . $data->id) . '"><button type="button" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button></a>';
 
                     $button .= '&nbsp;&nbsp;';
-                    $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="Hapus" href="delete/' . $data->id . '" class="delete"><button type="button" class="btn btn-danger"><i class="bi bi-trash3"></i></button></a>';
-                    // $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="Hapus" href="' . $data->id . '" class="delete" id="' . $data->id . '"><i class="bi bi-trash3-fill" style="font-size: 24px;"></i></a>';
+                    // $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="Hapus" href="delete/' . $data->id . '" class="delete"><button type="button" class="btn btn-danger"><i class="bi bi-trash3"></i></button></a>';
+                    $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="Hapus Data" href="delete/' . $data->id . '" class="delete"><i class="bi bi-trash3-fill" style="font-size: 30px; color:#FF0063"></i></a>';
 
 
 
