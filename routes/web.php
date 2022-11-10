@@ -42,3 +42,5 @@ Route::post('/insertuser', [UserController::class, 'insertuser'])->name('insertu
 Route::get('/show-user/{id}', [UserController::class, 'showuser'])->name('showuser');
 Route::post('/edit-user/{id}', [UserController::class, 'edituser'])->name('edituser');
 Route::get('/delete/{id}', [UserController::class, 'delete'])->name('delete');
+
+Route::get('/exportexcel', [UserController::class, 'exportexcel'])->name('exportexcel');

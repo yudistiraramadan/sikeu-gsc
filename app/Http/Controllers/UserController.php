@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\DetailUser;
+use App\Exports\UserExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class UserController extends Controller
@@ -140,5 +142,9 @@ class UserController extends Controller
         $data = User::find($id);
         $data->delete();
         return redirect()->route('index');
+    }
+
+    public function exportexcel(){
+        return Excel::download(new UserExport, 'datarelawan.xlsx');
     }
 }

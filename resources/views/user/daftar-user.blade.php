@@ -21,6 +21,10 @@
                 <a href="{{ route('tambahuser') }}">
                     <button type="button" class="btn btn-success tambah mb-4">Tambah User</button>
                 </a>
+                &nbsp;
+                <a href="{{ route('exportexcel') }}">
+                    <button type="button" class="btn btn-success tambah mb-4">Export Excel</button>
+                </a>
                 {{-- <span class="badge bg-light-success">Success</span> --}}
 
                 <div class="responsive">
