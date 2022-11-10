@@ -23,7 +23,7 @@
                 </a>
                 &nbsp;
                 <a href="{{ route('exportexcel') }}">
-                    <button type="button" class="btn btn-success tambah mb-4">Export Excel</button>
+                    <button type="button" class="btn btn-info tambah mb-4">Export Excel</button>
                 </a>
                 {{-- <span class="badge bg-light-success">Success</span> --}}
 
@@ -115,7 +115,7 @@
                     },
                     {
                         className: 'text-center',
-                        targets: [3, 5]
+                        targets: [2, 3, 5]
                     }
                 ]
             });

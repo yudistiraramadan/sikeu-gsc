@@ -68,13 +68,7 @@
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item">
-                            <a href="#">Diterima</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="component-spinner.html">Ditolak</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="component-tooltip.html">Proses</a>
+                            <a href="#">Daftar Pemasukan</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="component-tooltip.html">Log Aktifitas</a>
