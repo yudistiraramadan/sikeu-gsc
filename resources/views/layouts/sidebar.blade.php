@@ -144,7 +144,7 @@
                 </li>
 
                 <li class="sidebar-title">Gerak Sedekah Cilacap</li>
-                <a href="" class="sidebar-link">
+                <a href="{{ route('logout') }}" class="sidebar-link">
                     <i class="bi bi-box-arrow-left"></i>
                     <span>Logout</span>
                 </a>

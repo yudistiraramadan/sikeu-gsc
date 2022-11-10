@@ -24,6 +24,13 @@ Route::get('/lupa-password', [AuthController::class, 'forgot_password'])->name('
 Route::post('/postlogin', [AuthController::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Middleware Level : 1,2,3 (Bendahara, Pengamat, Relawan)
+Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function () {
+    Route::get('/dashboard-sample', function () {
+        return view('dashboard.sample');
+    });
+});
+
 
 Route::get('/dashboard-relawan', [DashboardController::class, 'relawan_page'])->name('relawan');
 
@@ -34,7 +41,3 @@ Route::post('/insertuser', [UserController::class, 'insertuser'])->name('insertu
 Route::get('/show-user/{id}', [UserController::class, 'showuser'])->name('showuser');
 Route::post('/edit-user/{id}', [UserController::class, 'edituser'])->name('edituser');
 Route::get('/delete/{id}', [UserController::class, 'delete'])->name('delete');
-
-
-
-
