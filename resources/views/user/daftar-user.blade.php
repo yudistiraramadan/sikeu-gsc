@@ -33,6 +33,7 @@
                                     <th>Whatsapp/Hp</th>
                                     <th>Status</th>
                                     <th>Ditambahkan</th>
+                                    <th>Foto</th>
                                     <th style="text-align: center;">Aksi</th>
                                 </tr>
                             </thead>
@@ -79,6 +80,10 @@
                     {
                         data: 'time',
                         // name: 'users.created_at'
+                    },
+                    {
+                        data: 'photo',
+                        name: 'users.photo'
                     },
                     {
                         data: 'action',

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('detail_user', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->text('photo');
+            $table->string('photo');
             $table->text('address');
             $table->string('phone');
             $table->enum('gender', ['laki-laki', 'perempuan']);

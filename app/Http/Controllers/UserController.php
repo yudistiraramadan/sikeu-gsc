@@ -16,7 +16,7 @@ class UserController extends Controller
     {
         if ($request->ajax()) {
             $data = User::join('detail_user', 'users.id', '=', 'detail_user.user_id')
-                ->select(['users.id', 'users.name', 'users.email', 'users.created_at', 'detail_user.address', 'detail_user.phone', 'detail_user.status']);
+                ->select(['users.id', 'users.name', 'users.email', 'users.created_at', 'detail_user.address', 'detail_user.phone', 'detail_user.status', 'detail_user.photo']);
             return datatables()->of($data)
 
                 //  Merubah format waktu menjadi (1 day ago)
@@ -25,8 +25,14 @@ class UserController extends Controller
                 // })
 
                 ->addColumn('time', function ($data) {
-                        return Carbon::now()->isoFormat('dddd, D MMMM Y');
-                    })
+                    return Carbon::now()->isoFormat('dddd, D MMMM Y');
+                })
+                ->addColumn('photo', function ($data) {
+                    // $photo =  `<img src = "{{asset(foto-relawan/'.$data->photo.')}}">`;
+                    //  return `<img src = "{{asset("foto-relawan/yudis.JPG")}}" style="width: 50px; height:50px;">`;
+                    $photo = '<img src="foto-relawan/'.$data->photo.'" style="width: 50px; height:50px;">';
+                    return $photo;
+                })
 
                 ->addColumn('action', function ($data) {
 
@@ -42,7 +48,7 @@ class UserController extends Controller
 
 
                     return $button;
-                })->rawColumns(['action', 'time'])->make(true);
+                })->rawColumns(['action', 'time', 'photo'])->make(true);
             return DataTables::of($data)
                 ->make(true);
         }
@@ -71,6 +77,13 @@ class UserController extends Controller
         $detail_user->phone = $data['phone'];
         $detail_user->status = $data['status'];
         $detail_user->gender = $data['gender'];
+        $detail_user->photo = $data['photo'];
+
+        if ($request->hasFile('photo')) {
+            $request->file('photo')->move('foto-relawan/', $request->file('photo')->getClientOriginalName());
+            $detail_user->photo = $request->file('photo')->getClientOriginalName();
+            // $detail_user->save();
+        }
         $detail_user->save();
 
         return redirect('daftar-user');

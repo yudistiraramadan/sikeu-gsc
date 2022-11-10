@@ -16,7 +16,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="mb-4">Tambah Data Relawan</h5>
-                <form action="{{ route('insertuser') }}" method="POST">
+                <form action="{{ route('insertuser') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="col-lg-12">
                         <div class="row">
