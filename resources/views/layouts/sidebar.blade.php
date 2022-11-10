@@ -3,7 +3,7 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="index.html" style="font-size: 12px"><img src="{{ asset('assets/images/logo/gsc.png') }}"
+                    <a href="index.html" style="font-size: 12px"><img src="{{ asset('assets/images/gsc/logo_gsc.png') }}"
                             style="width:50px; height:50px;" alt="Logo" srcset=""></a>
                 </div>
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
