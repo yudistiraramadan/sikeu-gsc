@@ -33,7 +33,7 @@
                                     <th>Whatsapp/Hp</th>
                                     <th style="text-align: center;">Status</th>
                                     <th>Ditambahkan</th>
-                                    <th>Foto</th>
+                                    {{-- <th>Foto</th> --}}
                                     <th style="text-align: center;">Aksi</th>
                                 </tr>
                             </thead>
@@ -66,25 +66,26 @@
                         name: 'detail_user.phone'
                     },
                     {
-                        // data: 'status',
-                        // name: 'detail_user.status'
-                        "data": function(data) {
-                            if (data.status == 'aktif') {
-                                return '<span class="badge bg-light-success">Aktif</span>';
-                            }
-                            else {
-                                return '<span class="badge bg-light-danger">Nonaktif</span>';
-                            }
-                        }
+                        data: 'status',
+                        name: 'detail_user.status'
+                        
+                        // "data": function(data) {
+                        //     if (data.status == 'aktif') {
+                        //         return '<span class="badge bg-light-success">Aktif</span>';
+                        //     }
+                        //     else {
+                        //         return '<span class="badge bg-light-danger">Nonaktif</span>';
+                        //     }
+                        // }
                     },
                     {
                         data: 'time',
                         name: 'users.created_at'
                     },
-                    {
-                        data: 'photo',
-                        name: 'users.photo'
-                    },
+                    // {
+                    //     data: 'photo',
+                    //     name: 'users.photo'
+                    // },
                     {
                         data: 'action',
                         name: 'action'
@@ -110,7 +111,7 @@
                     },
                     {
                         className: 'text-center',
-                        targets: [3, 5, 6]
+                        targets: [3, 5]
                     }
                 ]
             });

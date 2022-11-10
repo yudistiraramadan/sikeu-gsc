@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AuthController::class, 'loginpage'])->name('login');
+Route::get('/lupa-password', [AuthController::class, 'forgot_password'])->name('forgot-password');
+Route::post('/postlogin', [AuthController::class, 'postlogin'])->name('postlogin');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 Route::get('/dashboard-relawan', [DashboardController::class, 'relawan_page'])->name('relawan');
 
