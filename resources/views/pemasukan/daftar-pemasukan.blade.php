@@ -2,7 +2,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-6">
-            <h2>Daftar Relawan GSC</h3>
+            <h2>Daftar Pemasukan GSC</h3>
         </div>
         <div class="col-lg-6">
             <nav aria-label="breadcrumb">
@@ -19,7 +19,7 @@
         <div class="card">
             <div class="card-body">
                 <a href="{{ route('tambahuser') }}">
-                    <button type="button" class="btn btn-success tambah mb-4">Tambah User</button>
+                    <button type="button" class="btn btn-success tambah mb-4">Tambah Pemasukan</button>
                 </a>
                 &nbsp;
                 <a href="{{ route('exportexcel') }}">
@@ -33,21 +33,21 @@
                 {{-- <a href="" data-toogle="tooltip" data-placement="top" name="delete" title="Hapus" href="delete/' . $data->id . '" class="delete">
                     <i class="bi bi-trash3-fill" style="font-size: 28px; color:#FF0063"></i>
                 </a> --}}
-                
+
                 {{-- <span class="badge bg-light-success">Success</span> --}}
 
                 <div class="responsive">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered table-responsive" id="dt-user">
+                        <table class="table table-hover table-bordered table-responsive" id="dt-pemasukan">
                             <thead>
                                 <tr>
-                                    <th>Nama Relawan</th>
-                                    <th>Alamat</th>
-                                    <th>Whatsapp/Hp</th>
-                                    <th style="text-align: center;">Status</th>
-                                    <th>Ditambahkan</th>
+                                    <th>Terima Dari</th>
+                                    <th>Uang Sebanyak</th>
+                                    <th>Guna Pembayaran</th>
+                                    <th>Tanggal</th>
+                                    <th>Terbilang</th>
                                     {{-- <th>Foto</th> --}}
-                                    <th style="text-align: center;">Aksi</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,50 +62,32 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            var table = $('#dt-user').DataTable({
+            var table = $('#dt-pemasukan').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('user') }}",
+                ajax: "{{ route('pemasukan') }}",
                 columns: [{
                         data: 'name',
-                        name: 'users.name'
                     },
                     {
-                        data: 'address',
-                        name: 'detail_user.address'
+                        data: 'nominal',
                     },
                     {
-                        data: 'phone',
-                        name: 'detail_user.phone'
+                        data: 'keperluan',
                     },
                     {
-                        data: 'status',
-                        name: 'detail_user.status'
-                        
-                        // "data": function(data) {
-                        //     if (data.status == 'aktif') {
-                        //         return '<span class="badge bg-light-success">Aktif</span>';
-                        //     }
-                        //     else {
-                        //         return '<span class="badge bg-light-danger">Nonaktif</span>';
-                        //     }
-                        // }
+                        data: 'date',
                     },
                     {
-                        data: 'time',
-                        name: 'users.created_at'
+                        data: 'terbilang',
                     },
-                    // {
-                    //     data: 'photo',
-                    //     name: 'users.photo'
-                    // },
+
                     {
                         data: 'action',
-                        name: 'action'
                     }
                 ],
                 order: [
-                    [4, 'desc']
+                    [3, 'desc']
                 ],
                 responsive: true,
                 language: {
@@ -124,7 +106,7 @@
                     },
                     {
                         className: 'text-center',
-                        targets: [2, 3, 5]
+                        targets: [5]
                     }
                 ]
             });

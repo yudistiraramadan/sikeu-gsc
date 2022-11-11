@@ -14,7 +14,7 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
-    public function index(Request $request)
+    public function user(Request $request)
     {
         if ($request->ajax()) {
             $data = User::join('detail_user', 'users.id', '=', 'detail_user.user_id')
@@ -32,20 +32,19 @@ class UserController extends Controller
                 ->addColumn('photo', function ($data) {
                     // $photo =  `<img src = "{{asset(foto-relawan/'.$data->photo.')}}">`;
                     //  return `<img src = "{{asset("foto-relawan/yudis.JPG")}}" style="width: 50px; height:50px;">`;
-                    $photo = '<img src="foto-relawan/'.$data->photo.'" style="width: 50px; height:50px;">';
+                    $photo = '<img src="foto-relawan/' . $data->photo . '" style="width: 50px; height:50px;">';
                     return $photo;
                 })
 
                 ->addColumn('action', function ($data) {
 
-                    $button = '<a data-toogle="tooltip" data-placement="top" title="Detail User" href=""><button type="button" class="btn btn-info"><i class="bi bi-info-circle"></i></button></a>';
+                    $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="DETAIL" href="#"><i class="fa-solid fa-user-pen text-info" style="font-size: 30px;"></i></a>';
 
                     $button .= '&nbsp;&nbsp;';
-                    $button .= '<a data-toogle="tooltip" data-placement="top" title="Edit" href="' . url('show-user/' . $data->id) . '"><button type="button" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button></a>';
+                    $button .= '<a data-toogle="tooltip" data-placement="top" name="edit" title="EDIT" href="' . url('show-user/' . $data->id) . '"><i class="fa-solid fa-pen-to-square text-warning" style="font-size: 30px;"></i></a>';
 
                     $button .= '&nbsp;&nbsp;';
-                    // $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="Hapus" href="delete/' . $data->id . '" class="delete"><button type="button" class="btn btn-danger"><i class="bi bi-trash3"></i></button></a>';
-                    $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="Hapus Data" href="delete/' . $data->id . '" class="delete"><i class="bi bi-trash3-fill" style="font-size: 30px; color:#FF0063"></i></a>';
+                    $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="HAPUS" href="delete/' . $data->id . '" class="delete"><i class="fa-solid fa-trash" style="font-size: 28px; color:#FF0063;"></i></a>';
 
 
 
@@ -134,17 +133,18 @@ class UserController extends Controller
         // dd($user);
         $user->save();
 
-        return redirect()->route('index')->with('toast_success', 'Data User Berhasi Diedit');
+        return redirect()->route('user')->with('toast_success', 'Data User Berhasi Diedit');
     }
 
     public function delete($id)
     {
         $data = User::find($id);
         $data->delete();
-        return redirect()->route('index');
+        return redirect()->route('user');
     }
 
-    public function exportexcel(){
+    public function exportexcel()
+    {
         return Excel::download(new UserExport, 'datarelawan.xlsx');
     }
 }

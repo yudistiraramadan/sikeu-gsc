@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PemasukanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,11 +33,15 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function () {
     Route::get('/dashboard-user', [DashboardController::class, 'user_page'])->name('user_page');
 });
 
+Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function(){
+    Route::get('/daftar-pemasukan', [PemasukanController::class, 'pemasukan'])->name('pemasukan');
+});
+
 
 Route::get('/dashboard-relawan', [DashboardController::class, 'relawan_page'])->name('relawan');
 
 
-Route::get('/daftar-user', [UserController::class, 'index'])->name('index');
+Route::get('/daftar-user', [UserController::class, 'user'])->name('user');
 Route::get('/tambah-user', [UserController::class, 'tambahuser'])->name('tambahuser');
 Route::post('/insertuser', [UserController::class, 'insertuser'])->name('insertuser');
 Route::get('/show-user/{id}', [UserController::class, 'showuser'])->name('showuser');

@@ -68,7 +68,7 @@
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item">
-                            <a href="#">Daftar Pemasukan</a>
+                            <a href="{{ route('pemasukan') }}">Daftar Pemasukan</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="component-tooltip.html">Log Aktifitas</a>
@@ -95,7 +95,7 @@
                 </li>
 
                    <li class="sidebar-item {{ Request::is('daftar-user') ? 'active' : '' }}">
-                    <a href="{{ route('index') }}" class='sidebar-link'>
+                    <a href="{{ route('user') }}" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
                         <span>Daftar Relawan</span>
                     </a>
