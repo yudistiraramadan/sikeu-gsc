@@ -29,4 +29,24 @@ class PemasukanController extends Controller
         }
         return view('pemasukan.daftar-pemasukan');
     }
+
+    public function tambahpemasukan()
+    {
+        return view('pemasukan.tambah-pemasukan');
+    }
+
+    public function insertpemasukan(Request $request)
+    {
+        $data = $request->all();
+        $pemasukan = new Pemasukan();
+        $pemasukan->user_id = auth()->id();
+        $pemasukan->name = $data['name'];
+        $pemasukan->keperluan = $data['keperluan'];
+        $pemasukan->terbilang = $data['terbilang'];
+        $pemasukan->nominal = $data['nominal'];
+        $pemasukan->date = $data['date'];
+        // dd($pemasukan);
+        $pemasukan->save();
+        return redirect('daftar-pemasukan');
+    }
 }

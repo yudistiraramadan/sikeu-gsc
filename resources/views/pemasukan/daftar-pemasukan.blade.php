@@ -18,7 +18,7 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('tambahuser') }}">
+                <a href="{{ route('tambahpemasukan') }}">
                     <button type="button" class="btn btn-success tambah mb-4">Tambah Pemasukan</button>
                 </a>
                 &nbsp;
