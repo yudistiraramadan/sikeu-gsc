@@ -10,7 +10,7 @@
 <body>
     <table border="0" align="center" width="90%">
         <tr>
-            <td width="60px"><img src="{{ public_path('dist/img/gsc.png') }}" width="50px" /></td>
+            <td width="60px"><img src="{{ public_path('assets/images/gsc/gsc.png') }}" width="50px" /></td>
             <td width="100px">Gerak Sedekah Cilacap</td>
             <td width="20"></td>
             <td style="text-align: center; font-size: 22px">PEMASUKAN</td>
@@ -49,7 +49,7 @@
         </tr>
         <tr>
             <td colspan="5" style="text-align: right">
-                <img src="{{ public_path('dist/img/ttd-bendahara.png') }}" width="130px" />
+                <img src="{{ public_path('assets/images/gsc/ttd/bendahara.png') }}" width="130px" />
             </td>
         </tr>
         <tr>
