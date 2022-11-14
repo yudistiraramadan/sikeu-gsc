@@ -14,7 +14,7 @@
             <td width="100px">Gerak Sedekah Cilacap</td>
             <td width="20"></td>
             <td style="text-align: center; font-size: 22px">PEMASUKAN</td>
-            <td>KWITANSI No.</td>
+            <td>KWITANSI No. {{ $data->id }}</td>
         </tr>
 
         <tr>
@@ -60,7 +60,9 @@
         <tr>
             <td colspan="2">TERBILANG</td>
             <td style="text-align: center">:</td>
-            <td colspan="2" style="font-size: 20px">Rp. {{ $data->terbilang }}</td>
+            <td colspan="2" style="font-size: 20px">Rp. @php
+                echo number_format($data->terbilang);
+            @endphp</td>
         </tr>
         <tr>
             <td colspan="5">

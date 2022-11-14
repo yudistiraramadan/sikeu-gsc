@@ -17,9 +17,12 @@ class PemasukanController extends Controller
             $data = Pemasukan::all();
             return datatables()->of($data)
 
+            // ->addColumn('time', function ($data) {
+            //     return Carbon::now()->isoFormat('D MMMM Y');
+            // })
             ->addColumn('time', function ($data) {
-                return Carbon::now()->isoFormat('D MMMM Y');
-            })
+                    return Carbon::parse($data->date)->isoFormat('D MMMM Y');
+                })
             ->addColumn('action', function ($data) {
 
                 $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="CETAK" href="' .url('print-pemasukan/' . $data->id) . '"><i class="fa-solid fa-file-invoice text-info" style="font-size: 30px;"></i></a>';

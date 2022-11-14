@@ -27,7 +27,7 @@ class UserController extends Controller
                 // })
 
                 ->addColumn('time', function ($data) {
-                    return Carbon::now()->isoFormat('dddd, D MMMM Y');
+                    return Carbon::parse($data->date)->isoFormat('dddd, D MMMM Y');
                 })
                 ->addColumn('photo', function ($data) {
                     // $photo =  `<img src = "{{asset(foto-relawan/'.$data->photo.')}}">`;
