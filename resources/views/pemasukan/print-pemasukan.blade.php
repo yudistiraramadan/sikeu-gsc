@@ -61,7 +61,7 @@
             <td colspan="2">TERBILANG</td>
             <td style="text-align: center">:</td>
             <td colspan="2" style="font-size: 20px">Rp. @php
-                echo number_format($data->terbilang);
+                echo number_format($data->terbilang,0,',','.');
             @endphp</td>
         </tr>
         <tr>

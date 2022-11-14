@@ -23,7 +23,8 @@
                 </a>
                 &nbsp;
                 <a href="{{ route('exportexcel') }}">
-                    <button type="button" class="btn btn-primary mb-4">Export Excel</button>
+                    <button type="button" class="btn btn-primary mb-4">Export Excel
+                    </button>
                 </a>
                 &nbsp;
                 <a href="#">
@@ -75,7 +76,7 @@
                         name: 'pemasukan.time'
                     },
                     {
-                        data: 'terbilang',
+                        data: 'number_format',
                     },
 
                     {

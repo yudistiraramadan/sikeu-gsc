@@ -20,6 +20,9 @@ class PemasukanController extends Controller
             // ->addColumn('time', function ($data) {
             //     return Carbon::now()->isoFormat('D MMMM Y');
             // })
+            ->addColumn('number_format', function($data){
+                return  number_format ($data->terbilang,0,',','.');
+            })
             ->addColumn('time', function ($data) {
                     return Carbon::parse($data->date)->isoFormat('D MMMM Y');
                 })
@@ -36,7 +39,7 @@ class PemasukanController extends Controller
 
 
                 return $button;
-            })->rawColumns(['action', 'time'])->make(true);
+            })->rawColumns(['action', 'time', 'number_format'])->make(true);
         }
         return view('pemasukan.daftar-pemasukan');
     }
