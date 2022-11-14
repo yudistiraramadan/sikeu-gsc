@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+// use Barryvdh\DomPDF\PDF;
 use App\Models\Pemasukan;
+// use Barryvdh\DomPDF\PDF;
+// use Barryvdh\DomPDF\Facade as PDF;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -18,7 +22,7 @@ class PemasukanController extends Controller
             })
             ->addColumn('action', function ($data) {
 
-                $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="CETAK" href="#"><i class="fa-solid fa-file-invoice text-info" style="font-size: 30px;"></i></a>';
+                $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="CETAK" href="' .url('print-pemasukan/' . $data->id) . '"><i class="fa-solid fa-file-invoice text-info" style="font-size: 30px;"></i></a>';
 
                 $button .= '&nbsp;&nbsp;';
                 $button .= '<a data-toogle="tooltip" data-placement="top" name="edit" title="EDIT" href="' . url('show-user/' . $data->id) . '"><i class="fa-solid fa-pen-to-square text-warning" style="font-size: 30px;"></i></a>';
@@ -52,5 +56,16 @@ class PemasukanController extends Controller
         // dd($pemasukan);
         $pemasukan->save();
         return redirect('daftar-pemasukan');
+    }
+
+    public function printpemasukan($id)
+    {
+        $data = Pemasukan::find($id);
+        view()->share('data', $data);
+
+        $pdf = PDF::loadView('pemasukan.print-pemasukan');
+        return $pdf->download('pemasukan.pdf');
+        // dd($data);
+        // return 'berhasil';
     }
 }
