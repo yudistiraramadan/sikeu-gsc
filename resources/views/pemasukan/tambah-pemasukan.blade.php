@@ -65,9 +65,9 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group has-icon-left">
-                                <label for="password">Terbilang</label>
+                                <label for="terbilang">Terbilang</label>
                                 <div class="position-relative">
-                                    <input type="number" name="terbilang" class="form-control" id="password">
+                                    <input type="text" name="terbilang" class="form-control" id="terbilang">
                                     <div class="form-control-icon">
                                         <i class="">Rp.</i>
                                     </div>
@@ -79,7 +79,8 @@
                             <div class="form-group has-icon-left">
                                 <label for="konfirmasi_password">Nominal</label>
                                 <div class="position-relative">
-                                    <input type="text" name="nominal" class="form-control" placeholder="Nominal" id="konfirmasi_password">
+                                    <input type="text" name="nominal" class="form-control" placeholder="Nominal"
+                                        id="konfirmasi_password">
                                     <div class="form-control-icon">
                                         <i class="bi bi-cash"></i>
                                     </div>
@@ -101,3 +102,6 @@
     </div>
     </div>
 @endsection
+{{-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> --}}
+{{-- <script src="jquery.masknumber.js"></script> --}}
+

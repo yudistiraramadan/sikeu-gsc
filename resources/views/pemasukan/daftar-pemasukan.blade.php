@@ -29,13 +29,6 @@
                 <a href="#">
                     <button type="button" class="btn btn-danger mb-4">Export PDF</button>
                 </a>
-                &nbsp;
-                {{-- <a href="" data-toogle="tooltip" data-placement="top" name="delete" title="Hapus" href="delete/' . $data->id . '" class="delete">
-                    <i class="bi bi-trash3-fill" style="font-size: 28px; color:#FF0063"></i>
-                </a> --}}
-
-                {{-- <span class="badge bg-light-success">Success</span> --}}
-
                 <div class="responsive">
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered table-responsive" id="dt-pemasukan">
@@ -76,7 +69,8 @@
                         data: 'keperluan',
                     },
                     {
-                        data: 'date',
+                        data: 'time',
+                        name: 'pemasukan.time'
                     },
                     {
                         data: 'terbilang',

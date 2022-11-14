@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pemasukan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class PemasukanController extends Controller
 {
@@ -12,6 +13,9 @@ class PemasukanController extends Controller
             $data = Pemasukan::all();
             return datatables()->of($data)
 
+            ->addColumn('time', function ($data) {
+                return Carbon::now()->isoFormat('D MMMM Y');
+            })
             ->addColumn('action', function ($data) {
 
                 $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="CETAK" href="#"><i class="fa-solid fa-file-invoice text-info" style="font-size: 30px;"></i></a>';
@@ -25,7 +29,7 @@ class PemasukanController extends Controller
 
 
                 return $button;
-            })->rawColumns(['action'])->make(true);
+            })->rawColumns(['action', 'time'])->make(true);
         }
         return view('pemasukan.daftar-pemasukan');
     }
