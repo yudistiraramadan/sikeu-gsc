@@ -61,7 +61,7 @@ class PemasukanController extends Controller
         $pemasukan->date = $data['date'];
         // dd($pemasukan);
         $pemasukan->save();
-        return redirect('daftar-pemasukan');
+        return redirect()->route('pemasukan')->with('success', 'Pemasukan Berhasil Ditambahkan');
     }
 
     public function deletepemasukan($id)
