@@ -33,12 +33,13 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function () {
     Route::get('/dashboard-user', [DashboardController::class, 'user_page'])->name('user_page');
 });
 
-Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function(){
+Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function () {
     Route::get('/daftar-pemasukan', [PemasukanController::class, 'pemasukan'])->name('pemasukan');
     Route::get('/tambah-pemasukan', [PemasukanController::class, 'tambahpemasukan'])->name('tambahpemasukan');
     Route::post('insertpemasukan', [PemasukanController::class, 'insertpemasukan'])->name('insertpemasukan');
     Route::get('/print-pemasukan/{id}', [PemasukanController::class, 'printpemasukan'])->name('printpemasukan');
     Route::get('/delete-pemasukan/{id}', [PemasukanController::class, 'deletepemasukan'])->name('deletepemasukan');
+    Route::get('/export_excel_pemasukan', [UserController::class, 'export_excel_pemasukan'])->name('export_excel_pemasukan');
 });
 
 
@@ -52,4 +53,7 @@ Route::get('/show-user/{id}', [UserController::class, 'showuser'])->name('showus
 Route::post('/edit-user/{id}', [UserController::class, 'edituser'])->name('edituser');
 Route::get('/delete-user/{id}', [UserController::class, 'deleteuser'])->name('deleteuser');
 
-Route::get('/exportexcel', [UserController::class, 'exportexcel'])->name('exportexcel');
+Route::get('/export_excel_user', [UserController::class, 'export_excel_user'])->name('export_excel_user');
+Route::get('/tes', function () {
+    return view('user.export_excel_user');
+});

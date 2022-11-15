@@ -44,7 +44,7 @@ class UserController extends Controller
                     $button .= '<a data-toogle="tooltip" data-placement="top" name="edit" title="EDIT" href="' . url('show-user/' . $data->id) . '"><i class="fa-solid fa-pen-to-square text-warning" style="font-size: 30px;"></i></a>';
 
                     $button .= '&nbsp;&nbsp;';
-                    $button .= '<a data-toogle="tooltip" data-placement="top" name="delete-user" title="HAPUS" href="delete/' . $data->id . '" class="delete"><i class="fa-solid fa-trash" style="font-size: 28px; color:#FF0063;"></i></a>';
+                    $button .= '<a data-toogle="tooltip" data-placement="top" name="delete-user" title="HAPUS" href="delete-user/' . $data->id . '" class="delete"><i class="fa-solid fa-trash" style="font-size: 28px; color:#FF0063;"></i></a>';
 
 
 
@@ -143,8 +143,8 @@ class UserController extends Controller
         return redirect()->route('user');
     }
 
-    public function exportexcel()
+    public function export_excel_user()
     {
-        return Excel::download(new UserExport, 'datarelawan.xlsx');
+        return Excel::download(new UserExport, 'data_relawan.xlsx');
     }
 }

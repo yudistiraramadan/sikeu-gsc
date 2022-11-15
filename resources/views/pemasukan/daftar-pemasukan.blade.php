@@ -22,7 +22,7 @@
                     <button type="button" class="btn btn-success tambah mb-4">Tambah Pemasukan</button>
                 </a>
                 &nbsp;
-                <a href="{{ route('exportexcel') }}">
+                <a href="{{ route('export_excel_pemasukan') }}">
                     <button type="button" class="btn btn-primary mb-4">Export Excel
                     </button>
                 </a>
@@ -73,7 +73,6 @@
                     },
                     {
                         data: 'time',
-                        name: 'pemasukan.time'
                     },
                     {
                         data: 'number_format',

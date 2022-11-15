@@ -22,7 +22,7 @@
                     <button type="button" class="btn btn-success tambah mb-4">Tambah User</button>
                 </a>
                 &nbsp;
-                <a href="{{ route('exportexcel') }}">
+                <a href="{{ route('export_excel_user') }}">
                     <button type="button" class="btn btn-primary mb-4">Export Excel</button>
                 </a>
                 &nbsp;
@@ -95,10 +95,6 @@
                         data: 'time',
                         name: 'users.created_at'
                     },
-                    // {
-                    //     data: 'photo',
-                    //     name: 'users.photo'
-                    // },
                     {
                         data: 'action',
                         name: 'action'
