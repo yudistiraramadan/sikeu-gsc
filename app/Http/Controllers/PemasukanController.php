@@ -34,7 +34,7 @@ class PemasukanController extends Controller
                 $button .= '<a data-toogle="tooltip" data-placement="top" name="edit" title="EDIT" href="' . url('show-user/' . $data->id) . '"><i class="fa-solid fa-pen-to-square text-warning" style="font-size: 30px;"></i></a>';
 
                 $button .= '&nbsp;&nbsp;';
-                $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="HAPUS" href="delete/' . $data->id . '" class="delete"><i class="fa-solid fa-trash" style="font-size: 28px; color:#FF0063;"></i></a>';
+                $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="HAPUS" href="delete-pemasukan/' . $data->id . '" class="delete"><i class="fa-solid fa-trash" style="font-size: 28px; color:#FF0063;"></i></a>';
 
 
 
@@ -63,6 +63,15 @@ class PemasukanController extends Controller
         $pemasukan->save();
         return redirect('daftar-pemasukan');
     }
+
+    public function deletepemasukan($id)
+    {
+        $data = Pemasukan::find($id);
+        $data->delete();
+        return redirect()->route('pemasukan');
+    }
+
+
 
     public function printpemasukan($id)
     {

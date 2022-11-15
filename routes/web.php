@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function(){
     Route::get('/tambah-pemasukan', [PemasukanController::class, 'tambahpemasukan'])->name('tambahpemasukan');
     Route::post('insertpemasukan', [PemasukanController::class, 'insertpemasukan'])->name('insertpemasukan');
     Route::get('/print-pemasukan/{id}', [PemasukanController::class, 'printpemasukan'])->name('printpemasukan');
+    Route::get('/delete-pemasukan/{id}', [PemasukanController::class, 'deletepemasukan'])->name('deletepemasukan');
 });
 
 
@@ -49,6 +50,6 @@ Route::get('/tambah-user', [UserController::class, 'tambahuser'])->name('tambahu
 Route::post('/insertuser', [UserController::class, 'insertuser'])->name('insertuser');
 Route::get('/show-user/{id}', [UserController::class, 'showuser'])->name('showuser');
 Route::post('/edit-user/{id}', [UserController::class, 'edituser'])->name('edituser');
-Route::get('/delete/{id}', [UserController::class, 'delete'])->name('delete');
+Route::get('/delete-user/{id}', [UserController::class, 'deleteuser'])->name('deleteuser');
 
 Route::get('/exportexcel', [UserController::class, 'exportexcel'])->name('exportexcel');
