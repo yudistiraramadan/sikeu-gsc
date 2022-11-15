@@ -86,7 +86,7 @@ class UserController extends Controller
         }
         $detail_user->save();
 
-        return redirect('daftar-user');
+        return redirect()->route('pemasukan')->with('success', 'Data User Berhasil Ditambahkan');
     }
 
     public function showuser($id)
@@ -133,14 +133,14 @@ class UserController extends Controller
         // dd($user);
         $user->save();
 
-        return redirect()->route('user')->with('toast_success', 'Data User Berhasi Diedit');
+        return redirect()->route('user')->with('success', 'Data User Berhasi Diedit');
     }
 
     public function deleteuser($id)
     {
         $data = User::find($id);
         $data->delete();
-        return redirect()->route('user');
+        return redirect()->route('user')->with('success', 'Data User Berhasil Dihapus');
     }
 
     public function export_excel_user()

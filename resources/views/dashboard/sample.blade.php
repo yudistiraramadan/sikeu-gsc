@@ -8,3 +8,11 @@
         <h3>Selamat Datang Relawan</h3>        
     @endif        
 @endsection
+@push('scripts')
+    <script>
+        @if (Session::has('success')) {
+            toastr.success("{{ Session::get('success') }}")
+        }
+        @endif
+    </script>
+@endpush

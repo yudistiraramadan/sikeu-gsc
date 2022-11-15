@@ -61,14 +61,14 @@ class PemasukanController extends Controller
         $pemasukan->date = $data['date'];
         // dd($pemasukan);
         $pemasukan->save();
-        return redirect()->route('pemasukan')->with('success', 'Pemasukan Berhasil Ditambahkan');
+        return redirect()->route('pemasukan')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function deletepemasukan($id)
     {
         $data = Pemasukan::find($id);
         $data->delete();
-        return redirect()->route('pemasukan');
+        return redirect()->route('pemasukan')->with('success', 'Data Berhasil Dihapus');
     }
 
 
@@ -80,7 +80,6 @@ class PemasukanController extends Controller
 
         $pdf = PDF::loadView('pemasukan.print-pemasukan');
         return $pdf->download('pemasukan.pdf');
-        // dd($data);
-        // return 'berhasil';
+        // return redirect()->route('pemasukan')->with('success', 'Data Berhasil Diprint');
     }
 }

@@ -89,9 +89,14 @@
                     GSC</b></h1>
 
             <div class="form-floating">
-                <input type="email" class="form-control" name="email" id="floatingInput" placeholder=".">
-                <label class="pull-left" for="floatingInput" style="color:#607080; font-family: nunito;"><b>Alamat
-                        Email</b></label>
+                <input type="email" class="form-control" name="email" id="floatingInput" placeholder="." @error('email') is-invalid @enderror autofocus required value="{{ old('email') }}">
+                <label class="pull-left" for="floatingInput" style="color:#607080; font-family: nunito;"><b>Alamat Email</b></label>
+                @error('email')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+                
             </div>
             <div class="form-floating">
                 <input type="password" class="form-control" name="password" id="floatingPassword" placeholder=".">
@@ -108,9 +113,18 @@
             <p class="mt-5 mb-3 text-muted">&copy; Team IT GSC 2022</p>
         </form>
     </main>
+    <script>
+        @if (Session::has('error'))
+            // wrong();
+            toastr.error('{{ Session::get('error') }}');
+        @endif
 
-
-
+        // @if (Session::has('success'))
+        //     {
+        //         toastr.success("{{ Session::get('success') }}")
+        //     }
+        // @endif
+    </script>
 </body>
 
 </html>
