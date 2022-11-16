@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function () {
     Route::get('/tambah-pemasukan', [PemasukanController::class, 'tambahpemasukan'])->name('tambahpemasukan');
     Route::post('insertpemasukan', [PemasukanController::class, 'insertpemasukan'])->name('insertpemasukan');
     Route::get('/show-pemasukan/{id}', [PemasukanController::class, 'showpemasukan'])->name('showpemasukan');
+    Route::post('/edit-pemasukan/{id}', [PemasukanController::class, 'editpemasukan'])->name('editpemasukan');
 
     Route::get('/print-pemasukan/{id}', [PemasukanController::class, 'printpemasukan'])->name('printpemasukan');
     Route::get('/delete-pemasukan/{id}', [PemasukanController::class, 'deletepemasukan'])->name('deletepemasukan');

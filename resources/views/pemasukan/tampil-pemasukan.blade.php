@@ -16,7 +16,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="mb-4">Edit Data Pemasukan</h5>
-            <form action="{{ route('insertpemasukan') }}" method="POST" enctype="multipart/form-data">
+            <form action="/edit-pemasukan/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
                 <div class="col-lg-12">

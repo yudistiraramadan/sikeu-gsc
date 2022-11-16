@@ -91,6 +91,18 @@ class PemasukanController extends Controller
         return view('pemasukan.tampil-pemasukan', compact('data'));
     }
 
+    public function editpemasukan(Request $request, $id)
+    {
+        $data = Pemasukan::findOrFail($id);
+        $data->date = $request->date;
+        $data->name =$request->name;
+        $data->keperluan =$request->keperluan;
+        $data->terbilang =$request->terbilang;
+        $data->nominal =$request->nominal;
+        $data->save();
+        return redirect()->route('pemasukan')->with('success', 'Data berhasil diedit');
+    }
+
     public function deletepemasukan($id)
     {
         $data = Pemasukan::find($id);
