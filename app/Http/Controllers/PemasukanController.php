@@ -31,7 +31,7 @@ class PemasukanController extends Controller
                 $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="CETAK" href="' .url('print-pemasukan/' . $data->id) . '"><i class="fa-solid fa-file-invoice text-info" style="font-size: 30px;"></i></a>';
 
                 $button .= '&nbsp;&nbsp;';
-                $button .= '<a data-toogle="tooltip" data-placement="top" name="edit" title="EDIT" href="' . url('show-user/' . $data->id) . '"><i class="fa-solid fa-pen-to-square text-warning" style="font-size: 30px;"></i></a>';
+                $button .= '<a data-toogle="tooltip" data-placement="top" name="edit" title="EDIT" href="' . url('show-pemasukan/' . $data->id) . '"><i class="fa-solid fa-pen-to-square text-warning" style="font-size: 30px;"></i></a>';
 
                 $button .= '&nbsp;&nbsp;';
                 $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="HAPUS" href="delete-pemasukan/' . $data->id . '" class="delete"><i class="fa-solid fa-trash" style="font-size: 28px; color:#FF0063;"></i></a>';
@@ -62,6 +62,13 @@ class PemasukanController extends Controller
         // dd($pemasukan);
         $pemasukan->save();
         return redirect()->route('pemasukan')->with('success', 'Data Berhasil Ditambahkan');
+    }
+
+    public function showpemasukan($id)
+    {
+        $data = Pemasukan::all()->find($id);
+        // dd($data);
+        return view('pemasukan.tampil-pemasukan', compact('data'));
     }
 
     public function deletepemasukan($id)
