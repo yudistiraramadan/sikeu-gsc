@@ -102,12 +102,12 @@ class UserController extends Controller
 
         $detail_user = new DetailUser;
         $detail_user->user_id = $user->id;
-        $detail_user->photo = $data['photo'];
+        // $detail_user->photo = $data['photo'];
         $detail_user->address = $data['address'];
         $detail_user->phone = $data['phone'];
         $detail_user->status = $data['status'];
         $detail_user->gender = $data['gender'];
-        $detail_user->photo = $data['photo'];
+        // $detail_user->photo = $data['photo'];
 
         if ($request->hasFile('photo')) {
             $request->file('photo')->move('foto-relawan/', $request->file('photo')->getClientOriginalName());
@@ -116,7 +116,7 @@ class UserController extends Controller
         }
         $detail_user->save();
 
-        return redirect()->route('user')->with('toast_success', 'Data User Berhasil Ditambahkan');
+        return redirect()->route('user')->with('success', 'Data User Berhasil Ditambahkan');
         
     }
 
