@@ -51,6 +51,18 @@ class PemasukanController extends Controller
 
     public function insertpemasukan(Request $request)
     {
+        $this->validate(
+            $request,
+            [
+                'name' => 'required',
+            ],
+            [
+                'name.required' => 'Nama masih kosong.',
+            ]
+        );
+
+
+
         $data = $request->all();
         $pemasukan = new Pemasukan();
         $pemasukan->user_id = auth()->id();

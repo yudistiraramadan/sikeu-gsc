@@ -35,12 +35,15 @@
                         <div class="col-lg-6">
                             <div class="form-group has-icon-left">
                                 <label for="first-name-icon">Terima Dari</label>
-                                <div class="position-relative">
+                                <div class="position-relative @error('name') has-error @enderror">
                                     <input type="text" name="name" class="form-control"
                                         placeholder="Masukan Nama Lengkap" id="first-name-icon">
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
                                     </div>
+                                    @error('name')
+                                        <div class="text-danger"> {{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -104,4 +107,3 @@
 @endsection
 {{-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> --}}
 {{-- <script src="jquery.masknumber.js"></script> --}}
-
