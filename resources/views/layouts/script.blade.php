@@ -18,5 +18,5 @@
 <script src="{{ asset('dist/assets/js/pages/dashboard.js') }}"></script> --}}
 
 {{-- Sweetalert --}}
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
 @stack('scripts')

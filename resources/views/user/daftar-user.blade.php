@@ -58,6 +58,7 @@
             </div>
         </div>
     </div>
+    @include('sweetalert::alert')
 @endsection
 @push('scripts')
     <script>
@@ -126,11 +127,11 @@
             });
         });
     </script>
-    <script>
+    {{-- <script>
         @if(Session::has('success'))
         {
             toastr.success("{{ Session::get('success') }}")
         }
         @endif
-    </script>
+    </script> --}}
 @endpush

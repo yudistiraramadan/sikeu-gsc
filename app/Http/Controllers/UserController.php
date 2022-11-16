@@ -86,7 +86,8 @@ class UserController extends Controller
         }
         $detail_user->save();
 
-        return redirect()->route('pemasukan')->with('success', 'Data User Berhasil Ditambahkan');
+        return redirect()->route('user')->with('toast_success', 'Data User Berhasil Ditambahkan');
+        
     }
 
     public function showuser($id)
