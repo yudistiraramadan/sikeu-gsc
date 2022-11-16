@@ -26,6 +26,9 @@
                             <div class="position-relative" style="margin-bottom: 16px;">
                                 <input type="date" name="date" id="tgl">
                             </div>
+                            @error('date')
+                                <div class="text-danger"> {{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -37,7 +40,8 @@
                                 <label for="first-name-icon">Terima Dari</label>
                                 <div class="position-relative @error('name') has-error @enderror">
                                     <input type="text" name="name" class="form-control"
-                                        placeholder="Masukan Nama Lengkap" id="first-name-icon">
+                                        placeholder="Masukan Nama Lengkap"
+                                        id="first-name-icon">
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
                                     </div>
@@ -57,6 +61,9 @@
                                     <div class="form-control-icon">
                                         <i class="bi bi-archive"></i>
                                     </div>
+                                    @error('keperluan')
+                                        <div class="text-danger"> {{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -70,10 +77,14 @@
                             <div class="form-group has-icon-left">
                                 <label for="terbilang">Terbilang</label>
                                 <div class="position-relative">
-                                    <input type="text" name="terbilang" class="form-control" id="terbilang">
+                                    <input type="text" name="terbilang" class="form-control"
+                                        id="terbilang">
                                     <div class="form-control-icon">
                                         <i class="">Rp.</i>
                                     </div>
+                                    @error('terbilang')
+                                        <div class="text-danger"> {{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -82,11 +93,14 @@
                             <div class="form-group has-icon-left">
                                 <label for="konfirmasi_password">Nominal</label>
                                 <div class="position-relative">
-                                    <input type="text" name="nominal" class="form-control" placeholder="Nominal"
-                                        id="konfirmasi_password">
+                                    <input type="text" name="nominal" class="form-control"
+                                        placeholder="Nominal" id="konfirmasi_password">
                                     <div class="form-control-icon">
                                         <i class="bi bi-cash"></i>
                                     </div>
+                                    @error('nominal')
+                                        <div class="text-danger"> {{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
