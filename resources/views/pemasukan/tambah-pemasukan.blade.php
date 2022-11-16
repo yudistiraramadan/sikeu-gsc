@@ -24,7 +24,7 @@
                         <div class="col-lg-6">
                             <label for="tgl">Tanggal</label>
                             <div class="position-relative" style="margin-bottom: 16px;">
-                                <input type="date" name="date" id="tgl">
+                                <input type="date" name="date" id="tgl" value="{{ old('date') }}">
                             </div>
                             @error('date')
                                 <div class="text-danger"> {{ $message }}</div>
@@ -41,7 +41,7 @@
                                 <div class="position-relative @error('name') has-error @enderror">
                                     <input type="text" name="name" class="form-control"
                                         placeholder="Masukan Nama Lengkap"
-                                        id="first-name-icon">
+                                        id="first-name-icon" value="{{ old('name') }}">
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
                                     </div>
@@ -57,8 +57,8 @@
                                 <label for="email-id-icon">Keperluan</label>
                                 <div class="position-relative">
                                     <input type="text" name="keperluan" class="form-control"
-                                        placeholder="Untuk Keperluan" id="email-id-icon">
-                                    <div class="form-control-icon">
+                                        placeholder="Untuk Keperluan" id="email-id-icon" value="{{ old('keperluan') }}">
+                                    <div class="form-control-icon" >
                                         <i class="bi bi-archive"></i>
                                     </div>
                                     @error('keperluan')
@@ -78,7 +78,7 @@
                                 <label for="terbilang">Terbilang</label>
                                 <div class="position-relative">
                                     <input type="text" name="terbilang" class="form-control"
-                                        id="terbilang">
+                                        id="terbilang" value="{{ old('terbilang') }}">
                                     <div class="form-control-icon">
                                         <i class="">Rp.</i>
                                     </div>
@@ -94,7 +94,7 @@
                                 <label for="konfirmasi_password">Nominal</label>
                                 <div class="position-relative">
                                     <input type="text" name="nominal" class="form-control"
-                                        placeholder="Nominal" id="konfirmasi_password">
+                                        placeholder="Nominal" id="konfirmasi_password" value="{{ old('nominal') }}">
                                     <div class="form-control-icon">
                                         <i class="bi bi-cash"></i>
                                     </div>

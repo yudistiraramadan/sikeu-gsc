@@ -25,7 +25,7 @@
                                 <label for="first-name-icon">Nama Lengkap</label>
                                 <div class="position-relative">
                                     <input type="text" name="name" class="form-control"
-                                        placeholder="Masukan Nama Lengkap" id="first-name-icon">
+                                        placeholder="Masukan Nama Lengkap" id="first-name-icon" value="{{ old('name') }}">
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
                                     </div>
@@ -41,7 +41,7 @@
                                 <label for="email-id-icon">Email</label>
                                 <div class="position-relative">
                                     <input type="text" name="email" class="form-control" placeholder="Masukan Email"
-                                        id="email-id-icon">
+                                        id="email-id-icon" value="{{ old('email') }}">
                                     <div class="form-control-icon">
                                         <i class="bi bi-envelope"></i>
                                     </div>
@@ -62,7 +62,7 @@
                                 <label for="password">Password</label>
                                 <div class="position-relative">
                                     <input type="password" name="password" class="form-control"
-                                        placeholder="Masukan Password" id="password">
+                                        placeholder="Masukan Password" id="password" value="{{ old('password') }}">
                                     <div class="form-control-icon">
                                         <i class="bi bi-lock"></i>
                                     </div>
@@ -78,7 +78,7 @@
                                 <label for="password_confirmation">Konfirmasi Password</label>
                                 <div class="position-relative">
                                     <input type="password" name="password" class="form-control"
-                                        placeholder="Ulangi Password" id="password_confirmation">
+                                        placeholder="Ulangi Password" id="password_confirmation" value="{{ old('password_confirmation') }}">
                                     <div class="form-control-icon">
                                         <i class="bi bi-lock-fill"></i>
                                     </div>
@@ -99,7 +99,7 @@
                                 <label class="mt-2" for="mobile-id-icon">No Hp/Whatsapp</label>
                                 <div class="position-relative">
                                     <input type="text" name="phone" class="form-control" placeholder="No Hp"
-                                        id="mobile-id-icon">
+                                        id="mobile-id-icon" value="{{ old('phone') }}">
                                     <div class="form-control-icon">
                                         <i class="bi bi-phone"></i>
                                     </div>
@@ -113,7 +113,7 @@
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Foto Profil <b>*jika ada</b></label>
-                                <input class="form-control" type="file" name="photo" id="formFile">
+                                <input class="form-control" type="file" name="photo" id="formFile" value="{{ old('photo') }}">
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                             <div class="col-6">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="role_id" id="bendahara"
-                                        value="1">
+                                        value="1" value="{{ old('role_id') }}">
                                     <label class="form-check-label" for="bendahara">
                                         Bendahara
                                     </label>
@@ -137,7 +137,7 @@
                             <div class="col-6 pull-right">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="role_id" id="pengamat"
-                                        value="2">
+                                        value="2" value="{{ old('role_id') }}">
                                     <label class="form-check-label" for="pengamat">
                                         Pengamat
                                     </label>
@@ -146,7 +146,7 @@
                             <div class="col-6 pull-right">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="role_id" id="relawan"
-                                        value="3">
+                                        value="3" value="{{ old('role_id') }}">
                                     <label class="form-check-label" for="relawan">
                                         Relawan
                                     </label>
@@ -164,7 +164,7 @@
                             <div class="col-12">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="gender" id="laki-laki"
-                                        value="laki-laki">
+                                        value="laki-laki" value="{{ old('gender') }}">
                                     <label class="form-check-label" for="laki-laki">
                                         Laki-laki
                                     </label>
@@ -173,8 +173,8 @@
                             <div class="col-12">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="gender" id="perempuan"
-                                        value="perempuan">
-                                    <label class="form-check-label" for="perempuan">
+                                        value="perempuan" value="{{ old('gender') }}">
+                                    <label class="form-check-label" for="perempuan" >
                                         Perempuan
                                     </label>
                                 </div>
@@ -191,7 +191,7 @@
                             <div class="col-12">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="status" id="aktif"
-                                        value="aktif">
+                                        value="aktif" value="{{ old('status') }}">
                                     <label class="form-check-label" for="aktif">
                                         Aktif
                                     </label>
@@ -200,7 +200,7 @@
                             <div class="col-12">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="status" id="nonaktif"
-                                        value="nonaktif">
+                                        value="nonaktif" value="{{ old('status') }}">
                                     <label class="form-check-label" for="nonaktif">
                                         Nonaktif
                                     </label>
@@ -216,7 +216,7 @@
 
                 <div class="form-group mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Alamat Lengkap</label>
-                    <textarea class="form-control" name="address" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="address" id="exampleFormControlTextarea1" rows="3" value="{{ old('address') }}"></textarea>
                     @error('address')
                         <div class="text-danger"> {{ $message }}</div>
                     @enderror
