@@ -128,8 +128,8 @@
         var tbr;
 
         if(n<12){tbr = " " + ang[n];}else
-        if(n<20){tbr = kekata(n-10) + " belas rupiah";}else
-        if(n<100){tbr = kekata(Math.floor(n/10)) + " puluh rupiah" + kekata(n%10);}else
+        if(n<20){tbr = kekata(n-10) + " belas";}else
+        if(n<100){tbr = kekata(Math.floor(n/10)) + " puluh" + kekata(n%10);}else
         if(n<200){tbr = " seratus" + kekata(n-100);}else
         if(n<1000){tbr = kekata(Math.floor(n/100)) + " ratus rupiah" + kekata(n%100);}else
         if(n<2000){tbr = " seribu" + kekata(n-1000);}else
