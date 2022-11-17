@@ -50,11 +50,11 @@ class AuthController extends Controller
             $user = Auth::user();
             return redirect('/dashboard-sample')->with('toast_success', 'Selamat Datang '.$user->name. ' :)');
         }
-        return redirect('/');
+        return redirect('/')->with('toast_error', 'Email atau password salah');
     }
     public function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('/')->with('toast_success', 'Anda berhasil logout :)');
     }
 }

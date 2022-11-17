@@ -113,6 +113,7 @@
             <p class="mt-5 mb-3 text-muted">&copy; Team IT GSC 2022</p>
         </form>
     </main>
+    @include('sweetalert::alert')
     <script>
         @if (Session::has('error'))
             // wrong();
