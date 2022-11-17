@@ -58,5 +58,5 @@ Route::get('/delete-user/{id}', [UserController::class, 'deleteuser'])->name('de
 
 Route::get('/export_excel_user', [UserController::class, 'export_excel_user'])->name('export_excel_user');
 Route::get('/tes', function () {
-    return view('user.export_excel_user');
+    return view('pemasukan.terbilang');
 });
