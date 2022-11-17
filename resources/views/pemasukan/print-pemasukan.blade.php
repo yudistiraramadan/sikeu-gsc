@@ -25,17 +25,17 @@
         <tr>
             <td colspan="2" height="30px">TERIMA DARI</td>
             <td style="text-align: center">:</td>
-            <td colspan="2">{{ $data->name }}</td>
+            <td colspan="2" style="text-transform:uppercase;">{{ $data->name }}</td>
         </tr>
         <tr>
             <td colspan="2" height="30px">UANG SEBANYAK</td>
             <td style="text-align: center">:</td>
-            <td colspan="2">{{ $data->nominal }}</td>
+            <td colspan="2" style="text-transform:uppercase;">{{ $data->nominal }}</td>
         </tr>
         <tr>
             <td colspan="2" height="30px">GUNA PEMBAYARAN</td>
             <td style="text-align: center">:</td>
-            <td colspan="2">{{ $data->keperluan }}</td>
+            <td colspan="2" style="text-transform:uppercase;">{{ $data->keperluan }}</td>
         </tr>
         <tr>
             <td colspan="5">

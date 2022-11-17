@@ -6,7 +6,8 @@
         <h2>Selamat Datang Pengamat</h2>
     @else
         <h3>Selamat Datang Relawan</h3>        
-    @endif        
+    @endif 
+    @include('sweetalert::alert')      
 @endsection
 @push('scripts')
     <script>

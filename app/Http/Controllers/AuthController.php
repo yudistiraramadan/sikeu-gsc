@@ -45,12 +45,12 @@ class AuthController extends Controller
         //     }
         // }
 
-        if(Auth::attempt($request->only('email', 'password')))
-        {
-            return redirect('/dashboard-sample');
+        if (Auth::attempt($request->only('email', 'password'))) {
+            $user = User::all();
+            $user = Auth::user();
+            return redirect('/dashboard-sample')->with('toast_success', 'Selamat Datang '.$user->name. ' :)');
         }
         return redirect('/');
-        
     }
     public function logout()
     {
