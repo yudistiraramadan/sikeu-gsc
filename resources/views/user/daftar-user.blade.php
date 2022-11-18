@@ -33,7 +33,7 @@
                 {{-- <a href="" data-toogle="tooltip" data-placement="top" name="delete" title="Hapus" href="delete/' . $data->id . '" class="delete">
                     <i class="bi bi-trash3-fill" style="font-size: 28px; color:#FF0063"></i>
                 </a> --}}
-                
+
                 {{-- <span class="badge bg-light-success">Success</span> --}}
 
                 <div class="responsive">
@@ -62,73 +62,152 @@
 @endsection
 @push('scripts')
     <script>
-        $(document).ready(function() {
-            var table = $('#dt-user').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('user') }}",
-                columns: [{
-                        data: 'name',
-                        name: 'users.name'
-                    },
-                    {
-                        data: 'address',
-                        name: 'detail_user.address'
-                    },
-                    {
-                        data: 'phone',
-                        name: 'detail_user.phone'
-                    },
-                    {
-                        data: 'status',
-                        name: 'detail_user.status'
-                        
-                        // "data": function(data) {
-                        //     if (data.status == 'aktif') {
-                        //         return '<span class="badge bg-light-success">Aktif</span>';
-                        //     }
-                        //     else {
-                        //         return '<span class="badge bg-light-danger">Nonaktif</span>';
-                        //     }
-                        // }
-                    },
-                    {
-                        data: 'time',
-                        name: 'users.created_at'
-                    },
-                    {
-                        data: 'action',
-                        name: 'action'
-                    }
-                ],
-                order: [
-                    [4, 'desc']
-                ],
-                responsive: true,
-                language: {
-                    search: "Cari Data :",
-                    searchPlaceholder: "",
-                    emptyTable: "Tidak ada data pada tabel ini",
-                    info: "Menampilkan _START_ s/d _END_ dari _TOTAL_ data",
-                    infoFiltered: "(difilter dari _MAX_ total data)",
-                    infoEmpty: "Tidak ada data pada tabel ini",
-                    lengthMenu: "Menampilkan _MENU_ data",
-                    zeroRecords: "Tidak ada data pada tabel ini"
+        // $(document).ready(function() {
+        //     var table = $('#dt-user').DataTable({
+        //         processing: true,
+        //         serverSide: true,
+        //         ajax: "{{ route('user') }}",
+        //         columns: [{
+        //                 data: 'name',
+        //                 name: 'users.name'
+        //             },
+        //             {
+        //                 data: 'address',
+        //                 name: 'detail_user.address'
+        //             },
+        //             {
+        //                 data: 'phone',
+        //                 name: 'detail_user.phone'
+        //             },
+        //             {
+        //                 data: 'status',
+        //                 name: 'detail_user.status'
+
+        //                 // "data": function(data) {
+        //                 //     if (data.status == 'aktif') {
+        //                 //         return '<span class="badge bg-light-success">Aktif</span>';
+        //                 //     }
+        //                 //     else {
+        //                 //         return '<span class="badge bg-light-danger">Nonaktif</span>';
+        //                 //     }
+        //                 // }
+        //             },
+        //             {
+        //                 data: 'time',
+        //                 name: 'users.created_at'
+        //             },
+        //             {
+        //                 data: 'action',
+        //                 name: 'action'
+        //             }
+        //         ],
+        //         order: [
+        //             [4, 'desc']
+        //         ],
+        //         responsive: true,
+        //         language: {
+        //             search: "Cari Data :",
+        //             searchPlaceholder: "",
+        //             emptyTable: "Tidak ada data pada tabel ini",
+        //             info: "Menampilkan _START_ s/d _END_ dari _TOTAL_ data",
+        //             infoFiltered: "(difilter dari _MAX_ total data)",
+        //             infoEmpty: "Tidak ada data pada tabel ini",
+        //             lengthMenu: "Menampilkan _MENU_ data",
+        //             zeroRecords: "Tidak ada data pada tabel ini"
+        //         },
+        //         columnDefs: [{
+        //                 // className: 'text-left',
+        //                 // targets: [0]
+        //             },
+        //             {
+        //                 className: 'text-center',
+        //                 targets: [2, 3, 5]
+        //             }
+        //         ]
+        //     });
+        // });
+        $('#dt-user').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "lengthChange": false,
+            "bDestroy": true,
+            "searching": true,
+            "paginate": {
+                "first": "First",
+                "last": "Last",
+                "next": "Next",
+                "previous": "Previous"
+            },
+            "ajax": {
+                "url": "{{ route('user') }}",
+                "type": "GET",
+                "datatype": "json"
+            },
+
+            "render": $.fn.dataTable.render.text(),
+            "columns": [{
+                    data: 'name',
+                    searchable: true,
+                    orderable: false
                 },
-                columnDefs: [{
-                        // className: 'text-left',
-                        // targets: [0]
-                    },
-                    {
-                        className: 'text-center',
-                        targets: [2, 3, 5]
+                {
+                    data: 'address',
+                    searchable: true,
+                    orderable: false
+                },
+                {
+                    data: 'phone',
+                    searchable: true,
+                    orderable: false
+                },
+                {
+                    "data": function(data) {
+                        if (data.status == 'aktif') {
+                            return '<span class="badge bg-light-success">Aktif</span>';
+                        } else {
+                            return '<span class="badge bg-light-danger">Nonaktif</span>';
+                        }
                     }
-                ]
-            });
+                },
+                {
+                    data: 'time',
+                    searchable: true,
+                    orderable: false
+                },
+                {
+                    data: 'action',
+                    searchable: false,
+                    orderable: false
+                },
+            ],
+            order: [
+                [4, 'desc']
+            ],
+            responsive: true,
+            language: {
+                search: "",
+                searchPlaceholder: "Cari nama",
+                emptyTable: "Tidak ada data pada tabel ini",
+                info: "Menampilkan _START_ s/d _END_ dari _TOTAL_ data",
+                infoFiltered: "(difilter dari _MAX_ total data)",
+                infoEmpty: "Tidak ada data pada tabel ini",
+                lengthMenu: "Menampilkan _MENU_ data",
+                zeroRecords: "Tidak ada data pada tabel ini"
+            },
+            columnDefs: [{
+                className: 'text-center',
+                targets: [3]
+            // }, {
+            //     width: '25%',
+            //     targets: [0, 1]
+            // }, {
+            //     width: '20%',
+            //     targets: [2, 3]
+            }],
         });
     </script>
     {{-- <script>
-        @if(Session::has('success'))
+        @if (Session::has('success'))
         {
             toastr.success("{{ Session::get('success') }}")
         }

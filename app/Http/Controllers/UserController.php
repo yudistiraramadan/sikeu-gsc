@@ -16,9 +16,10 @@ class UserController extends Controller
 {
     public function user(Request $request)
     {
+        $data = User::join('detail_user', 'users.id', '=', 'detail_user.user_id')->get(['users.name', 'detail_user.address', 'detail_user.phone', 'detail_user.status', 'detail_user.created_at']);
         if ($request->ajax()) {
-            $data = User::join('detail_user', 'users.id', '=', 'detail_user.user_id')
-                ->select(['users.id', 'users.name', 'users.email', 'users.created_at', 'detail_user.address', 'detail_user.phone', 'detail_user.status', 'detail_user.photo']);
+            // $data = User::join('detail_user', 'users.id', '=', 'detail_user.user_id')
+            //     ->select(['users.id', 'users.name', 'users.email', 'users.created_at', 'detail_user.address', 'detail_user.phone', 'detail_user.status', 'detail_user.photo']);
             return datatables()->of($data)
 
                 //  Merubah format waktu menjadi (1 day ago)
