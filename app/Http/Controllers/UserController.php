@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\LogUser;
 use App\Models\DetailUser;
 use App\Exports\UserExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -16,7 +18,7 @@ class UserController extends Controller
 {
     public function user(Request $request)
     {
-        $data = User::join('detail_user', 'users.id', '=', 'detail_user.user_id')->get(['users.name', 'detail_user.address', 'detail_user.phone', 'detail_user.status', 'detail_user.created_at']);
+        $data = User::join('detail_user', 'users.id', '=', 'detail_user.user_id')->get(['users.id','users.name', 'detail_user.address', 'detail_user.phone', 'detail_user.status', 'detail_user.created_at']);
         if ($request->ajax()) {
             // $data = User::join('detail_user', 'users.id', '=', 'detail_user.user_id')
             //     ->select(['users.id', 'users.name', 'users.email', 'users.created_at', 'detail_user.address', 'detail_user.phone', 'detail_user.status', 'detail_user.photo']);
@@ -38,7 +40,6 @@ class UserController extends Controller
                 })
 
                 ->addColumn('action', function ($data) {
-
                     $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="DETAIL" href="#"><i class="fa-solid fa-user-pen text-info" style="font-size: 30px;"></i></a>';
 
                     $button .= '&nbsp;&nbsp;';
@@ -59,6 +60,45 @@ class UserController extends Controller
     public function tambahuser()
     {
         return view('user.tambah-user');
+    }
+
+    public function activities(Request $request)
+    {
+        $activities = LogUser::join('users', 'log_users.user_id', '=', 'users.id')
+        ->join('roles', 'users.role_id', '=', 'roles.id')
+        ->orderBy('log_users.id', 'desc')
+        ->get(['log_users.*', 'users.name', 'roles.role_name']);
+
+        if ($request->ajax()) 
+        {
+            return datatables()->of($activities)
+            ->addColumn('role', function($data){
+                return '<p class="badge" style="background-color: #5901C8;">' . $data->role_name . '<div>';
+            })
+            ->addColumn('user_name', function($data){
+                return $data->name;
+            })
+            ->addColumn('information', function ($data){
+                return $data->activities;
+            })
+            ->addColumn('status_action', function ($data){
+                if ($data->type == 'DELETE') {
+                    return '<p class="label label-danger">' . $data->type . '<div>';
+                } else if ($data->type == 'CREATE') {
+                    return '<p class="label label-primary">' . $data->type . '<div>';
+                } else if ($data->type == 'UPDATE') {
+                    return '<p class="label " style="background-color: #5901C8;">' . $data->type . '<div>';
+                } else {
+                    return '<p class="label " style="background-color: #607EAA;">' . $data->type . '<div>';
+                }
+            })
+            ->addColumn('date_activity', function ($data){
+                return Carbon::parse($data->created_at)->diffForHumans();
+            })
+            ->rawColumns(['role', 'user_name', 'information', 'status_action', 'date_activity'])
+            ->make(true);
+        }
+        return view('user.daftar-user');
     }
 
     public function insertuser(Request $request)
@@ -116,8 +156,14 @@ class UserController extends Controller
             // $detail_user->save();
         }
         $detail_user->save();
+        LogUser::create([
+            'user_id' => Auth::id(),
+            'type' => 'CREATE',
+            'activities' => 'Menambah relawan <b>' .$user->name.'</b>',
+        ]);
+        
 
-        return redirect()->route('user')->with('success', 'Data User Berhasil Ditambahkan');
+        return redirect()->route('user')->with('success', 'Data Relawan Berhasil Ditambahkan');
         
     }
 
@@ -133,25 +179,6 @@ class UserController extends Controller
 
     public function edituser(Request $request, $id)
     {
-        // $this->validate(
-        //     $request,
-        //     [
-        //         'nama' => 'required',
-        //         'email' => 'required',
-        //         'alamat' => 'required',
-        //         'tlpn' => 'required',
-        //         'jk' => 'required',
-        //         'status' => 'required',
-        //     ],
-        //     [
-        //         'nama.required' => 'Nama admin masih kosong.',
-        //         'email.required' => 'Email admin masih kosong.',
-        //         'alamat.required' => 'Alamat admin masih kosong.',
-        //         'tlpn.required' => 'tlpn admin masih kosong.',
-        //         'jk.required' => 'jk admin masih kosong.',
-        //         'jk.required' => 'jk admin masih kosong.',
-        //     ]
-        // );
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;

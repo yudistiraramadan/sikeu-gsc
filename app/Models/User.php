@@ -56,4 +56,9 @@ class User extends Authenticatable
        {
            return $this->belongsTo(DetailUser::class);
        }
+
+       public function log_user()
+       {
+        return $this->belongsTo(LogUser::class);
+       }
 }

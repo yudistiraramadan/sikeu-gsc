@@ -81,6 +81,7 @@ class PemasukanController extends Controller
         $pemasukan->date = $data['date'];
         // dd($pemasukan);
         $pemasukan->save();
+        
         return redirect()->route('pemasukan')->with('success', 'Data Berhasil Ditambahkan');
     }
 
