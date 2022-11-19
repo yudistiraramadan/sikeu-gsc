@@ -60,7 +60,7 @@ Route::get('/delete-user/{id}', [UserController::class, 'deleteuser'])->name('de
 
 Route::get('/export_excel_user', [UserController::class, 'export_excel_user'])->name('export_excel_user');
 
-Route::get('/aktifitas', [UserController::class, 'activities'])->name('activities');
+Route::get('/aktifitas-user', [UserController::class, 'activities'])->name('activities');
 
 Route::get('/tes', function () {
     return view('errors.500');

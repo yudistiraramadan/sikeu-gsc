@@ -95,11 +95,19 @@
                     </ul>
                 </li>
 
-                   <li class="sidebar-item {{ Request::is('daftar-user') ? 'active' : '' }}">
+                   <li class="sidebar-item has-sub {{ Request::is('daftar-user') ? 'active' : '' }}">
                     <a href="{{ route('user') }}" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
                         <span>Daftar Relawan</span>
                     </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route('user') }}">Daftar Relawan</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('activities') }}">Log Aktifitas</a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="sidebar-title">Forms &amp; Tables</li>

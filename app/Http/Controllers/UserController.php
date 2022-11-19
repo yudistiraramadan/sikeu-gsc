@@ -98,7 +98,7 @@ class UserController extends Controller
             ->rawColumns(['role', 'user_name', 'information', 'status_action', 'date_activity'])
             ->make(true);
         }
-        return view('user.daftar-user');
+        return view('user.riwayat-user');
     }
 
     public function insertuser(Request $request)
