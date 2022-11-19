@@ -83,13 +83,13 @@ class UserController extends Controller
             })
             ->addColumn('status_action', function ($data){
                 if ($data->type == 'DELETE') {
-                    return '<p class="label label-danger">' . $data->type . '<div>';
+                    return '<p class="badge bg-danger">' . $data->type . '<div>';
                 } else if ($data->type == 'CREATE') {
-                    return '<p class="label label-primary">' . $data->type . '<div>';
+                    return '<p class="badge bg-success">' . $data->type . '<div>';
                 } else if ($data->type == 'UPDATE') {
-                    return '<p class="label " style="background-color: #5901C8;">' . $data->type . '<div>';
+                    return '<p class="badge " style="background-color: #5901C8;">' . $data->type . '<div>';
                 } else {
-                    return '<p class="label " style="background-color: #607EAA;">' . $data->type . '<div>';
+                    return '<p class="badge " style="background-color: #607EAA;">' . $data->type . '<div>';
                 }
             })
             ->addColumn('date_activity', function ($data){
@@ -191,6 +191,11 @@ class UserController extends Controller
         $user->status = $request->status;
         // dd($user);
         $user->save();
+        LogUser::create([
+            'user_id' => Auth::id(),
+            'type' => 'UPDATE',
+            'activities' => 'Mengubah relawan <b>' .$user->name. '</b>',
+        ]);
 
         return redirect()->route('user')->with('success', 'Data User Berhasi Diedit');
     }
@@ -198,6 +203,11 @@ class UserController extends Controller
     public function deleteuser($id)
     {
         $data = User::find($id);
+        LogUser::create([
+            'user_id' => Auth::id(),
+            'type' => 'DELETE',
+            'activities' => 'Menghapus relawan <b>'. $data->name .'</b>',
+        ]);
         $data->delete();
         return redirect()->route('user')->with('success', 'Data User Berhasil Dihapus');
     }

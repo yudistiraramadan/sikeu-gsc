@@ -4,6 +4,16 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="mb-8">Riwayat Aktifitas</h5>
+                <a href="{{ route('export_excel_pemasukan') }}">
+                    <button type="button" class="btn btn-primary mb-4">Export Excel
+                    </button>
+                </a>
+                &nbsp;
+                <a href="#">
+                    <button type="button" class="btn btn-danger mb-4">Export PDF
+                        <i class="bi bi-printer-fill"></i>
+                    </button>
+                </a>
                 <div class="responsive">
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered table-responsive" id="dt-activities">
