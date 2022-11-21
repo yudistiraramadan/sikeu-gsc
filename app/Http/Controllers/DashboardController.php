@@ -11,10 +11,7 @@ class DashboardController extends Controller
 {
     public function relawan_page()
     {
-        $data = User::join('detail_user','users.id', '=', 'detail_user.user_id')
-        ->get(['users.name','users.role_id', 'detail_user.address']);
         $data = Auth::user();
-        // dd($data);
 
         $total_data = User::count();
         $pria = DetailUser::where('gender', '=', 'laki-laki')->count();
