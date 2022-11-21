@@ -105,7 +105,7 @@
                     {
                         data: 'time',
                         searchable: true,
-                        orderable: false
+                        orderable: true
                     },
                     {
                         data: 'action',

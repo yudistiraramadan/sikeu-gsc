@@ -82,7 +82,7 @@
                                         <i class="">Rp.</i>
                                         
                                     </div>
-                                    <h5 style="text-transform: uppercase;" id="lblterbilang"></h5>
+                                    <h5 class="mt-2" style="text-transform: uppercase;" id="lblterbilang"></h5>
                                     @error('terbilang')
                                         <div class="text-danger"> {{ $message }}</div>
                                     @enderror
