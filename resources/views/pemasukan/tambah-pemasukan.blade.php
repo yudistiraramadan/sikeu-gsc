@@ -80,7 +80,6 @@
                                         value="{{ old('terbilang') }}">
                                     <div class="form-control-icon">
                                         <i class="">Rp.</i>
-                                        
                                     </div>
                                     <h5 class="mt-2" style="text-transform: uppercase;" id="lblterbilang"></h5>
                                     @error('terbilang')
@@ -145,5 +144,4 @@
         document.getElementById(b).innerHTML = kekata(a.value);
     }
 </script>
-{{-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> --}}
-{{-- <script src="jquery.masknumber.js"></script> --}}
+

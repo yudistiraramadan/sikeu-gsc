@@ -9,11 +9,11 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('assets/css/shared/iconly.css') }}">
     {{-- Favicon --}}
-    <link rel="icon" href="assets/images/gsc/logo_gsc.png" type="">
+    <link rel="icon" href="{{ asset('assets/images/gsc/logo_gsc.png') }}" type="">
 
     {{-- Datatables Style PENTING --}}
-    <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
-    <link rel="stylesheet" href="assets/css/pages/datatables.css" />
+    <link rel="stylesheet" href="{{ asset('assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/pages/datatables.css') }}" />
 
     {{-- Bootstrap 5.2 --}}
     {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

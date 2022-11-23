@@ -71,6 +71,7 @@
                                     <div class="form-control-icon">
                                         <i class="">Rp.</i>
                                     </div>
+                                    <h5 class="mt-2" style="text-transform: uppercase;" id="lblterbilang"></h5>
                                 </div>
                             </div>
                         </div>
@@ -102,6 +103,28 @@
     </div>
     </div>
 @endsection
-{{-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> --}}
-{{-- <script src="jquery.masknumber.js"></script> --}}
+<script>
+    function kekata(n){
+        var ang = new Array("","satu","dua","tiga","empat","lima","enam","tujuh","delapan","sembilan","sepuluh","sebelas");
+        var tbr;
+
+        if(n<12){tbr = " " + ang[n];}else
+        if(n<20){tbr = kekata(n-10) + " belas";}else
+        if(n<100){tbr = kekata(Math.floor(n/10)) + " puluh" + kekata(n%10);}else
+        if(n<200){tbr = " seratus" + kekata(n-100);}else
+        if(n<1000){tbr = kekata(Math.floor(n/100)) + " ratus" + kekata(n%100);}else
+        if(n<2000){tbr = " seribu" + kekata(n-1000);}else
+        if(n<1000000){tbr = kekata(Math.floor(n/1000)) + " ribu rupiah" + kekata(n%1000);}else
+        if(n<1000000000){tbr = kekata(Math.floor(n/1000000)) + " juta rupiah" + kekata(n%1000000);}else
+        if(n<1000000000000){tbr = kekata(Math.floor(n/1000000000)) + " milyar rupiah" + kekata(n%1000000000);}else
+        if(n<1000000000000000){tbr = kekata(Math.floor(n/1000000000000)) + " triliyun rupiah" + kekata(n%1000000000000);}
+
+        return tbr;
+    }
+
+    function fungsi_terbilang(a,b){
+        document.getElementById(b).innerHTML = kekata(a.value);
+    }
+</script>
+
 
