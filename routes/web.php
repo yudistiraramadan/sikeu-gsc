@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function () {
     Route::get('/print-pemasukan/{id}', [PemasukanController::class, 'printpemasukan'])->name('printpemasukan');
     Route::get('/delete-pemasukan/{id}', [PemasukanController::class, 'deletepemasukan'])->name('deletepemasukan');
     Route::get('/export_excel_pemasukan', [UserController::class, 'export_excel_pemasukan'])->name('export_excel_pemasukan');
+    // Route::get('/aktifitas-')
 
 
 });
@@ -60,7 +61,7 @@ Route::get('/delete-user/{id}', [UserController::class, 'deleteuser'])->name('de
 
 Route::get('/export_excel_user', [UserController::class, 'export_excel_user'])->name('export_excel_user');
 
-Route::get('/aktifitas-user', [UserController::class, 'activities'])->name('activities');
+Route::get('/aktifitas-userweb', [UserController::class, 'activities'])->name('activities');
 
 Route::get('/tes', function () {
     return view('errors.500');

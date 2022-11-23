@@ -89,18 +89,24 @@
 
     {{-- Statistik Relawan --}}
     <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-8">
             <div class="card">
+                <div class="card-header">
+                    <h4>Statistik Relawan</h4>
+                </div>
                 <div class="card-body">
                     <div id="chart"></div>
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <div class="card">
+                <div class="card-header">
+                    <h4>Status Relawan</h4>
+                </div>
                 <div class="card-body">
-                    <h3>yudis ganss</h3>
+                    <div class="" id="donat"></div>
                 </div>
             </div>
         </div>
@@ -126,4 +132,28 @@
         chart.render();
     </script>
 
+    <script>
+        var options = {
+            series: [60, 40],
+            chart: {
+                type: 'pie',
+                width: 380,
+            },
+            labels: ['Aktif', 'Nonaktif'],
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 400
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        };
+
+        var chart = new ApexCharts(document.querySelector("#donat"), options);
+        chart.render();
+    </script>
 @endpush

@@ -28,7 +28,9 @@
                 </a>
                 &nbsp;
                 <a href="#">
-                    <button type="button" class="btn btn-danger mb-4">Export PDF</button>
+                    <button type="button" class="btn btn-danger mb-4">Export PDF
+                        <i class="bi bi-printer-fill"></i>
+                    </button>
                 </a>
                 &nbsp;
                 <div class="responsive">

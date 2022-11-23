@@ -48,7 +48,8 @@ class AuthController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             $user = User::all();
             $user = Auth::user();
-            return redirect('/dashboard-sample')->with('toast_success', 'Selamat Datang '.$user->name. ' :)');
+            // return redirect('/dashboard-relawan')->with('toast_success', 'Selamat Datang '.$user->name. ' :)');
+            return redirect('/dashboard-relawan');
         }
         return redirect('/')->with('toast_error', 'Email atau password salah');
     }
