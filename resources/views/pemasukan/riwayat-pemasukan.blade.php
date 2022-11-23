@@ -3,7 +3,7 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
-                <h5 class="mb-8">Riwayat Aktifitas User</h5>
+                <h5 class="mb-8">Riwayat Aktifitas Pemasukan</h5>
                 <a href="{{ route('export_excel_pemasukan') }}">
                     <button type="button" class="btn btn-primary mb-4">Export Excel
                     </button>
@@ -16,7 +16,7 @@
                 </a>
                 <div class="responsive">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered table-responsive" id="dt-activities">
+                        <table class="table table-hover table-bordered table-responsive" id="dt-activities_pemasukan">
                             <thead>
                                 <tr>
                                     <th>Role</th>
@@ -26,7 +26,8 @@
                                     <th>Tanggal</th>
                                 </tr>
                             </thead>
-                            <tbody></tbody>
+                            <tbody>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -37,7 +38,7 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            $('#dt-activities').DataTable({
+            $('#dt-activities_pemasukan').DataTable({
                 "processing": true,
                 "serverSide": true,
                 // "lengthChange": false,
@@ -50,7 +51,7 @@
                     "previous": "Previous"
                 },
                 "ajax": {
-                    "url": "{{ route('activities') }}",
+                    "url": "{{ route('activities_pemasukan') }}",
                     "type": "GET",
                     "datatype": "json"
                 },
@@ -97,12 +98,6 @@
                     className: 'text-left',
                     targets: [1, 2, 3, 4]
                 }],
-                // dom: "<'row mb-3'<'col-sm-12 col-md-8 pull-right'f><'toolbar col-sm-12 col-md-4 float-left'B>>" +
-                //     "<'row'<'col-sm-12'tr>>" +
-                //     "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-                // initComplete: function() {
-                //     $('div.toolbar').html('<b>Riwayat Aktifitas</b>').appendTo('.float-left');
-                // }
             });
         })
     </script>

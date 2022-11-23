@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 // use Barryvdh\DomPDF\PDF;
+
+use App\Models\LogPemasukan;
 use App\Models\Pemasukan;
 // use Barryvdh\DomPDF\PDF;
 // use Barryvdh\DomPDF\Facade as PDF;
 use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class PemasukanController extends Controller
 {
@@ -49,6 +52,45 @@ class PemasukanController extends Controller
         return view('pemasukan.tambah-pemasukan');
     }
 
+    public function activities_pemasukan(Request $request)
+    {
+        $activities = LogPemasukan::join('users', 'log_pemasukans.user_id', '=', 'users.id')
+        ->join('roles', 'users.role_id', '=', 'roles.id')
+        ->orderBy('log_pemasukans.id', 'desc')
+        ->get(['log_pemasukans.*', 'users.name', 'roles.role_name']);
+        // dd($activities);
+
+        if ($request->ajax()){
+            return datatables()->of($activities)
+            ->addColumn('role', function($data){
+                return '<p class="badge" style="background-color: #5901C8;">' . $data->role_name . '<div>';
+            })
+            ->addColumn('user_name', function($data){
+                return $data->name;
+            })
+            ->addColumn('information', function ($data){
+                return $data->activities;
+            })
+            ->addColumn('status_action', function ($data){
+                if ($data->type == 'DELETE') {
+                    return '<p class="badge bg-danger">' . $data->type . '<div>';
+                } else if ($data->type == 'CREATE') {
+                    return '<p class="badge bg-success">' . $data->type . '<div>';
+                } else if ($data->type == 'UPDATE') {
+                    return '<p class="badge " style="background-color: #5901C8;">' . $data->type . '<div>';
+                } else {
+                    return '<p class="badge " style="background-color: #607EAA;">' . $data->type . '<div>';
+                }
+            })
+            ->addColumn('date_activity', function ($data){
+                return Carbon::parse($data->created_at)->diffForHumans();
+            })
+            ->rawColumns(['role', 'user_name', 'information', 'status_action', 'date_activity'])
+            ->make(true);
+        }
+        return view('pemasukan.riwayat-pemasukan');
+    }
+
     public function insertpemasukan(Request $request)
     {
         $this->validate(
@@ -81,6 +123,11 @@ class PemasukanController extends Controller
         $pemasukan->date = $data['date'];
         // dd($pemasukan);
         $pemasukan->save();
+        LogPemasukan::create([
+            'user_id' => Auth::id(),
+            'type' => 'CREATE',
+            'activities' => 'Menambah pemasukan <b>'. $pemasukan->name .'</b>',
+        ]);
         
         return redirect()->route('pemasukan')->with('success', 'Data Berhasil Ditambahkan');
     }
@@ -101,12 +148,22 @@ class PemasukanController extends Controller
         $data->terbilang =$request->terbilang;
         $data->nominal =$request->nominal;
         $data->save();
+        LogPemasukan::create([
+            'user_id' => Auth::id(),
+            'type' => 'UPDATE',
+            'activities' => 'Mengedit pemasukan <b>'. $data->name .'</b>',
+        ]);
         return redirect()->route('pemasukan')->with('success', 'Data berhasil diedit');
     }
 
     public function deletepemasukan($id)
     {
         $data = Pemasukan::find($id);
+        LogPemasukan::create([
+            'user_id' => Auth::id(),
+            'type' => 'DELETE',
+            'activities' => 'Menghapus pemasukan <b>'. $data->name .'</b>',
+        ]);
         $data->delete();
         return redirect()->route('pemasukan')->with('success', 'Data Berhasil Dihapus');
     }
