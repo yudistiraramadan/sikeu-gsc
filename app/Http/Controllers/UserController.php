@@ -194,7 +194,7 @@ class UserController extends Controller
         LogUser::create([
             'user_id' => Auth::id(),
             'type' => 'UPDATE',
-            'activities' => 'Mengubah relawan <b>' .$user->name. '</b>',
+            'activities' => 'Mengedit relawan <b>' .$user->name. '</b>',
         ]);
 
         return redirect()->route('user')->with('success', 'Data User Berhasi Diedit');

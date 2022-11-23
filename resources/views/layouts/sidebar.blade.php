@@ -72,7 +72,7 @@
                             <a href="{{ route('pemasukan') }}">Daftar Pemasukan</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="component-tooltip.html">Log Aktifitas</a>
+                            <a href="{{ route('activities') }}">Log Aktifitas</a>
                         </li>
                     </ul>
                 </li>
