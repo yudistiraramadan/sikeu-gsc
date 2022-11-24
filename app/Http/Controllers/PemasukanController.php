@@ -141,6 +141,24 @@ class PemasukanController extends Controller
 
     public function editpemasukan(Request $request, $id)
     {
+        $this->validate(
+            $request,
+            [
+                'date' => 'required',
+                'name' => 'required',
+                'keperluan' => 'required',
+                'terbilang' => 'required',
+                'nominal' => 'required',
+            ],
+            [
+                'date.required' => 'Tanggal masih kosong.',
+                'name.required' => 'Nama masih kosong.',
+                'keperluan.required' => 'Keperluan masih kosong.',
+                'terbilang.required' => 'Terbilang masih kosong.',
+                'nominal.required' => 'Nominal masih kosong.',
+            ]
+            );
+
         $data = Pemasukan::findOrFail($id);
         $data->date = $request->date;
         $data->name =$request->name;

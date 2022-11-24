@@ -57,14 +57,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="card">
-            <div class="card-body">
-                <h6>Riwayat Aktifitas</h6>
-            </div>
-        </div>
-    </div>
-    @include('sweetalert::alert')
+@include('sweetalert::alert')
 @endsection
 @push('scripts')
     <script>
