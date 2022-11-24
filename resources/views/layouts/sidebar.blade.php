@@ -52,7 +52,7 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item {{ Request::is('dashboard-relawan') ? 'active' : '' }}">
-                            <a href="dashboard-relawan">Relawan</a>
+                            <a href="{{ route('relawan') }}">Relawan</a>
                         </li>
                     </ul>
                     <ul class="submenu">
@@ -82,15 +82,12 @@
                         <i class="bi bi-collection-fill"></i>
                         <span>Pengeluaran</span>
                     </a>
-                    <ul class="submenu ">
+                    <ul class="submenu">
                         <li class="submenu-item ">
-                            <a href="extra-component-avatar.html">Avatar</a>
+                            <a href="extra-component-avatar.html">Daftar Pengeluaran</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="extra-component-sweetalert.html">Sweet Alert</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="extra-component-toastify.html">Toastify</a>
+                            <a href="extra-component-sweetalert.html">Log Aktifitas</a>
                         </li>
                     </ul>
                 </li>

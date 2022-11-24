@@ -39,7 +39,7 @@
                             <div class="form-group has-icon-left">
                                 <label for="first-name-icon">Terima Dari</label>
                                 <div class="position-relative @error('name') has-error @enderror">
-                                    <input type="text" name="name" class="form-control"
+                                    <input oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);" type="text" name="name" class="form-control"
                                         placeholder="Masukan Nama Lengkap" id="first-name-icon" value="{{ old('name') }}">
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
@@ -55,7 +55,7 @@
                             <div class="form-group has-icon-left">
                                 <label for="email-id-icon">Keperluan</label>
                                 <div class="position-relative">
-                                    <input type="text" name="keperluan" class="form-control"
+                                    <input oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);" type="text" name="keperluan" class="form-control"
                                         placeholder="Untuk Keperluan" id="email-id-icon" value="{{ old('keperluan') }}">
                                     <div class="form-control-icon">
                                         <i class="bi bi-archive"></i>
@@ -94,7 +94,7 @@
                             <div class="form-group has-icon-left">
                                 <label for="konfirmasi_password">Nominal</label>
                                 <div class="position-relative">
-                                    <input type="text" name="nominal" class="form-control" placeholder="Nominal"
+                                    <input oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);" type="text" name="nominal" class="form-control" placeholder="Nominal"
                                         id="lblterbilang" >
                                     <div class="form-control-icon">
                                         <i class="bi bi-cash"></i>
