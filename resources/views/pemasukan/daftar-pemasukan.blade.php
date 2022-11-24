@@ -19,7 +19,6 @@
         <div class="card">
             <div class="card-body">
                 <h6 class="mb-6">Tabel Pemasukan</h6>
-
                 <a href="{{ route('tambahpemasukan') }}">
                     <button type="button" class="btn btn-success tambah mb-4">Tambah Pemasukan</button>
                 </a>
@@ -56,10 +55,29 @@
             </div>
         </div>
     </div>
+    @include('sweetalert::alert')
+    @endsection
+    @push('scripts')
 
-@include('sweetalert::alert')
-@endsection
-@push('scripts')
+<script>
+    $('.delete').click(function() {
+        swal({
+        title: "Hapus data pemasukan?",
+        text: "yudis ganss",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+        } else {
+          swal("Data pemasukan tidak dihapus!");
+        }
+      });
+    });
+</script>
+
+
     <script>
         $(document).ready(function() {
             var table = $('#dt-pemasukan').DataTable({

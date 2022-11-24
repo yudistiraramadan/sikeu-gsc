@@ -38,7 +38,8 @@ class PemasukanController extends Controller
 
                 $button .= '&nbsp;&nbsp;';
                 $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="HAPUS" href="delete-pemasukan/' . $data->id . '" class="delete"><i class="fa-solid fa-trash" style="font-size: 28px; color:#FF0063;"></i></a>';
-
+                // $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="HAPUS" class="delete" href="#"><i class="fa-solid fa-trash" style="font-size: 28px; color:#FF0063;"></i></a>';
+                
 
 
                 return $button;

@@ -12,7 +12,8 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 {{-- Apexcharts --}}
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> --}}
+<script src="{{ asset('/asset_offline/apex.js') }}"></script>
 
 
 
@@ -20,6 +21,7 @@
 {{-- <script src="{{ asset('dist/assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
 <script src="{{ asset('dist/assets/js/pages/dashboard.js') }}"></script> --}}
 
-{{-- Sweetalert --}}
-{{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
+{{-- Sweetalert 1--}}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 @stack('scripts')
