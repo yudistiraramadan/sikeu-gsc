@@ -56,26 +56,52 @@
         </div>
     </div>
     @include('sweetalert::alert')
-    @endsection
-    @push('scripts')
+@endsection
+@push('scripts')
+    <script>
+        $(document).on('click', '.delete-pemasukan', function() {
+            id = $(this).data('id');
+            Swal.fire({
+                title: 'Hapus data pemasukan?',
+                text: "Apakah anda yakin akan menghapus data pemasukan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        async: true,
+                        type: 'POST',
+                        url: '/delete-pemasukan/destroy',
+                        data: {
+                            id: id
+                        },
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        beforeSend: function() {
+                            $('#ok_button').text('Hapus Data');
+                        },
+                        success: function(data) {
+                            setTimeout(function() {
+                                $('#confirmModal').modal('hide');
+                                $('#dt-pemasukan').DataTable().ajax.reload(null, false);
+                            });
 
-<script>
-    $('.delete').click(function() {
-        swal({
-        title: "Hapus data pemasukan?",
-        text: "yudis ganss",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-        } else {
-          swal("Data pemasukan tidak dihapus!");
-        }
-      });
-    });
-</script>
+                            window.setTimeout(function() {}, 1000);
+                            Swal.fire(
+                                    'Deleted!',
+                                    'Pemasukan berhasil dihapus.',
+                                    'success'
+                                )
+                        }
+                    })
+                }
+            });
+        });
+    </script>
 
 
     <script>

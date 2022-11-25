@@ -37,8 +37,7 @@ class PemasukanController extends Controller
                 $button .= '<a data-toogle="tooltip" data-placement="top" name="edit" title="EDIT" href="' . url('show-pemasukan/' . $data->id) . '"><i class="fa-solid fa-pen-to-square text-warning" style="font-size: 30px;"></i></a>';
 
                 $button .= '&nbsp;&nbsp;';
-                $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="HAPUS" href="delete-pemasukan/' . $data->id . '" class="delete"><i class="fa-solid fa-trash" style="font-size: 28px; color:#FF0063;"></i></a>';
-                // $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="HAPUS" class="delete" href="#"><i class="fa-solid fa-trash" style="font-size: 28px; color:#FF0063;"></i></a>';
+                $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="HAPUS" href="javascript:void(0)" data-id="' .$data->id. '" class="delete-pemasukan"><i class="fa-solid fa-trash" style="font-size: 28px; color:#FF0063;"></i></a>';
                 
 
 
@@ -175,16 +174,16 @@ class PemasukanController extends Controller
         return redirect()->route('pemasukan')->with('success', 'Data berhasil diedit');
     }
 
-    public function deletepemasukan($id)
+    public function delete(Request $request)
     {
-        $data = Pemasukan::find($id);
+        $data = Pemasukan::find($request->get('id'));
         LogPemasukan::create([
             'user_id' => Auth::id(),
             'type' => 'DELETE',
             'activities' => 'Menghapus pemasukan <b>'. $data->name .'</b>',
         ]);
         $data->delete();
-        return redirect()->route('pemasukan')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('pemasukan');
     }
 
 

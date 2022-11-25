@@ -15,7 +15,8 @@
 {{-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> --}}
 <script src="{{ asset('/asset_offline/apex.js') }}"></script>
 
-
+{{-- Sweatalert2 --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 

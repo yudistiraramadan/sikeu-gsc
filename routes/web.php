@@ -41,7 +41,8 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function () {
     Route::post('/edit-pemasukan/{id}', [PemasukanController::class, 'editpemasukan'])->name('editpemasukan');
 
     Route::get('/print-pemasukan/{id}', [PemasukanController::class, 'printpemasukan'])->name('printpemasukan');
-    Route::get('/delete-pemasukan/{id}', [PemasukanController::class, 'deletepemasukan'])->name('deletepemasukan');
+    // Route::get('/delete-pemasukan/{id}', [PemasukanController::class, 'deletepemasukan'])->name('deletepemasukan');
+    Route::post('/delete-pemasukan/destroy', [PemasukanController::class, 'delete'])->name('hapuspemasukan');
     Route::get('/export_excel_pemasukan', [PemasukanController::class, 'export_excel_pemasukan'])->name('export_excel_pemasukan');
     Route::get('/aktifitas-pemasukan', [PemasukanController::class, 'activities_pemasukan'])->name('activities_pemasukan');
 
