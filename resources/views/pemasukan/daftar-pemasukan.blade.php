@@ -18,7 +18,7 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
-                <h6 class="mb-6">Tabel Pemasukan</h6>
+                <h5 class="mb-6">Tabel Pemasukan</h6>
                 <a href="{{ route('tambahpemasukan') }}">
                     <button type="button" class="btn btn-success tambah mb-4">Tambah Pemasukan</button>
                 </a>

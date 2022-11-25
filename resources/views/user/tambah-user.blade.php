@@ -64,7 +64,7 @@
                                     <input type="password" name="password" class="form-control"
                                         placeholder="Masukan Password" id="password" value="{{ old('password') }}">
                                     <div class="form-control-icon">
-                                        <i class="bi bi-lock"></i>
+                                        <i class="bi bi-shield-lock"></i>
                                     </div>
                                     @error('password')
                                         <div class="text-danger"> {{ $message }}</div>
@@ -75,16 +75,16 @@
 
                         <div class="col-lg-6">
                             <div class="form-group has-icon-left">
-                                <label for="password_confirmation">Konfirmasi Password</label>
+                                <label for="password_confirmation">Alamat</label>
                                 <div class="position-relative">
-                                    <input type="password" name="password" class="form-control"
-                                        placeholder="Ulangi Password" id="password_confirmation" value="{{ old('password_confirmation') }}">
+                                    <input type="text" name="address" class="form-control"
+                                        placeholder="Masukan Alamat Lengkap" id="password_confirmation" value="{{ old('address') }}">
                                     <div class="form-control-icon">
-                                        <i class="bi bi-lock-fill"></i>
+                                        <i class="bi bi-house"></i>
                                     </div>
-                                    {{-- @error('password_confirmation')
+                                    @error('address')
                                         <div class="text-danger"> {{ $message }}</div>
-                                    @enderror --}}
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -211,15 +211,6 @@
                             @enderror
                         </div>
                     </div>
-                </div>
-
-
-                <div class="form-group mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Alamat Lengkap</label>
-                    <textarea class="form-control" name="address" id="exampleFormControlTextarea1" rows="3" value="{{ old('address') }}"></textarea>
-                    @error('address')
-                        <div class="text-danger"> {{ $message }}</div>
-                    @enderror
                 </div>
 
                 <a href="/daftar-user">

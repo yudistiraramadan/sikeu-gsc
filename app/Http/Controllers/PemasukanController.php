@@ -31,7 +31,7 @@ class PemasukanController extends Controller
                 })
             ->addColumn('action', function ($data) {
 
-                $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="CETAK" href="' .url('print-pemasukan/' . $data->id) . '"><i class="fa-solid fa-file-invoice text-info" style="font-size: 30px;"></i></a>';
+                $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="PRINT KWITANSI" href="' .url('print-pemasukan/' . $data->id) . '"><i class="fa-solid fa-file-invoice text-info" style="font-size: 30px;"></i></a>';
 
                 $button .= '&nbsp;&nbsp;';
                 $button .= '<a data-toogle="tooltip" data-placement="top" name="edit" title="EDIT" href="' . url('show-pemasukan/' . $data->id) . '"><i class="fa-solid fa-pen-to-square text-warning" style="font-size: 30px;"></i></a>';
