@@ -76,7 +76,7 @@
                             <div class="form-group has-icon-left">
                                 <label for="terbilang">Terbilang</label>
                                 <div class="position-relative">
-                                    <input type="text" name="terbilang" class="form-control" id="terbilang" value="{{ $data->terbilang }}">
+                                    <input type="number" name="terbilang" class="form-control" id="terbilang" onkeyup="fungsi_terbilang(this, 'lblterbilang')" value="{{ $data->terbilang }}">
                                     <div class="form-control-icon">
                                         <i class="">Rp.</i>
                                     </div>
@@ -141,5 +141,6 @@
         document.getElementById(b).innerHTML = kekata(a.value);
     }
 </script>
+
 
 

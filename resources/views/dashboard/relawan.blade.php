@@ -75,7 +75,7 @@
                 <div class="card-body px-4 py-4-5">
                     <div class="d-flex align-items-center">
                         <div class="avatar avatar-xl">
-                            <img src="foto-relawan/gsc.png" alt="Face 1">
+                            <img src="foto-relawan/yudis.JPG" alt="Face 1">
                         </div>
                         <div class="ms-3 name">
                             <h5 class="font-bold">{{ $data->name }}</h5>
