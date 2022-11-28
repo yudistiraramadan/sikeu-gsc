@@ -23,7 +23,7 @@
                     <div class="col-lg-12">
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="form-group has-icon-left">
+                                <div class="form-group has-icon-left @error('name') has-error @enderror">
                                     <label for="first-name-icon">Nama Lengkap</label>
                                     <div class="position-relative">
                                         <input type="text" name="name" class="form-control"
@@ -32,6 +32,9 @@
                                         <div class="form-control-icon">
                                             <i class="bi bi-person"></i>
                                         </div>
+                                        @error('name')
+                                            <div class="text-danger"> {{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -45,6 +48,9 @@
                                         <div class="form-control-icon">
                                             <i class="bi bi-envelope"></i>
                                         </div>
+                                        @error('email')
+                                            <div class="text-danger"> {{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -64,20 +70,26 @@
                                         <div class="form-control-icon">
                                             <i class="bi bi-lock"></i>
                                         </div>
+                                        @error('password')
+                                            <div class="text-danger"> {{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="form-group has-icon-left">
-                                    <label for="password-id-icon">Konfirmasi Password</label>
+                                    <label for="password-id-icon">Alamat</label>
                                     <div class="position-relative">
-                                        <input type="password" name="password" class="form-control"
-                                            placeholder="Ulangi Password" id="password-id-icon"
-                                            value="{{ $user->password }}">
+                                        <input type="text" name="address" class="form-control"
+                                            placeholder="Masukan Alamat Lengkap" id="password-id-icon"
+                                            value="{{ $user->address }}">
                                         <div class="form-control-icon">
                                             <i class="bi bi-lock-fill"></i>
                                         </div>
+                                        @error('address')
+                                            <div class="text-danger"> {{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -96,6 +108,9 @@
                                         <div class="form-control-icon">
                                             <i class="bi bi-phone"></i>
                                         </div>
+                                        @error('phone')
+                                            <div class="text-danger"> {{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -144,6 +159,9 @@
                                             </label>
                                         </div>
                                     </div>
+                                    @error('role_id')
+                                        <div class="text-danger"> {{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-2">
@@ -167,6 +185,9 @@
                                             </label>
                                         </div>
                                     </div>
+                                    @error('gender')
+                                        <div class="text-danger"> {{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
@@ -190,15 +211,15 @@
                                             </label>
                                         </div>
                                     </div>
+                                    @error('status')
+                                        <div class="text-danger"> {{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group mb-3">
-                        <label for="alamat" class="form-label">Alamat Lengkap</label>
-                        <textarea class="form-control" name="address" id="alamat" rows="4"></textarea>
-                    </div>
+
                     <a href="/daftar-user">
                         <button type="button" class="btn btn-warning">Kembali</button>
                     </a>
