@@ -24,6 +24,7 @@ class UserExport implements FromView
         return view('user.export_excel_user', [
             'user' => User::join('detail_user', 'users.id', '=', 'detail_user.user_id')
                 ->select('users.id', 'users.name', 'users.email', 'users.created_at', 'detail_user.address', 'detail_user.phone', 'detail_user.status')
+                ->orderBy('users.id', 'desc')
                 ->get()
         ]);
     }

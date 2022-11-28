@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 // use Barryvdh\DomPDF\PDF;
 
-use App\Models\LogPemasukan;
+use PDF;
 use App\Models\Pemasukan;
+use App\Models\LogPemasukan;
 // use Barryvdh\DomPDF\PDF;
 // use Barryvdh\DomPDF\Facade as PDF;
-use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PemasukanExportExcel;
 
 class PemasukanController extends Controller
 {
@@ -196,5 +198,12 @@ class PemasukanController extends Controller
         $pdf = PDF::loadView('pemasukan.print-pemasukan');
         return $pdf->download('pemasukan.pdf');
         // return redirect()->route('pemasukan')->with('success', 'Data Berhasil Diprint');
+    }
+
+    public function export_excel_pemasukan()
+    {
+        return Excel::download(new PemasukanExportExcel, 'daftar_pemasukan.xlsx');
+        return redirect()->route('pemasukan')->with('success', 'Data Berhasil Ditambahkan');
+
     }
 }
