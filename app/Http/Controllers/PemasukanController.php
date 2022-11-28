@@ -195,7 +195,7 @@ class PemasukanController extends Controller
         $data = Pemasukan::find($id);
         view()->share('data', $data);
 
-        $pdf = PDF::loadView('pemasukan.print-pemasukan');
+        $pdf = PDF::loadview('pemasukan.print-pemasukan');
         return $pdf->download('pemasukan.pdf');
         // return redirect()->route('pemasukan')->with('success', 'Data Berhasil Diprint');
     }
@@ -204,6 +204,14 @@ class PemasukanController extends Controller
     {
         return Excel::download(new PemasukanExportExcel, 'daftar_pemasukan.xlsx');
         return redirect()->route('pemasukan')->with('success', 'Data Berhasil Ditambahkan');
-
     }
+
+    public function export_pdf_pemasukan()
+    {
+        $data = Pemasukan::all();
+        view()->share('data', $data);
+        $pdf = PDF::loadview('pemasukan.print-daftar-pemasukan');
+        return $pdf->download('daftar-pemasukan.pdf');
+    }
+    
 }

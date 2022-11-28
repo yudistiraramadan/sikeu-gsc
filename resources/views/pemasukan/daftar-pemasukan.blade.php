@@ -28,7 +28,7 @@
                     </button>
                 </a>
                 &nbsp;
-                <a href="#">
+                <a href="{{ route('export_pdf_pemasukan') }}">
                     <button type="button" class="btn btn-danger mb-4">Export PDF
                         <i class="bi bi-printer-fill"></i>
                     </button>
