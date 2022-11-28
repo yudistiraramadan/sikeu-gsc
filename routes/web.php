@@ -62,6 +62,7 @@ Route::post('/edit-user/{id}', [UserController::class, 'edituser'])->name('editu
 Route::get('/delete-user/{id}', [UserController::class, 'deleteuser'])->name('deleteuser');
 
 Route::get('/export_excel_user', [UserController::class, 'export_excel_user'])->name('export_excel_user');
+Route::get('/export_pdf_user', [UserController::class, 'export_pdf_user'])->name('export_pdf_user');
 
 Route::get('/aktifitas-user', [UserController::class, 'activities'])->name('activities');
 

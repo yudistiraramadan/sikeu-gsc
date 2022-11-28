@@ -18,7 +18,7 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
-                <h5 class="mb-8">Tabel Pemasukan</h5>
+                <h5 class="mb-8">Tabel Relawan</h5>
                 <a href="{{ route('tambahuser') }}">
                     <button type="button" class="btn btn-success tambah mb-4">Tambah User</button>
                 </a>
@@ -27,7 +27,7 @@
                     <button type="button" class="btn btn-primary mb-4">Export Excel</button>
                 </a>
                 &nbsp;
-                <a href="#">
+                <a href="{{ route('export_pdf_user') }}">
                     <button type="button" class="btn btn-danger mb-4">Export PDF
                         <i class="bi bi-printer-fill"></i>
                     </button>

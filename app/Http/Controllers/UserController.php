@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\User;
 use App\Models\LogUser;
+// use Barryvdh\DomPDF\PDF;
 use App\Models\DetailUser;
 use App\Exports\UserExport;
 use Illuminate\Http\Request;
@@ -12,6 +14,7 @@ use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
+
 
 
 class UserController extends Controller
@@ -215,5 +218,19 @@ class UserController extends Controller
     public function export_excel_user()
     {
         return Excel::download(new UserExport, 'data_relawan.xlsx');
+    }
+
+    public function export_pdf_user()
+    {
+        $data = User::join('detail_user', 'users.id', '=', 'detail_user.user_id')
+        ->get(['users.id','users.name', 'detail_user.address', 'detail_user.phone', 'detail_user.status', 'detail_user.created_at']);
+        // $data = User::all();
+        // dd($data);
+
+        view()->share('data', $data);
+        $pdf = PDF::loadview('user.print-daftar-user');
+        return $pdf->download('daftar-user.pdf');
+
+
     }
 }
