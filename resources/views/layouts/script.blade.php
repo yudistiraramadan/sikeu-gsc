@@ -4,7 +4,10 @@
 
 <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
 {{-- <script src="{{ asset('assets/js/pages/datatables.js') }}"></script> --}}
+
+{{-- Datatables --}}
 <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+{{-- <script src="{{ asset('/asset_offline/datatables.js') }}"></script> --}}
 
 {{-- Toastr --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
@@ -16,7 +19,7 @@
 <script src="{{ asset('/asset_offline/apex.js') }}"></script>
 
 {{-- Sweatalert2 --}}
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{ asset('/asset_offline/sweetalert2.js') }}"></script>
 
 
 
@@ -25,6 +28,6 @@
 <script src="{{ asset('dist/assets/js/pages/dashboard.js') }}"></script> --}}
 
 {{-- Sweetalert 1--}}
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
 
 @stack('scripts')
