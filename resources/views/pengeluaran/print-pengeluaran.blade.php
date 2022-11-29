@@ -77,8 +77,8 @@
             <td style="text-align: center;"><img src="{{ asset('assets/images/gsc/ttd/bendahara.png') }}" width="130px" /></td>
         </tr>
         <tr>
-            <td style="text-align: center;">(Novia Kintan Hapsari)</td>
-            <td style="text-align: center;">(Novia Kintan Hapsari)</td>
+            <td style="text-align: center;">(Maimunah)</td>
+            <td style="text-align: center;">(Hamba Allah)</td>
             <td style="text-align: center;">(Novia Kintan Hapsari)</td>
         </tr>
         <tr>

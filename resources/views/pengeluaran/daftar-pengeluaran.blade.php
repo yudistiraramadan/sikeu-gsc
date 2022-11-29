@@ -39,6 +39,7 @@
                             <thead>
                                 <tr>
                                     <th>Dibayarkan Kepada</th>
+                                    <th>Diterima Oleh</th>
                                     {{-- <th>Alamat</th> --}}
                                     <th>Uang Sebanyak</th>
                                     <th>Keterangan</th>
@@ -110,11 +111,11 @@
                 serverSide: true,
                 ajax: "{{ route('pengeluaran') }}",
                 columns: [{
-                        data: 'name',
+                        data: 'name_pengaju',
                     },
-                    // {
-                    //     data: 'address',
-                    // },
+                    {
+                        data: 'name_penerima',
+                    },
                     {
                         data: 'number_format',
                     },
@@ -130,7 +131,7 @@
                     }
                 ],
                 order: [
-                    [3, 'desc']
+                    [4, 'desc']
                 ],
                 responsive: true,
                 language: {
@@ -149,7 +150,7 @@
                     },
                     {
                         className: 'text-center',
-                        targets: [4]
+                        targets: [5]
                     }
                 ]
             });

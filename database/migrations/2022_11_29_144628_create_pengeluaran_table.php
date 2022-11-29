@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('pengeluaran', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('name');
+            $table->string('name_pengaju');
+            $table->string('name_penerima');
             $table->string('address');
             $table->integer('nominal');
             $table->string('terbilang');

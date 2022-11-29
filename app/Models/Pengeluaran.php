@@ -11,7 +11,7 @@ class Pengeluaran extends Model
 
     protected $table = 'pengeluaran';
     protected $fillable = [
-        'user_id', 'name', 'address', 'nominal', 'terbilang', 'keterangan', 'date', 'signature'
+        'user_id', 'name_pengaju', 'name_penerima', 'address', 'nominal', 'terbilang', 'keterangan', 'date', 'signature'
     ];
 
     public function user()

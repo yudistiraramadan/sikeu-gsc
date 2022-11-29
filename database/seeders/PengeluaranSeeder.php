@@ -18,11 +18,12 @@ class PengeluaranSeeder extends Seeder
         Pengeluaran::create([
             'id' => '1',
             'user_id' => '1',
-            'name' => 'HAMBA ALLAH',
-            'address' => 'JALAN DAHLIA GANG 2 NO.70.A RT 03 RW 12 PELUTAN PEMALANG',
+            'name_pengaju' => '	Yudistira Ramadan Kalimasada',
+            'name_penerima' => 'Hamba Allah',
+            'address' => '	Jalan Dahlia Gang 2 No 70.A RT 03 RW 12',
             'nominal' => '500000',
             'terbilang' => 'LIMA RATUS RIBU RUPIAH',
-            'keterangan' => 'PENTASYARUFAN DHUAFA',
+            'keterangan' => 'Pentasyarufan Dhuafa',
             'date' => '2022-11-29',
             'signature' => 'ttd.jpg',
         ]);
