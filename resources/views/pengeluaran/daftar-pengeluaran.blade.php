@@ -2,13 +2,13 @@
 @section('content')
     <div class="row">
         <div class="col-lg-6">
-            <h2>Daftar Pemasukan GSC</h3>
+            <h2>Daftar Pengeluaran GSC</h3>
         </div>
         <div class="col-lg-6">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-right">
                     <li class="breadcrumb-item active">
-                        <a href="{{ url('daftar-pemasukan') }}">Daftar Pemasukan/</a>
+                        <a href="#">Daftar Pengeluaran/</a>
                     </li>
                 </ol>
             </nav>
@@ -18,31 +18,31 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
-                <h5 class="mb-6">Tabel Pemasukan</h6>
-                <a href="{{ route('tambahpemasukan') }}">
-                    <button type="button" class="btn btn-success tambah mb-4">Tambah Pemasukan</button>
+                <h5 class="mb-6">Tabel Pengeluaran</h6>
+                <a href="#">
+                    <button type="button" class="btn btn-success tambah mb-4">Tambah Pengeluaran</button>
                 </a>
                 &nbsp;
-                <a href="{{ route('export_excel_pemasukan') }}">
+                <a href="#">
                     <button type="button" class="btn btn-primary mb-4">Export Excel
                     </button>
                 </a>
                 &nbsp;
-                <a href="{{ route('export_pdf_pemasukan') }}">
+                <a href="#">
                     <button type="button" class="btn btn-danger mb-4">Export PDF
                         <i class="bi bi-printer-fill"></i>
                     </button>
                 </a>
                 <div class="responsive">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered table-responsive" id="dt-pemasukan">
+                        <table class="table table-hover table-bordered table-responsive" id="dt-pengeluaran">
                             <thead>
                                 <tr>
-                                    <th>Terima Dari</th>
+                                    <th>Dibayarkan Kepada</th>
+                                    <th>Alamat</th>
                                     <th>Uang Sebanyak</th>
-                                    <th>Guna Pembayaran</th>
+                                    <th>Keterangan</th>
                                     <th>Tanggal</th>
-                                    <th>Terbilang</th>
                                     {{-- <th>Foto</th> --}}
                                     <th>Aksi</th>
                                 </tr>
@@ -59,11 +59,11 @@
 @endsection
 @push('scripts')
     <script>
-        $(document).on('click', '.delete-pemasukan', function() {
+        $(document).on('click', '.delete-pengeluaran', function() {
             id = $(this).data('id');
             Swal.fire({
-                title: 'Hapus data pemasukan?',
-                text: "Apakah anda yakin akan menghapus data pemasukan!",
+                title: 'Hapus data pengeluaran?',
+                text: "Apakah anda yakin akan menghapus data pengeluaran!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -74,7 +74,7 @@
                     $.ajax({
                         async: true,
                         type: 'POST',
-                        url: '/delete-pemasukan/destroy',
+                        url: '/delete-pengeluaran/destroy',
                         data: {
                             id: id
                         },
@@ -87,13 +87,13 @@
                         success: function(data) {
                             setTimeout(function() {
                                 $('#confirmModal').modal('hide');
-                                $('#dt-pemasukan').DataTable().ajax.reload(null, false);
+                                $('#dt-pengeluaran').DataTable().ajax.reload(null, false);
                             });
 
                             window.setTimeout(function() {}, 1000);
                             Swal.fire(
                                     'Deleted!',
-                                    'Pemasukan berhasil dihapus.',
+                                    'Pengeluaran berhasil dihapus.',
                                     'success'
                                 )
                         }
@@ -106,24 +106,24 @@
 
     <script>
         $(document).ready(function() {
-            var table = $('#dt-pemasukan').DataTable({
+            var table = $('#dt-pengeluaran').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('pemasukan') }}",
+                ajax: "{{ route('pengeluaran') }}",
                 columns: [{
                         data: 'name',
                     },
                     {
-                        data: 'nominal',
-                    },
-                    {
-                        data: 'keperluan',
-                    },
-                    {
-                        data: 'time',
+                        data: 'address',
                     },
                     {
                         data: 'number_format',
+                    },
+                    {
+                        data: 'keterangan',
+                    },
+                    {
+                        data: 'time',
                     },
 
                     {

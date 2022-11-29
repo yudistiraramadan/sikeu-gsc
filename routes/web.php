@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PemasukanController;
+use App\Http\Controllers\PengeluaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +50,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function () {
     Route::get('/aktifitas-pemasukan', [PemasukanController::class, 'activities_pemasukan'])->name('activities_pemasukan');
 });
 
-// Route::get('show-pengeluaran')
+Route::get('daftar-pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran');
 
 
 Route::get('/dashboard-relawan', [DashboardController::class, 'relawan_page'])->name('relawan');
