@@ -69,5 +69,5 @@ Route::get('/export_pdf_user', [UserController::class, 'export_pdf_user'])->name
 Route::get('/aktifitas-user', [UserController::class, 'activities'])->name('activities');
 
 Route::get('/tes', function () {
-    return view('errors.500');
+    return view('pengeluaran.print-pengeluaran');
 });

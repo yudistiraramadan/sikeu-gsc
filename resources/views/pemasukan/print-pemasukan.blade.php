@@ -48,6 +48,7 @@
             </td>
         </tr>
         <tr>
+            <td></td>
             <td colspan="5" style="text-align: right">
                 <img src="{{ public_path('assets/images/gsc/ttd/bendahara.png') }}" width="130px" />
             </td>
