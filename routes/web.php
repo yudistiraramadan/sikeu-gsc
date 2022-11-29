@@ -47,8 +47,9 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function () {
     Route::get('/export_pdf_pemasukan', [PemasukanController::class, 'export_pdf_pemasukan'])->name('export_pdf_pemasukan');
 
     Route::get('/aktifitas-pemasukan', [PemasukanController::class, 'activities_pemasukan'])->name('activities_pemasukan');
-
 });
+
+// Route::get('show-pengeluaran')
 
 
 Route::get('/dashboard-relawan', [DashboardController::class, 'relawan_page'])->name('relawan');
