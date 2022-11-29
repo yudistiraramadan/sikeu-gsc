@@ -229,7 +229,7 @@ class UserController extends Controller
 
         view()->share('data', $data);
         $pdf = PDF::loadview('user.print-daftar-user');
-        return $pdf->download('daftar-user.pdf');
+        return $pdf->download('daftar-relawan.pdf');
 
 
     }
