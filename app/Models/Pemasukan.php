@@ -13,4 +13,9 @@ class Pemasukan extends Model
     protected $fillable = [
         'user_id', 'name', 'nominal', 'keperluan', 'date', 'terbilang', 'created_at'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
