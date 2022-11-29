@@ -39,11 +39,10 @@
                             <thead>
                                 <tr>
                                     <th>Dibayarkan Kepada</th>
-                                    <th>Alamat</th>
+                                    {{-- <th>Alamat</th> --}}
                                     <th>Uang Sebanyak</th>
                                     <th>Keterangan</th>
                                     <th>Tanggal</th>
-                                    {{-- <th>Foto</th> --}}
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -113,9 +112,9 @@
                 columns: [{
                         data: 'name',
                     },
-                    {
-                        data: 'address',
-                    },
+                    // {
+                    //     data: 'address',
+                    // },
                     {
                         data: 'number_format',
                     },
@@ -150,7 +149,7 @@
                     },
                     {
                         className: 'text-center',
-                        targets: [5]
+                        targets: [4]
                     }
                 ]
             });
