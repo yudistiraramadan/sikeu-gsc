@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pemasukan</title>
+    <title>Cetak Pemasukan</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
             <td width="60px"><img src="{{ public_path('assets/images/gsc/gsc.png') }}" width="50px" /></td>
             <td width="100px">Gerak Sedekah Cilacap</td>
             <td width="20"></td>
-            <td style="text-align: center; font-size: 22px">PEMASUKAN</td>
+            <td style="text-align: center; font-size: 22px; font-family:Arial, Helvetica, sans-serif; font-weight:700;">PEMASUKAN</td>
             <td>KWITANSI No. {{ $data->id }}</td>
         </tr>
 
@@ -44,7 +44,7 @@
         </tr>
         <tr>
             <td colspan="5" style="text-align: right" height="30px">
-                Cilacap, {{ $data->date }}
+                Cilacap, {{ \Carbon\Carbon::parse($data->date)->isoFormat('D MMMM Y') }}
             </td>
         </tr>
         <tr>

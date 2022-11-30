@@ -11,19 +11,19 @@
         <thead>
             <tr>
                 <th style="text-align: center"><strong>Terima Dari</strong></th>
+                <th style="text-align: center"><strong>Terbilang</strong></th>
                 <th style="text-align: center"><strong>Nominal</strong></th>
                 <th style="text-align: center"><strong>Keperluan</strong></th>
                 <th style="text-align: center"><strong>Tanggal</strong></th>
-                <th style="text-align: center"><strong>Ditambahkan</strong></th>
             </tr>
         </thead>
         @foreach ($pemasukan as $item)
         <tr>
             <td>{{ $item->name }}</td>
+            <td>{{ $item->terbilang }}</td>
             <td>{{ $item->nominal }}</td>
             <td>{{ $item->keperluan }}</td>
-            <td>{{ $item->date }}</td>
-            <td>{{ $item->created_at }}</td>
+            <td>{{ \Carbon\Carbon::parse($item->date)->isoFormat('D MMMM Y') }}</td>
         </tr>
         @endforeach
         <tbody>

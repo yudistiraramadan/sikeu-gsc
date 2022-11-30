@@ -28,14 +28,14 @@
 </head>
 <body>
 
-<h2 style="text-align: center; font-family:Arial;">DAFTAR PEMASUKAN GSC</h2>    
+<h2 style="text-align: center; font-family:Arial, Helvetica, sans-serif; color:#2b8fa6;"><u>DAFTAR PEMASUKAN GSC</u></h2>    
 <table id="pemasukan">
   <tr>
-    <th>Terima Dari</th>
-    <th>Uang Sebanyak</th>
+    <th style="width: 25%;">Terima Dari</th>
+    <th style="width: 25%;">Uang Sebanyak</th>
     <th>Guna Pembayaran</th>
     <th>Terbilang</th>
-    <th>Tanggal</th>
+    <th style="width: 15%;">Tanggal</th>
   </tr>
 
 
@@ -44,8 +44,11 @@
       <td>{{ $pemasukan->name }}</td>
       <td>{{ $pemasukan->nominal }}</td>
       <td>{{ $pemasukan->keperluan }}</td>
-      <td>{{ $pemasukan->terbilang }}</td>
-      <td>{{ $pemasukan->date }}</td>
+      {{-- <td>{{ $pemasukan->terbilang }}</td> --}}
+      <td>@php
+          echo number_format($pemasukan->terbilang);
+      @endphp</td>
+      <td>{{ \Carbon\Carbon::parse($pemasukan->date)->format('d-m-Y') }}</td>
   </tr>
   @endforeach
 

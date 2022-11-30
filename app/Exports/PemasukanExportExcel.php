@@ -13,7 +13,8 @@ class PemasukanExportExcel implements FromView
     public function view(): View
     {
         return view('pemasukan.export_excel_pemasukan', [
-            'pemasukan' => Pemasukan::all()
+        'pemasukan' => Pemasukan::all()
+            
             // ->orderBy('id', 'desc')
         ]);
     }
