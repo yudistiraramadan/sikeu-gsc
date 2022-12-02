@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 // use Barryvdh\DomPDF\PDF;
 
+use App\Exports\AktifitasPemasukan;
 use PDF;
 use App\Models\Pemasukan;
 use App\Models\LogPemasukan;
@@ -203,7 +204,11 @@ class PemasukanController extends Controller
     public function export_excel_pemasukan()
     {
         return Excel::download(new PemasukanExportExcel, 'daftar_pemasukan.xlsx');
-        return redirect()->route('pemasukan')->with('success', 'Data Berhasil Ditambahkan');
+    }
+
+    public function export_excel_aktifitas()
+    {
+        return Excel::download(new AktifitasPemasukan, 'aktifitas_pemasukan.xlsx');
     }
 
     public function export_pdf_pemasukan()

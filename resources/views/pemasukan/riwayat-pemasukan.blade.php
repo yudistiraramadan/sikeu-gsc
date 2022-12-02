@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="mb-8">Riwayat Aktifitas Pemasukan</h5>
-                <a href="{{ route('export_excel_pemasukan') }}">
+                <a href="{{ route('export_excel_aktifitas_pemasukan') }}">
                     <button type="button" class="btn btn-primary mb-4">Export Excel
                     </button>
                 </a>
