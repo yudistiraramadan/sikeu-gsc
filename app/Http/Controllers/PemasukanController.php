@@ -128,7 +128,7 @@ class PemasukanController extends Controller
         LogPemasukan::create([
             'user_id' => Auth::id(),
             'type' => 'CREATE',
-            'activities' => 'Menambah pemasukan <b>'. $pemasukan->name .'</b>',
+            'activities' => 'Menambah pemasukan <b>'. $pemasukan->name .'</b> untuk <b>'.$pemasukan->keperluan.'</b>',
         ]);
         
         return redirect()->route('pemasukan')->with('success', 'Data Berhasil Ditambahkan');
@@ -171,7 +171,7 @@ class PemasukanController extends Controller
         LogPemasukan::create([
             'user_id' => Auth::id(),
             'type' => 'UPDATE',
-            'activities' => 'Mengedit pemasukan <b>'. $data->name .'</b>',
+            'activities' => 'Mengedit pemasukan <b>'. $data->name .'</b> untuk <b>'.$data->keperluan.'</b>',
         ]);
         return redirect()->route('pemasukan')->with('success', 'Data berhasil diedit');
     }
@@ -182,7 +182,7 @@ class PemasukanController extends Controller
         LogPemasukan::create([
             'user_id' => Auth::id(),
             'type' => 'DELETE',
-            'activities' => 'Menghapus pemasukan <b>'. $data->name .'</b>',
+            'activities' => 'Menghapus pemasukan <b>'. $data->name .'</b> untuk <b>'.$data->keperluan.'</b>',
         ]);
         $data->delete();
         return redirect()->route('pemasukan');
