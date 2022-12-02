@@ -109,7 +109,7 @@
                     <button type="button" class="btn btn-warning">Kembali</button>
                 </a>
                 &nbsp;
-                <button type="submit" class="btn btn-success">Tambah Pemasukan</button>
+                <button type="submit" class="btn btn-success">Edit Pemasukan</button>
             </form>
 
 

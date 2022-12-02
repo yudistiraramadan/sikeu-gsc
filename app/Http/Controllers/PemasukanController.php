@@ -129,7 +129,7 @@ class PemasukanController extends Controller
         LogPemasukan::create([
             'user_id' => Auth::id(),
             'type' => 'CREATE',
-            'activities' => 'Menambah pemasukan <b>'. $pemasukan->name .'</b> untuk <b>'.$pemasukan->keperluan.'</b>',
+            'activities' => 'Menambah pemasukan '. $pemasukan->name .' untuk '.$pemasukan->keperluan.'',
         ]);
         
         return redirect()->route('pemasukan')->with('success', 'Data Berhasil Ditambahkan');
@@ -172,7 +172,7 @@ class PemasukanController extends Controller
         LogPemasukan::create([
             'user_id' => Auth::id(),
             'type' => 'UPDATE',
-            'activities' => 'Mengedit pemasukan <b>'. $data->name .'</b> untuk <b>'.$data->keperluan.'</b>',
+            'activities' => 'Mengedit pemasukan '. $data->name .' untuk '.$data->keperluan.'',
         ]);
         return redirect()->route('pemasukan')->with('success', 'Data berhasil diedit');
     }
@@ -183,7 +183,7 @@ class PemasukanController extends Controller
         LogPemasukan::create([
             'user_id' => Auth::id(),
             'type' => 'DELETE',
-            'activities' => 'Menghapus pemasukan <b>'. $data->name .'</b> untuk <b>'.$data->keperluan.'</b>',
+            'activities' => 'Menghapus pemasukan '. $data->name .' untuk '.$data->keperluan.'',
         ]);
         $data->delete();
         return redirect()->route('pemasukan');
@@ -217,6 +217,15 @@ class PemasukanController extends Controller
         view()->share('data', $data);
         $pdf = PDF::loadview('pemasukan.print-daftar-pemasukan');
         return $pdf->download('daftar-pemasukan.pdf');
+    }
+
+    public function export_pdf_aktifitas()
+    {
+        $data = LogPemasukan::join('users', 'log_pemasukans.user_id', '=', 'users.id')
+                ->get(['log_pemasukans.*', 'users.name']);
+        view()->share('data', $data);
+        $pdf = PDF::loadView('pemasukan.print-aktifitas-pemasukan');
+        return $pdf->download('aktifitas_pemasukan.pdf');
     }
     
 }
