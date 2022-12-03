@@ -62,7 +62,9 @@ class PengeluaranController extends Controller
         $pengeluaran->terbilang = $data['terbilang'];
         $pengeluaran->keterangan = $data['keterangan'];
         $pengeluaran->date = $data['date'];
-        $pengeluaran->signature = $data['signature'];
-        dd($pengeluaran);
+        // $pengeluaran->signature = $data['signature'];
+        // dd($pengeluaran);
+        $pengeluaran->save();
+        return redirect()->route('pengeluaran')->with('success', 'Pengeluaran berhasil ditambahkan');
     }
 }
