@@ -62,7 +62,7 @@
                     </ul>
                 </li>
 
-                <li class="sidebar-item has-sub {{ Request::is('daftar-pemasukan','tambah-pemasukan')  ? 'active' : '' }}">
+                <li class="sidebar-item has-sub {{ Request::is('daftar-pemasukan','tambah-pemasukan', 'aktivitas-pemasukan')  ? 'active' : '' }}">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-stack"></i>
                         <span>Pemasukan</span>

@@ -49,7 +49,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function () {
     Route::get('/export-pdf-pemasukan', [PemasukanController::class, 'export_pdf_pemasukan'])->name('export_pdf_pemasukan');
     Route::get('/export-pdf-aktifitas', [PemasukanController::class, 'export_pdf_aktifitas'])->name('export_pdf_aktifitas_pemasukan');
 
-    Route::get('/aktifitas-pemasukan', [PemasukanController::class, 'activities_pemasukan'])->name('activities_pemasukan');
+    Route::get('/aktivitas-pemasukan', [PemasukanController::class, 'activities_pemasukan'])->name('activities_pemasukan');
 });
 
 Route::get('daftar-pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran');
