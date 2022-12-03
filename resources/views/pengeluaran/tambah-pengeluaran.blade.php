@@ -44,7 +44,7 @@
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
                                     </div>
-                                    @error('name')
+                                    @error('name_pengaju')
                                         <div class="text-danger"> {{ $message }}</div>
                                     @enderror
                                 </div>
@@ -60,7 +60,7 @@
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
                                     </div>
-                                    @error('keperluan')
+                                    @error('name_penerima')
                                         <div class="text-danger"> {{ $message }}</div>
                                     @enderror
                                 </div>
@@ -81,7 +81,7 @@
                                     <div class="form-control-icon">
                                         <i class="bi bi-house"></i>
                                     </div>
-                                    @error('name')
+                                    @error('address')
                                         <div class="text-danger"> {{ $message }}</div>
                                     @enderror
                                 </div>
@@ -97,7 +97,7 @@
                                     <div class="form-control-icon">
                                         <i class="bi bi-archive"></i>
                                     </div>
-                                    @error('keperluan')
+                                    @error('keterangan')
                                         <div class="text-danger"> {{ $message }}</div>
                                     @enderror
                                 </div>
@@ -119,7 +119,7 @@
                                         <i class="">Rp.</i>
                                     </div>
                                     <h5 class="mt-2" style="text-transform: uppercase;" id="lblterbilang"></h5>
-                                    @error('terbilang')
+                                    @error('nominal')
                                         <div class="text-danger"> {{ $message }}</div>
                                     @enderror
                                 </div>

@@ -54,9 +54,10 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function () {
 Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function()
 {
     // CRUD PENGELUARAN
-    Route::get('daftar-pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran');
-    Route::get('tambah-pengeluaran', [PengeluaranController::class, 'tambahpengeluaran'])->name('tambahpengeluaran');
-    Route::post('insert-pengeluaran', [PengeluaranController::class, 'insertpengeluaran'])->name('insertpengeluaran');
+    Route::get('/daftar-pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran');
+    Route::get('/tambah-pengeluaran', [PengeluaranController::class, 'tambahpengeluaran'])->name('tambahpengeluaran');
+    Route::post('/insert-pengeluaran', [PengeluaranController::class, 'insertpengeluaran'])->name('insertpengeluaran');
+    Route::get('/show-pengeluaran', [PengeluaranController::class, 'showpengeluaran'])->name('showpengeluaran');
 });
 
 

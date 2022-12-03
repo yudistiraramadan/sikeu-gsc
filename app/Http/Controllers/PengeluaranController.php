@@ -42,16 +42,29 @@ class PengeluaranController extends Controller
 
     public function insertpengeluaran(Request $request)
     {
-        // $pengeluaran = Pengeluaran::create([
-        //     'name_pengaju' => $request->name_pengaju,
-        //     'name_penerima' => $request->name_penerima,
-        //     'address' => $request->address,
-        //     'nominal' => $request->nominal,
-        //     'terbilang' => $request->terbilang,
-        //     'keterangan' => $request->keterangan,
-        //     'date' => $request->date,
-        //     'signature' => $request->signature,
-        // ]);
+        $this->validate(
+            $request,
+            [
+                'date' => 'required',
+                'name_pengaju' => 'required',
+                'name_penerima' => 'required',
+                'address' => 'required',
+                'nominal' => 'required',
+                'terbilang' => 'required',
+                'keterangan' => 'required',
+            ],
+            [
+                'date.required' => 'Tanggal masih kosong.',
+                'name_pengaju.required' => 'Nama pengaju masih kosong.',
+                'name_penerima.required' => 'Nama penerima masih kosong.',
+                'address.required' => 'Alamat masih kosong.',
+                'nominal.required' => 'Nominal masih kosong.',
+                'terbilang.required' => 'Terbilang masih kosong.',
+                'keterangan.required' => 'Keterangan masih kosong.',
+            ]
+            );
+
+
         $data = $request->all();
         $pengeluaran = new Pengeluaran();
         $pengeluaran->user_id = auth()->id();
@@ -63,7 +76,6 @@ class PengeluaranController extends Controller
         $pengeluaran->keterangan = $data['keterangan'];
         $pengeluaran->date = $data['date'];
         // $pengeluaran->signature = $data['signature'];
-        // dd($pengeluaran);
         $pengeluaran->save();
         return redirect()->route('pengeluaran')->with('success', 'Pengeluaran berhasil ditambahkan');
     }
