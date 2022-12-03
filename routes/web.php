@@ -35,24 +35,30 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function () {
+    // CRUD PEMASUKAN
     Route::get('/daftar-pemasukan', [PemasukanController::class, 'pemasukan'])->name('pemasukan');
     Route::get('/tambah-pemasukan', [PemasukanController::class, 'tambahpemasukan'])->name('tambahpemasukan');
     Route::post('insertpemasukan', [PemasukanController::class, 'insertpemasukan'])->name('insertpemasukan');
     Route::get('/show-pemasukan/{id}', [PemasukanController::class, 'showpemasukan'])->name('showpemasukan');
     Route::post('/edit-pemasukan/{id}', [PemasukanController::class, 'editpemasukan'])->name('editpemasukan');
-
-    Route::get('/print-pemasukan/{id}', [PemasukanController::class, 'printpemasukan'])->name('printpemasukan');
-    // Route::get('/delete-pemasukan/{id}', [PemasukanController::class, 'deletepemasukan'])->name('deletepemasukan');
     Route::post('/delete-pemasukan/destroy', [PemasukanController::class, 'delete'])->name('hapuspemasukan');
+    // FEATURE PEMASUKAN
+    Route::get('/print-pemasukan/{id}', [PemasukanController::class, 'printpemasukan'])->name('printpemasukan');
     Route::get('/export-excel-pemasukan', [PemasukanController::class, 'export_excel_pemasukan'])->name('export_excel_pemasukan');
     Route::get('export-excel-aktifitas', [PemasukanController::class, 'export_excel_aktifitas'])->name('export_excel_aktifitas_pemasukan');
     Route::get('/export-pdf-pemasukan', [PemasukanController::class, 'export_pdf_pemasukan'])->name('export_pdf_pemasukan');
     Route::get('/export-pdf-aktifitas', [PemasukanController::class, 'export_pdf_aktifitas'])->name('export_pdf_aktifitas_pemasukan');
-
     Route::get('/aktivitas-pemasukan', [PemasukanController::class, 'activities_pemasukan'])->name('activities_pemasukan');
 });
 
-Route::get('daftar-pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran');
+Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function()
+{
+    // CRUD PENGELUARAN
+    Route::get('daftar-pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran');
+    Route::get('tambah-pengeluaran', [PengeluaranController::class, 'tambahpengeluaran'])->name('tambahpengeluaran');
+    Route::post('insert-pengeluaran', [PengeluaranController::class, 'insertpengeluaran'])->name('insertpengeluaran');
+});
+
 
 
 Route::get('/dashboard-relawan', [DashboardController::class, 'relawan_page'])->name('relawan');

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('terbilang');
             $table->string('keterangan');
             $table->date('date');
-            $table->string('signature');
+            $table->string('signature')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

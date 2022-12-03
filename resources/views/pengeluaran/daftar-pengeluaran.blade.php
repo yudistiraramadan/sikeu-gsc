@@ -19,7 +19,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="mb-6">Tabel Pengeluaran</h6>
-                <a href="#">
+                <a href="/tambah-pengeluaran">
                     <button type="button" class="btn btn-success tambah mb-4">Tambah Pengeluaran</button>
                 </a>
                 &nbsp;

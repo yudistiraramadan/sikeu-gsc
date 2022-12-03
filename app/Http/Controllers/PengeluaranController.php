@@ -34,4 +34,35 @@ class PengeluaranController extends Controller
         }
         return view('pengeluaran.daftar-pengeluaran');
     }
+
+    public function tambahpengeluaran()
+    {
+        return view('pengeluaran.tambah-pengeluaran');
+    }
+
+    public function insertpengeluaran(Request $request)
+    {
+        // $pengeluaran = Pengeluaran::create([
+        //     'name_pengaju' => $request->name_pengaju,
+        //     'name_penerima' => $request->name_penerima,
+        //     'address' => $request->address,
+        //     'nominal' => $request->nominal,
+        //     'terbilang' => $request->terbilang,
+        //     'keterangan' => $request->keterangan,
+        //     'date' => $request->date,
+        //     'signature' => $request->signature,
+        // ]);
+        $data = $request->all();
+        $pengeluaran = new Pengeluaran();
+        $pengeluaran->user_id = auth()->id();
+        $pengeluaran->name_pengaju = $data['name_pengaju'];
+        $pengeluaran->name_penerima = $data['name_penerima'];
+        $pengeluaran->address = $data['address'];
+        $pengeluaran->nominal = $data['nominal'];
+        $pengeluaran->terbilang = $data['terbilang'];
+        $pengeluaran->keterangan = $data['keterangan'];
+        $pengeluaran->date = $data['date'];
+        $pengeluaran->signature = $data['signature'];
+        dd($pengeluaran);
+    }
 }
