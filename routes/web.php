@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
+use App\Models\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +58,12 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function()
     Route::get('/daftar-pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran');
     Route::get('/tambah-pengeluaran', [PengeluaranController::class, 'tambahpengeluaran'])->name('tambahpengeluaran');
     Route::post('/insert-pengeluaran', [PengeluaranController::class, 'insertpengeluaran'])->name('insertpengeluaran');
-    Route::get('/show-pengeluaran', [PengeluaranController::class, 'showpengeluaran'])->name('showpengeluaran');
+    Route::get('/show-pengeluaran/{id}', [PengeluaranController::class, 'showpengeluaran'])->name('showpengeluaran');
+    Route::post('/edit-pengeluaran/{id}', [PengeluaranController::class, 'editpengeluaran'])->name('editpengeluaran');
+
+    Route::get('/show-signature', [PengeluaranController::class, 'showsignature'])->name('showsignature');
+    Route::post('/postsignature', [PengeluaranController::class, 'postsignature'])->name('postsignature');
+
 });
 
 

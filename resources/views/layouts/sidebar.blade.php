@@ -6,6 +6,9 @@
                     <a href="index.html" style="font-size: 12px"><img src="{{ asset('assets/images/gsc/logo_gsc.png') }}"
                             style="width:50px; height:50px;" alt="Logo" srcset=""></a>
                 </div>
+                {{-- <div class="brand-text"> --}}
+                    {{-- <h5><b>SIKEU-GSC</b></h5> --}}
+                {{-- </div> --}}
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20"

@@ -5,7 +5,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-right">
             <li class="breadcrumb-item active">
-                <a href="dashboard">Daftar Pemasukan</a>
+                <a href="dashboard">Daftar Pengeluaran</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 Tambah
@@ -15,8 +15,8 @@
 
     <div class="card">
         <div class="card-body">
-            <h5 class="mb-4">Edit Data Pemasukan</h5>
-            <form action="/edit-pemasukan/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+            <h5 class="mb-4">Edit Data Pengeluaran</h5>
+            <form action="/edit-pengeluaran/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
                 <div class="col-lg-12">
@@ -37,14 +37,14 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group has-icon-left">
-                                <label for="first-name-icon">Terima Dari</label>
+                                <label for="first-name-icon">Nama Pengaju</label>
                                 <div class="position-relative @error('name_pengaju') has-error @enderror">
-                                    <input oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);" type="text" name="name" class="form-control"
-                                        placeholder="Masukan Nama Lengkap" id="first-name-icon" value="{{ $data->name_pengaju }}">
+                                    <input type="text" name="name_pengaju" class="form-control"
+                                        placeholder="Masukan Nama Pengaju" id="first-name-icon" value="{{ $data->name_pengaju }}">
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
                                     </div>
-                                    @error('name')
+                                    @error('name_pengaju')
                                         <div class="text-danger"> {{ $message }}</div>
                                     @enderror
                                 </div>
@@ -53,14 +53,14 @@
 
                         <div class="col-lg-6">
                             <div class="form-group has-icon-left">
-                                <label for="email-id-icon">Keperluan</label>
-                                <div class="position-relative">
-                                    <input oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);" type="text" name="keperluan" class="form-control"
-                                        placeholder="Untuk Keperluan" id="email-id-icon" value="{{ $data->keperluan }}">
+                                <label for="first-name-icon">Nama Penerima</label>
+                                <div class="position-relative @error('name_penerima') has-error @enderror">
+                                    <input type="text" name="name_penerima" class="form-control"
+                                        placeholder="Masukan Nama Penerima" id="first-name-icon" value="{{ $data->name_penerima }}">
                                     <div class="form-control-icon">
-                                        <i class="bi bi-archive"></i>
+                                        <i class="bi bi-person"></i>
                                     </div>
-                                    @error('keperluan')
+                                    @error('name_penerima')
                                         <div class="text-danger"> {{ $message }}</div>
                                     @enderror
                                 </div>
@@ -69,19 +69,18 @@
                     </div>
                 </div>
 
-
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group has-icon-left">
-                                <label for="terbilang">Terbilang</label>
-                                <div class="position-relative">
-                                    <input type="number" name="terbilang" class="form-control" id="terbilang" onkeyup="fungsi_terbilang(this, 'lblterbilang')" value="{{ $data->terbilang }}">
+                                <label for="first-name-icon">Alamat</label>
+                                <div class="position-relative @error('address') has-error @enderror">
+                                    <input type="text" name="address" class="form-control"
+                                        placeholder="Masukan Nama Pengaju" id="first-name-icon" value="{{ $data->address }}">
                                     <div class="form-control-icon">
-                                        <i class="">Rp.</i>
+                                        <i class="bi bi-person"></i>
                                     </div>
-                                    <h5 class="mt-2" style="text-transform: uppercase;" id="lblterbilang"></h5>
-                                    @error('terbilang')
+                                    @error('address')
                                         <div class="text-danger"> {{ $message }}</div>
                                     @enderror
                                 </div>
@@ -90,26 +89,62 @@
 
                         <div class="col-lg-6">
                             <div class="form-group has-icon-left">
-                                <label for="konfirmasi_password">Nominal</label>
-                                <div class="position-relative">
-                                    <input oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);" type="text" name="nominal" class="form-control" placeholder="Nominal"
-                                        id="konfirmasi_password" value="{{ $data->nominal }}">
+                                <label for="first-name-icon">Keterangan</label>
+                                <div class="position-relative @error('keterangan') has-error @enderror">
+                                    <input type="text" name="keterangan" class="form-control"
+                                        placeholder="Masukan Nama Penerima" id="first-name-icon" value="{{ $data->keterangan }}">
                                     <div class="form-control-icon">
-                                        <i class="bi bi-cash"></i>
+                                        <i class="bi bi-person"></i>
                                     </div>
+                                    @error('keterangan')
+                                        <div class="text-danger"> {{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group has-icon-left">
+                                <label for="terbilang">Nominal</label>
+                                <div class="position-relative">
+                                    <input type="number" name="nominal" class="form-control" id="nominal" onkeyup="fungsi_terbilang(this, 'lblterbilang')" value="{{ $data->nominal }}">
+                                    <div class="form-control-icon">
+                                        <i class="">Rp.</i>
+                                    </div>
+                                    <h5 class="mt-2" style="text-transform: uppercase;" id="lblterbilang"></h5>
                                     @error('nominal')
                                         <div class="text-danger"> {{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group has-icon-left">
+                                <label for="konfirmasi_password">Terbilang</label>
+                                <div class="position-relative">
+                                    <input oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);" type="text" name="terbilang" class="form-control" placeholder="Terbilang"
+                                        id="konfirmasi_password" value="{{ $data->terbilang }}">
+                                    <div class="form-control-icon">
+                                        <i class="bi bi-cash"></i>
+                                    </div>
+                                    @error('terbilang')
+                                        <div class="text-danger"> {{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <a href="/daftar-pemasukan">
+                <a href="/daftar-pengeluaran">
                     <button type="button" class="btn btn-warning">Kembali</button>
                 </a>
                 &nbsp;
-                <button type="submit" class="btn btn-success">Edit Pemasukan</button>
+                <button type="submit" class="btn btn-success">Edit Pengeluaran</button>
             </form>
 
 
