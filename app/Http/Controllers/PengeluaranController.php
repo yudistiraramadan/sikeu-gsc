@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -22,7 +23,7 @@ class PengeluaranController extends Controller
                 })
                 ->addColumn('action', function ($data) {
 
-                    $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="PRINT KWITANSI" href="' . url('print-pemasukan/' . $data->id) . '"><i class="fa-solid fa-file-invoice text-info" style="font-size: 30px;"></i></a>';
+                    $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="PRINT KWITANSI" href="' . url('print-pengeluaran/' . $data->id) . '"><i class="fa-solid fa-file-invoice text-info" style="font-size: 30px;"></i></a>';
 
                     $button .= '&nbsp;&nbsp;';
                     $button .= '<a data-toogle="tooltip" data-placement="top" name="edit" title="EDIT" href="' . url('show-pengeluaran/' . $data->id) . '"><i class="fa-solid fa-pen-to-square text-warning" style="font-size: 30px;"></i></a>';
@@ -126,6 +127,14 @@ class PengeluaranController extends Controller
     {
         $data = Pengeluaran::find($request->id);
         $data->delete();
+    }
+
+    public function printpengeluaran($id)
+    {
+        $data = Pengeluaran::find($id);
+        view()->share('data',$data);
+        $pdf = PDF::loadview('pengeluaran.print-pengeluaran');
+        return $pdf->download('pengeluaran.pdf');
     }
 
 
