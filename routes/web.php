@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function()
     Route::post('/insert-pengeluaran', [PengeluaranController::class, 'insertpengeluaran'])->name('insertpengeluaran');
     Route::get('/show-pengeluaran/{id}', [PengeluaranController::class, 'showpengeluaran'])->name('showpengeluaran');
     Route::post('/edit-pengeluaran/{id}', [PengeluaranController::class, 'editpengeluaran'])->name('editpengeluaran');
+    Route::post('/delete-pengeluaran/destroy', [PengeluaranController::class, 'delete'])->name('hapuspengeluaran');
 
     Route::get('/show-signature', [PengeluaranController::class, 'showsignature'])->name('showsignature');
     Route::post('/postsignature', [PengeluaranController::class, 'postsignature'])->name('postsignature');
