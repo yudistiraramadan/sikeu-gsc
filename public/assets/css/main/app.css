@@ -506,11 +506,13 @@ h3,
 h4,
 h5,
 h6 {
-    color: #25396f;
+    color: #414244;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 0.5rem;
     margin-top: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
 }
 .h1,
 h1 {
@@ -3218,19 +3220,19 @@ fieldset:disabled .btn {
 }
 .btn-success {
     --bs-btn-color: #fff;
-    --bs-btn-bg: #198754;
-    --bs-btn-border-color: #198754;
+    --bs-btn-bg: #24b07c;
+    --bs-btn-border-color: #24b07c;
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #157347;
-    --bs-btn-hover-border-color: #146c43;
+    --bs-btn-hover-bg: #27a06c;
+    --bs-btn-hover-border-color: #27a06c;
     --bs-btn-focus-shadow-rgb: 60, 153, 110;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #146c43;
     --bs-btn-active-border-color: #13653f;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: #198754;
-    --bs-btn-disabled-border-color: #198754;
+    --bs-btn-disabled-bg: #24b07c;
+    --bs-btn-disabled-border-color: #24b07c;
 }
 .btn-info {
     --bs-btn-color: #000;

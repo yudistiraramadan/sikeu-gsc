@@ -2,7 +2,8 @@
 @section('content')
     <div class="row">
         <div class="col-lg-6">
-            <h2>Daftar Pengeluaran GSC</h3>
+            <h4>Daftar Pengeluaran</h4>
+            <p>{{ $total_pengeluaran }} Total Pengeluaran</p>
         </div>
         <div class="col-lg-6">
             <nav aria-label="breadcrumb">
@@ -16,20 +17,19 @@
     </div>
 
     <div class="row">
-        <div class="card">
+        <div class="card mt-2">
             <div class="card-body">
-                <h5 class="mb-6">Tabel Pengeluaran</h6>
                     <a href="/tambah-pengeluaran">
-                        <button type="button" class="btn btn-success tambah mb-4">Tambah Pengeluaran</button>
+                        <button type="button" class="btn btn-success tambah mb-4 mt-2">Tambah Pengeluaran</button>
                     </a>
                     &nbsp;
                     <a href="#">
-                        <button type="button" class="btn btn-primary mb-4">Export Excel
+                        <button type="button" class="btn btn-primary mb-4 mt-2">Export Excel
                         </button>
                     </a>
                     &nbsp;
                     <a href="#">
-                        <button type="button" class="btn btn-danger mb-4">Export PDF
+                        <button type="button" class="btn btn-danger mb-4 mt-2">Export PDF
                             <i class="bi bi-printer-fill"></i>
                         </button>
                     </a>

@@ -23,17 +23,19 @@ class PengeluaranController extends Controller
                 })
                 ->addColumn('action', function ($data) {
 
-                    $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="PRINT KWITANSI" href="' . url('print-pengeluaran/' . $data->id) . '"><i class="fa-solid fa-file-invoice text-info" style="font-size: 30px;"></i></a>';
+                    $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="PRINT KWITANSI" href="' . url('print-pengeluaran/' . $data->id) . '"><i class="bi bi-receipt-cutoff text-info" style="font-size: 30px;"></i></a>';
 
                     $button .= '&nbsp;&nbsp;';
-                    $button .= '<a data-toogle="tooltip" data-placement="top" name="edit" title="EDIT" href="' . url('show-pengeluaran/' . $data->id) . '"><i class="fa-solid fa-pen-to-square text-warning" style="font-size: 30px;"></i></a>';
+                    $button .= '<a data-toogle="tooltip" data-placement="top" name="edit" title="EDIT" href="' . url('show-pengeluaran/' . $data->id) . '"><i class="bi bi-pencil-square text-warning" style="font-size: 30px;"></i></a>';
 
                     $button .= '&nbsp;&nbsp;';
-                    $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="HAPUS" href="javascript:void(0)" data-id="' . $data->id . '" class="delete-pengeluaran"><i class="fa-solid fa-trash" style="font-size: 28px; color:#FF0063;"></i></a>';
+                    $button .= '<a data-toogle="tooltip" data-placement="top" name="delete" title="HAPUS" href="javascript:void(0)" data-id="' . $data->id . '" class="delete-pengeluaran"><i class="bi bi-trash3" style="font-size: 28px; color:#FF0063;"></i></a>';
                     return $button;
                 })->rawColumns(['action', 'time', 'number_format'])->make(true);
         }
-        return view('pengeluaran.daftar-pengeluaran');
+        $total_pengeluaran = Pengeluaran::count();
+        // dd($total_pengeluaran);
+        return view('pengeluaran.daftar-pengeluaran', compact('total_pengeluaran'));
     }
 
     public function tambahpengeluaran()
