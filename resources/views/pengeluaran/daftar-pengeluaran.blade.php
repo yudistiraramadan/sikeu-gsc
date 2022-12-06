@@ -4,6 +4,7 @@
         <div class="col-lg-6">
             <h4>Daftar Pengeluaran</h4>
             <p>{{ $total_pengeluaran }} Total Pengeluaran</p>
+            {{-- <span class="badge bg-light-success">{{ $total_pengeluaran }} Total Pengeluaran</span> --}}
         </div>
         <div class="col-lg-6">
             <nav aria-label="breadcrumb">
@@ -35,16 +36,15 @@
                     </a>
                     <div class="responsive">
                         <div class="table-responsive">
-                            <table class="table table-hover table-bordered table-responsive" id="dt-pengeluaran">
+                            <table class="table table-hover table-responsive" id="dt-pengeluaran">
                                 <thead>
                                     <tr>
-                                        <th>Dibayarkan Kepada</th>
-                                        <th>Diterima Oleh</th>
-                                        {{-- <th>Alamat</th> --}}
-                                        <th>Uang Sebanyak</th>
-                                        <th>Keterangan</th>
-                                        <th>Tanggal</th>
-                                        <th>Aksi</th>
+                                        <th style="font-size: 16px; font-weight:600; color:#3d3e3f;">Dibayarkan Kepada</th>
+                                        <th style="font-size: 16px; font-weight:600; color:#3d3e3f;">Diterima Oleh</th>
+                                        <th style="font-size: 16px; font-weight:600; color:#3d3e3f;">Uang Sebanyak</th>
+                                        <th style="font-size: 16px; font-weight:600; color:#3d3e3f;">Keterangan</th>
+                                        <th style="font-size: 16px; font-weight:600; color:#3d3e3f;">Tanggal</th>
+                                        <th style="font-size: 16px; font-weight:600; color:#3d3e3f;">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>

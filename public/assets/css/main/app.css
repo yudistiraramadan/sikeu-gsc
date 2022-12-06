@@ -444,7 +444,7 @@
         hsla(0, 0%, 100%, 0.15),
         hsla(0, 0%, 100%, 0)
     );
-    --bs-body-font-family: Nunito;
+    --bs-body-font-family: "Poppins", sans-serif;
     --bs-body-font-size: 1rem;
     --bs-body-font-weight: 400;
     --bs-body-line-height: 1.5;
@@ -507,7 +507,7 @@ h4,
 h5,
 h6 {
     color: #414244;
-    font-weight: 700;
+    /* font-weight: 700; */
     line-height: 1.2;
     margin-bottom: 0.5rem;
     margin-top: 0;
@@ -17256,7 +17256,7 @@ body .bi:before {
     top: 0.25rem;
 }
 .sidebar-wrapper .menu {
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 2rem;
     padding: 0 2rem;
 }
@@ -17271,7 +17271,7 @@ body .bi:before {
 .sidebar-wrapper .menu .sidebar-link {
     align-items: center;
     border-radius: 0.5rem;
-    color: #25396f;
+    color: #505154;
     display: block;
     display: flex;
     font-size: 1rem;
@@ -17337,7 +17337,7 @@ body .bi:before {
 }
 .sidebar-wrapper .menu .submenu .submenu-item.active > a {
     color: #435ebe;
-    font-weight: 700;
+    font-weight: 600;
 }
 .sidebar-wrapper .menu .submenu .submenu-item a {
     color: #25396f;
