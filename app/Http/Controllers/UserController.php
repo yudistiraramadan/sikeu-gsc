@@ -43,13 +43,14 @@ class UserController extends Controller
                 })
 
                 ->addColumn('action', function ($data) {
-                    $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="DETAIL" href="#"><i class="fa-solid fa-user-pen text-info" style="font-size: 30px;"></i></a>';
+                    $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="DETAIL" href="#"><i class="bi bi-person-bounding-box text-info" style="font-size: 30px;"></i></a>';
+                    // $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="PRINT KWITANSI" href="' . url('print-pengeluaran/' . $data->id) . '"><i class="bi bi-receipt-cutoff text-info" style="font-size: 30px;"></i></a>';
 
                     $button .= '&nbsp;&nbsp;';
-                    $button .= '<a data-toogle="tooltip" data-placement="top" name="edit" title="EDIT" href="' . url('show-user/' . $data->id) . '"><i class="fa-solid fa-pen-to-square text-warning" style="font-size: 30px;"></i></a>';
+                    $button .= '<a data-toogle="tooltip" data-placement="top" name="edit" title="EDIT" href="' . url('show-user/' . $data->id) . '"><i class="bi bi-pencil-square text-warning" style="font-size: 30px;"></i></a>';
 
                     $button .= '&nbsp;&nbsp;';
-                    $button .= '<a data-toogle="tooltip" data-placement="top" name="delete-user" title="HAPUS" href="delete-user/' . $data->id . '" class="delete"><i class="fa-solid fa-trash" style="font-size: 28px; color:#FF0063;"></i></a>';
+                    $button .= '<a data-toogle="tooltip" data-placement="top" name="delete-user" title="HAPUS" href="delete-user/' . $data->id . '" class="delete"><i class="bi bi-trash3" style="font-size: 28px; color:#FF0063;"></i></a>';
 
 
 
@@ -57,7 +58,8 @@ class UserController extends Controller
                 })->rawColumns(['action', 'time', 'photo'])->make(true);
             // return DataTables::of($data)->make(true);
         }
-        return view('user.daftar-user');
+        $total_user = User::count();
+        return view('user.daftar-user', compact('total_user'));
     }
 
     public function tambahuser()

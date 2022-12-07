@@ -3,8 +3,7 @@
     <div class="row">
         <div class="col-lg-6">
             <h4>Daftar Pengeluaran</h4>
-            <p>{{ $total_pengeluaran }} Total Pengeluaran</p>
-            {{-- <span class="badge bg-light-success">{{ $total_pengeluaran }} Total Pengeluaran</span> --}}
+                <p>{{ $total_pengeluaran }} Total Pengeluaran</p>
         </div>
         <div class="col-lg-6">
             <nav aria-label="breadcrumb">
@@ -18,7 +17,7 @@
     </div>
 
     <div class="row">
-        <div class="card mt-2">
+        <div class="card">
             <div class="card-body">
                     <a href="{{ route('tambahpengeluaran') }}">
                         <button type="button" class="btn btn-success tambah mb-4 mt-2">Tambah Pengeluaran</button>

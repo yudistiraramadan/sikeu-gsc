@@ -2,7 +2,8 @@
 @section('content')
     <div class="row">
         <div class="col-lg-6">
-            <h2>Daftar Relawan GSC</h3>
+            <h4>Daftar Relawan GSC</h3>
+                <p>{{ $total_user }} Total Relawan</p>
         </div>
         <div class="col-lg-6">
             <nav aria-label="breadcrumb">
@@ -18,7 +19,6 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
-                <h5 class="mb-8">Tabel Relawan</h5>
                 <a href="{{ route('tambahuser') }}">
                     <button type="button" class="btn btn-success tambah mb-4">Tambah User</button>
                 </a>
