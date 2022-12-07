@@ -2,7 +2,8 @@
 @section('content')
     <div class="row">
         <div class="col-lg-6">
-            <h2>Daftar Pemasukan GSC</h3>
+            <h4>Daftar Pemasukan GSC</h3>
+                <p>{{ $total_pemasukan }} Total Pemasukan</p>
         </div>
         <div class="col-lg-6">
             <nav aria-label="breadcrumb">
@@ -18,18 +19,17 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
-                <h5 class="mb-6">Tabel Pemasukan</h6>
                 <a href="{{ route('tambahpemasukan') }}">
-                    <button type="button" class="btn btn-success tambah mb-4">Tambah Pemasukan</button>
+                    <button type="button" class="btn btn-success tambah mb-4 mt-2">Tambah Pemasukan</button>
                 </a>
                 &nbsp;
                 <a href="{{ route('export_excel_pemasukan') }}">
-                    <button type="button" class="btn btn-primary mb-4">Export Excel
+                    <button type="button" class="btn btn-primary mb-4 mt-2">Export Excel
                     </button>
                 </a>
                 &nbsp;
                 <a href="{{ route('export_pdf_pemasukan') }}">
-                    <button type="button" class="btn btn-danger mb-4">Export PDF
+                    <button type="button" class="btn btn-danger mb-4 mt-2">Export PDF
                         <i class="bi bi-printer-fill"></i>
                     </button>
                 </a>

@@ -40,7 +40,7 @@
                                 <label for="first-name-icon">Terima Dari</label>
                                 <div class="position-relative @error('name_pengaju') has-error @enderror">
                                     <input oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);" type="text" name="name" class="form-control"
-                                        placeholder="Masukan Nama Lengkap" id="first-name-icon" value="{{ $data->name_pengaju }}">
+                                        placeholder="Masukan Nama Lengkap" id="first-name-icon" value="{{ $data->name }}">
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
                                     </div>

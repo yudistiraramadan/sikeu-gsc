@@ -20,7 +20,7 @@
     <div class="row">
         <div class="card mt-2">
             <div class="card-body">
-                    <a href="/tambah-pengeluaran">
+                    <a href="{{ route('tambahpengeluaran') }}">
                         <button type="button" class="btn btn-success tambah mb-4 mt-2">Tambah Pengeluaran</button>
                     </a>
                     &nbsp;
@@ -39,12 +39,12 @@
                             <table class="table table-hover table-responsive" id="dt-pengeluaran">
                                 <thead>
                                     <tr>
-                                        <th style="font-size: 16px; font-weight:600; color:#3d3e3f;">Dibayarkan Kepada</th>
-                                        <th style="font-size: 16px; font-weight:600; color:#3d3e3f;">Diterima Oleh</th>
-                                        <th style="font-size: 16px; font-weight:600; color:#3d3e3f;">Uang Sebanyak</th>
-                                        <th style="font-size: 16px; font-weight:600; color:#3d3e3f;">Keterangan</th>
-                                        <th style="font-size: 16px; font-weight:600; color:#3d3e3f;">Tanggal</th>
-                                        <th style="font-size: 16px; font-weight:600; color:#3d3e3f;">Aksi</th>
+                                        <th>Dibayarkan Kepada</th>
+                                        <th>Diterima Oleh</th>
+                                        <th>Uang Sebanyak</th>
+                                        <th>Keterangan</th>
+                                        <th>Tanggal</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
