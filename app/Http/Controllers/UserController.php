@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use PDF;
+use App\Models\Role;
 use App\Models\User;
-use App\Models\LogUser;
 // use Barryvdh\DomPDF\PDF;
+use App\Models\LogUser;
 use App\Models\DetailUser;
 use App\Exports\UserExport;
 use Illuminate\Http\Request;
@@ -43,7 +44,7 @@ class UserController extends Controller
                 })
 
                 ->addColumn('action', function ($data) {
-                    $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="DETAIL" href="#"><i class="bi bi-person-bounding-box text-info" style="font-size: 30px;"></i></a>';
+                    $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="DETAIL" href="' . url('detail-user/'. $data->id).'"><i class="bi bi-person-bounding-box text-info" style="font-size: 30px;"></i></a>';
                     // $button = '<a data-toogle="tooltip" data-placement="top" name="detail" title="PRINT KWITANSI" href="' . url('print-pengeluaran/' . $data->id) . '"><i class="bi bi-receipt-cutoff text-info" style="font-size: 30px;"></i></a>';
 
                     $button .= '&nbsp;&nbsp;';
@@ -58,6 +59,7 @@ class UserController extends Controller
                 })->rawColumns(['action', 'time', 'photo'])->make(true);
             // return DataTables::of($data)->make(true);
         }
+        
         $total_user = User::count();
         return view('user.daftar-user', compact('total_user'));
     }
@@ -215,6 +217,13 @@ class UserController extends Controller
         ]);
         $data->delete();
         return redirect()->route('user')->with('success', 'Data User Berhasil Dihapus');
+    }
+
+    public function detailuser($id)
+    {
+        $role = Role::find($id);
+        $user = User::find($id);
+        return view('user.detail-user', compact('role','user'));
     }
 
     public function export_excel_user()

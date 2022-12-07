@@ -80,6 +80,7 @@ Route::post('/insertuser', [UserController::class, 'insertuser'])->name('insertu
 Route::get('/show-user/{id}', [UserController::class, 'showuser'])->name('showuser');
 Route::post('/edit-user/{id}', [UserController::class, 'edituser'])->name('edituser');
 Route::get('/delete-user/{id}', [UserController::class, 'deleteuser'])->name('deleteuser');
+Route::get('/detail-user/{id}', [UserController::class, 'detailuser'])->name('detailuser');
 
 Route::get('/export_excel_user', [UserController::class, 'export_excel_user'])->name('export_excel_user');
 Route::get('/export_pdf_user', [UserController::class, 'export_pdf_user'])->name('export_pdf_user');
