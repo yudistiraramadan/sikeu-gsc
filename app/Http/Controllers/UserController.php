@@ -191,13 +191,13 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->save();
 
-        $user = DetailUser::findOrFail($id);
-        $user->phone = $request->phone;
-        $user->gender = $request->gender;
-        $user->address = $request->address;
-        $user->status = $request->status;
-        // dd($user);
-        $user->save();
+        $detail_user = DetailUser::findOrFail($id);
+        $detail_user->phone = $request->phone;
+        $detail_user->gender = $request->gender;
+        $detail_user->address = $request->address;
+        $detail_user->status = $request->status;
+        // dd($detail_user);
+        $detail_user->save();
         LogUser::create([
             'user_id' => Auth::id(),
             'type' => 'UPDATE',
@@ -221,9 +221,10 @@ class UserController extends Controller
 
     public function detailuser($id)
     {
-        $role = Role::find($id);
+        // $role = Role::find($id);
         $user = User::find($id);
-        return view('user.detail-user', compact('role','user'));
+        $detail_user = DetailUser::find($id);
+        return view('user.detail-user', compact('user','detail_user'));
     }
 
     public function export_excel_user()

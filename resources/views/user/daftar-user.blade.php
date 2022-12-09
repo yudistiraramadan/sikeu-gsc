@@ -1,4 +1,4 @@
-@extends('layouts.main', ['title' => 'SIKEU-GSC | Daftar Relawan'])
+@extends('layouts.main', ['title' => 'SIKEU-GSC | Daftar'])
 @section('content')
     <div class="row">
         <div class="col-lg-6">

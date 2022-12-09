@@ -21,13 +21,13 @@
 {{-- Sweatalert2 --}}
 <script src="{{ asset('/asset_offline/sweetalert2.js') }}"></script>
 
-
-
 <!-- Need: Apexcharts -->
 {{-- <script src="{{ asset('dist/assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
 <script src="{{ asset('dist/assets/js/pages/dashboard.js') }}"></script> --}}
 
 {{-- Sweetalert 1--}}
 {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
+
+
 
 @stack('scripts')

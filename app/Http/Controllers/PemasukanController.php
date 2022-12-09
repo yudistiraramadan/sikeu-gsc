@@ -185,7 +185,7 @@ class PemasukanController extends Controller
             'activities' => 'Menghapus pemasukan '. $data->name .' untuk '.$data->keperluan.'',
         ]);
         $data->delete();
-        return redirect()->route('pemasukan');
+        return redirect()->route('pemasukan')->with('success', 'Pemaasukan berhasil dihapus');
     }
 
 

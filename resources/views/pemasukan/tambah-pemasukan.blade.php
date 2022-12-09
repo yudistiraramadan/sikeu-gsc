@@ -76,7 +76,7 @@
                             <div class="form-group has-icon-left">
                                 <label for="terbilang">Terbilang</label>
                                 <div class="position-relative">
-                                    <input type="number" name="terbilang" class="form-control" id="terbilang" onkeyup="fungsi_terbilang(this, 'lblterbilang')"
+                                    <input type="number" name="terbilang" class="form-control" id="terbilang" data-a-sep="." onkeyup="fungsi_terbilang(this, 'lblterbilang')"
                                         value="{{ old('terbilang') }}">
                                     <div class="form-control-icon">
                                         <i class="">Rp.</i>
@@ -121,6 +121,7 @@
     </div>
     </div>
 @endsection
+@push('scripts')
 <script>
     function kekata(n){
         var ang = new Array("","satu","dua","tiga","empat","lima","enam","tujuh","delapan","sembilan","sepuluh","sebelas");
@@ -136,7 +137,6 @@
         if(n<1000000000){tbr = kekata(Math.floor(n/1000000)) + " juta rupiah" + kekata(n%1000000);}else
         if(n<1000000000000){tbr = kekata(Math.floor(n/1000000000)) + " milyar rupiah" + kekata(n%1000000000);}else
         if(n<1000000000000000){tbr = kekata(Math.floor(n/1000000000000)) + " triliyun rupiah" + kekata(n%1000000000000);}
-
         return tbr;
     }
 
@@ -144,4 +144,5 @@
         document.getElementById(b).innerHTML = kekata(a.value);
     }
 </script>
+@endpush
 
