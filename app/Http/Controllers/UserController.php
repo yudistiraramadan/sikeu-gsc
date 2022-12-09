@@ -186,6 +186,33 @@ class UserController extends Controller
 
     public function edituser(Request $request, $id)
     {
+        $this->validate(
+            $request,
+            [
+                'name' => 'required|unique:users,name',
+                'email' => 'required',
+                'password' => 'required',
+                // 'password_confirmation' => 'required_with:password|same:password',
+                'phone' => 'required',
+                'role_id' => 'required',
+                'gender' => 'required',
+                'status' => 'required',
+                'address' => 'required',
+            ],
+            [
+                'name.required' => 'Nama relawan masih kosong',
+                'name.unique' => 'Relawan sudah terdaftar',
+                'email.required' => 'Email masih kosong',
+                'password.required' => 'Password masih kosong',
+                // 'password_confirmation.same' => 'Password tidak sama',
+                'phone.required' => 'No Hp/Whatsapp masih kosong',
+                'role_id.required' => 'Tipe relawan masih kosong',
+                'gender.required' => 'Jenis kelamin masih kosong',
+                'status.required' => 'Status masih kosong',
+                'address.required' => 'Alamat masih kosong',
+            ]
+            );
+
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
