@@ -1,17 +1,23 @@
 @extends('layouts.main')
 @section('content')
-    <h2>Dashboard Relawan</h2>
-    {{-- Breadcrumb --}}
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb breadcrumb-right">
-            <li class="breadcrumb-item active">
-                <a href="dashboard">Dashboard</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-                Relawan
-            </li>
-        </ol>
-    </nav>
+<div class="row">
+    <div class="col-lg-6">
+        <h2>Dashboard Relawan</h2>
+    </div>
+    <div class="col-lg-6">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-right">
+                <li class="breadcrumb-item active">
+                    <a href="dashboard">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    Relawan
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+    
 
     {{-- Data Header --}}
     <div class="row">

@@ -26,7 +26,7 @@
 
 
     {{-- jQuery PENTING --}}
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+    <script src="{{ asset('asset_offline/jquery.js') }}"></script>
 
     {{-- DataTables --}}
     {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"> --}}

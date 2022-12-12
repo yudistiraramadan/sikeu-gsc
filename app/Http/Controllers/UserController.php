@@ -189,7 +189,7 @@ class UserController extends Controller
         $this->validate(
             $request,
             [
-                'name' => 'required|unique:users,name',
+                'name' => 'required',
                 'email' => 'required',
                 'password' => 'required',
                 // 'password_confirmation' => 'required_with:password|same:password',
@@ -201,7 +201,7 @@ class UserController extends Controller
             ],
             [
                 'name.required' => 'Nama relawan masih kosong',
-                'name.unique' => 'Relawan sudah terdaftar',
+                // 'name.unique' => 'Relawan sudah terdaftar',
                 'email.required' => 'Email masih kosong',
                 'password.required' => 'Password masih kosong',
                 // 'password_confirmation.same' => 'Password tidak sama',

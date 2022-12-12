@@ -151,6 +151,45 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            Tambah tanda tangan
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tanda tangan Penerima
+                                                        </h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        ceritanya ttd penerima
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary">Save
+                                                            changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <a href="/daftar-pengeluaran">
@@ -167,53 +206,52 @@
     </div>
 @endsection
 @push('scripts')
+    <script>
+        function kekata(n) {
+            var ang = new Array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan",
+                "sepuluh", "sebelas");
+            var tbr;
 
-<script>
-    function kekata(n) {
-        var ang = new Array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan",
-            "sepuluh", "sebelas");
-        var tbr;
+            if (n < 12) {
+                tbr = " " + ang[n];
+            } else
+            if (n < 20) {
+                tbr = kekata(n - 10) + " belas";
+            } else
+            if (n < 100) {
+                tbr = kekata(Math.floor(n / 10)) + " puluh" + kekata(n % 10);
+            } else
+            if (n < 200) {
+                tbr = " seratus" + kekata(n - 100);
+            } else
+            if (n < 1000) {
+                tbr = kekata(Math.floor(n / 100)) + " ratus" + kekata(n % 100);
+            } else
+            if (n < 2000) {
+                tbr = " seribu" + kekata(n - 1000);
+            } else
+            if (n < 1000000) {
+                tbr = kekata(Math.floor(n / 1000)) + " ribu rupiah" + kekata(n % 1000);
+            } else
+            if (n < 1000000000) {
+                tbr = kekata(Math.floor(n / 1000000)) + " juta rupiah" + kekata(n % 1000000);
+            } else
+            if (n < 1000000000000) {
+                tbr = kekata(Math.floor(n / 1000000000)) + " milyar rupiah" + kekata(n % 1000000000);
+            } else
+            if (n < 1000000000000000) {
+                tbr = kekata(Math.floor(n / 1000000000000)) + " triliyun rupiah" + kekata(n % 1000000000000);
+            }
 
-        if (n < 12) {
-            tbr = " " + ang[n];
-        } else
-        if (n < 20) {
-            tbr = kekata(n - 10) + " belas";
-        } else
-        if (n < 100) {
-            tbr = kekata(Math.floor(n / 10)) + " puluh" + kekata(n % 10);
-        } else
-        if (n < 200) {
-            tbr = " seratus" + kekata(n - 100);
-        } else
-        if (n < 1000) {
-            tbr = kekata(Math.floor(n / 100)) + " ratus" + kekata(n % 100);
-        } else
-        if (n < 2000) {
-            tbr = " seribu" + kekata(n - 1000);
-        } else
-        if (n < 1000000) {
-            tbr = kekata(Math.floor(n / 1000)) + " ribu rupiah" + kekata(n % 1000);
-        } else
-        if (n < 1000000000) {
-            tbr = kekata(Math.floor(n / 1000000)) + " juta rupiah" + kekata(n % 1000000);
-        } else
-        if (n < 1000000000000) {
-            tbr = kekata(Math.floor(n / 1000000000)) + " milyar rupiah" + kekata(n % 1000000000);
-        } else
-        if (n < 1000000000000000) {
-            tbr = kekata(Math.floor(n / 1000000000000)) + " triliyun rupiah" + kekata(n % 1000000000000);
+            return tbr;
         }
 
-        return tbr;
-    }
+        function fungsi_terbilang(a, b) {
+            document.getElementById(b).innerHTML = kekata(a.value);
+        }
+    </script>
 
-    function fungsi_terbilang(a, b) {
-        document.getElementById(b).innerHTML = kekata(a.value);
-    }
-</script>
-
-{{-- <script>
+    {{-- <script>
     var nominal = document.getElementById("nominal");
     nominal.addEventListener("keyup", function(e) {
         // tambahkan 'Rp.' pada saat form di ketik
@@ -239,5 +277,4 @@
         return prefix == undefined ? nominal : nominal ? "" + nominal : "";
     }
 </script> --}}
-
 @endpush
