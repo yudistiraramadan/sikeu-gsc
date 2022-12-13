@@ -48,7 +48,7 @@
                 <li class="sidebar-title">Menu</li>
                 {{-- <li class="sidebar-title"><h6>{{ $user->name }}</h6></li> --}}
 
-                <li class="sidebar-item has-sub {{ Request::is('dashboard-relawan')  ? 'active' : '' }}">
+                <li class="sidebar-item has-sub {{ Request::is('dashboard-relawan', 'dashboard-pemasukan')  ? 'active' : '' }}">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
@@ -57,10 +57,8 @@
                         <li class="submenu-item {{ Request::is('dashboard-relawan') ? 'active' : '' }}">
                             <a href="{{ route('relawan') }}">Relawan</a>
                         </li>
-                    </ul>
-                    <ul class="submenu">
-                        <li class="submenu-item {{ Request::is('dashboard') ? 'active' : '' }}">
-                            <a href="dashboard">Pemasukan</a>
+                        <li class="submenu-item {{ Request::is('dashboard-pemasukan') ? 'active' : '' }}">
+                            <a href="{{ route('pemasukan_page') }}">Pemasukan</a>
                         </li>
                     </ul>
                 </li>

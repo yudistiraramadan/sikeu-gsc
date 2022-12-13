@@ -32,8 +32,8 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function () {
     Route::get('/dashboard-sample', function () {
         return view('dashboard.sample');
     });
-    Route::get('/dashboard-user', [DashboardController::class, 'user_page'])->name('user_page');
-    Route::get('dashboard-pemasukan', [DashboardController::class, 'pemasukan_page'])->name('pemasukan_page');
+    Route::get('/dashboard-relawan', [DashboardController::class, 'relawan_page'])->name('relawan');
+    Route::get('/dashboard-pemasukan', [DashboardController::class, 'pemasukan_page'])->name('pemasukan_page');
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function () {
@@ -53,8 +53,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function () {
     Route::get('/aktivitas-pemasukan', [PemasukanController::class, 'activities_pemasukan'])->name('activities_pemasukan');
 });
 
-Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function()
-{
+Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function () {
     // CRUD PENGELUARAN
     Route::get('/daftar-pengeluaran', [PengeluaranController::class, 'index'])->name('pengeluaran');
     Route::get('/tambah-pengeluaran', [PengeluaranController::class, 'tambahpengeluaran'])->name('tambahpengeluaran');
@@ -67,12 +66,10 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function()
 
     Route::get('/show-signature', [PengeluaranController::class, 'showsignature'])->name('showsignature');
     Route::post('/postsignature', [PengeluaranController::class, 'postsignature'])->name('postsignature');
-
 });
 
 
 
-Route::get('/dashboard-relawan', [DashboardController::class, 'relawan_page'])->name('relawan');
 
 
 Route::get('/daftar-user', [UserController::class, 'user'])->name('user');

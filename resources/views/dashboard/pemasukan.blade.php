@@ -1,23 +1,23 @@
 @extends('layouts.main', ['title' => 'Dashboard Pemasukan'])
 @section('content')
-<div class="row">
-    <div class="col-lg-6">
-        <h2>Dashboard Pemasukan</h2>
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Dashboard Pemasukan</h2>
+        </div>
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-right">
+                    <li class="breadcrumb-item active">
+                        <a href="dashboard">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Pemasukan
+                    </li>
+                </ol>
+            </nav>
+        </div>
     </div>
-    <div class="col-lg-6">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-right">
-                <li class="breadcrumb-item active">
-                    <a href="dashboard">Dashboard</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                    Pemasukan
-                </li>
-            </ol>
-        </nav>
-    </div>
-</div>
-    
+
 
     {{-- Data Header --}}
     <div class="row">
@@ -29,11 +29,12 @@
                             <i class="bi bi-graph-up-arrow" style="color:#5ddab4; font-size:36pt;"></i>
                         </div>
                         <div class="col-lg-10 col-md-10 col-sm-10 col-xl-12 col-xxl-7">
-                            <h6 style="font-weight: 500;" class="text-muted font-semibold"><b>Total Seluruh Pemasukan GSC</b></h6>
-                            <h4 class="font-extrabold mb-0">Rp. 
-                            @php
-                                echo number_format($total_pemasukan)
-                            @endphp
+                            <h6 style="font-weight: 500;" class="text-muted font-semibold"><b>Total Seluruh Pemasukan
+                                    GSC</b></h6>
+                            <h4 class="font-extrabold mb-0">Rp.
+                                @php
+                                    echo number_format($total_pemasukan);
+                                @endphp
                             </h4>
                         </div>
                     </div>
@@ -49,19 +50,22 @@
                             <i class="bi bi-graph-up" style="color:#26a0fc; font-size:36pt;"></i>
                         </div>
                         <div class="col-lg-10 col-md-10 col-sm-10 col-xl-12 col-xxl-7">
-                            <h6 style="font-weight: 500;" class="text-muted font-semibold"><b>Total Pemasukan Tahun @php
-                                echo date('Y');
-                            @endphp</b>
+                            <h6 style="font-weight: 500;" class="text-muted font-semibold"><b>Total Pemasukan Tahun
+                                    @php
+                                        echo date('Y');
+                                    @endphp</b>
                             </h6>
-                            <h4 class="font-extrabold mb-0">Rp. 50.000.000</h4>
+                            <h4 class="font-extrabold mb-0">Rp.
+                                @php
+                                    echo number_format($total_pemasukan);
+                                @endphp
+                            </h4>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-
 @endsection
 @push('scripts')
     <script>
