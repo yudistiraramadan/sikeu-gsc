@@ -131,7 +131,7 @@
 
                             <div class="col-lg-2">
                                 <div class="mb-3">
-                                    <label for="" class="form-label">Level</label>
+                                    <label for="" class="form-label">Tipe Relawan :</label>
                                     <div class="col-6">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="role_id" id="bendahara"

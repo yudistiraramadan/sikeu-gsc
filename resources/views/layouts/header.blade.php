@@ -33,7 +33,8 @@
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
     {{-- Fontawesome --}}
-    <script src="https://kit.fontawesome.com/c78fb67aba.js" crossorigin="anonymous"></script>
+    {{-- <script src="https://kit.fontawesome.com/c78fb67aba.js" crossorigin="anonymous"></script> --}}
+    <script src="{{ asset('asset_offline/fontawesome.js') }}"></script>
 
     {{-- Toastr --}}
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
