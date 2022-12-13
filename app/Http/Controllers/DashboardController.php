@@ -30,12 +30,9 @@ class DashboardController extends Controller
         dd($status);
 
     }
-
-    public function user_page()
+    public function pemasukan_page()
     {
-        $user = User::all();
-        $user = Auth::user();
-        // dd($user);
-        return view('dashboard.user', compact('user'));
+        $total_pemasukan = Pemasukan::sum('terbilang');
+        return view('dashboard.pemasukan', compact('total_pemasukan'));
     }
 }

@@ -1,5 +1,5 @@
 {{-- @extends('layouts.main'. ['title' => 'SIKEU-GSC | Daftar Pemasukan']) --}}
-@extends('layouts.main', ['title' => 'SIKEU-GSC | Daftar Pemasukan'])
+@extends('layouts.main', ['title' => 'Daftar Pemasukan'])
 
 @section('content')
     <div class="row">
@@ -45,7 +45,6 @@
                                     <th>Guna Pembayaran</th>
                                     <th>Tanggal</th>
                                     <th>Terbilang</th>
-                                    {{-- <th>Foto</th> --}}
                                     <th>Aksi</th>
                                 </tr>
                             </thead>

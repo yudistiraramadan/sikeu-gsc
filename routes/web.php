@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function () {
         return view('dashboard.sample');
     });
     Route::get('/dashboard-user', [DashboardController::class, 'user_page'])->name('user_page');
+    Route::get('dashboard-pemasukan', [DashboardController::class, 'pemasukan_page'])->name('pemasukan_page');
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function () {
