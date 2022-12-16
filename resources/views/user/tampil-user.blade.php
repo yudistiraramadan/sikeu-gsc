@@ -143,10 +143,10 @@
                                     </div>
                                     <div class="col-6 pull-right">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="role_id" id="pengamat"
+                                            <input class="form-check-input" type="radio" name="role_id" id="program"
                                                 value="2" {{ $user->role_id == '2' ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="pengamat">
-                                                Pengamat
+                                            <label class="form-check-label" for="program">
+                                                Program
                                             </label>
                                         </div>
                                     </div>

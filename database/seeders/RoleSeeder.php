@@ -21,7 +21,7 @@ class RoleSeeder extends Seeder
         ]);
         Role::create([
             'id' => '2',
-            'role_name' => 'Pengamat'
+            'role_name' => 'Program'
         ]);
         Role::create([
             'id' => '3',
