@@ -66,6 +66,32 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Statistik Total Pemasukan Tiap Tahun</h4>
+                </div>
+                <div class="card-body">
+                    <div id="chart"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Status Relawan</h4>
+                </div>
+                <div class="card-body">
+                    <div class="" id="donat"></div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
 @endsection
 @push('scripts')
     <script>
