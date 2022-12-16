@@ -18,4 +18,8 @@ class Pemasukan extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function log_pemasukan()
+    {
+        return $this->hasMany(LogPemasukan::class);
+    }
 }

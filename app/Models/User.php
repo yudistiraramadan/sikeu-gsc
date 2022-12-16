@@ -72,8 +72,5 @@ class User extends Authenticatable
         return $this->hasMany(LogUser::class);
        }
 
-       public function log_pemasukan()
-       {
-        return $this->hasMany(LogPemasukan::class);
-       }
+       
 }

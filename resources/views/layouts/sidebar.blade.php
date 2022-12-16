@@ -63,6 +63,7 @@
                     </ul>
                 </li>
 
+                
                 <li class="sidebar-item has-sub {{ Request::is('daftar-pemasukan','tambah-pemasukan', 'aktivitas-pemasukan')  ? 'active' : '' }}">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-stack"></i>
@@ -93,7 +94,8 @@
                     </ul>
                 </li>
 
-                   <li class="sidebar-item has-sub {{ Request::is('daftar-user') ? 'active' : '' }}">
+                <li class="sidebar-title">Users</li>
+                <li class="sidebar-item has-sub {{ Request::is('daftar-user') ? 'active' : '' }}">
                     <a href="{{ route('user') }}" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
                         <span>Daftar Relawan</span>
