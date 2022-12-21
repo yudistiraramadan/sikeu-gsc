@@ -146,6 +146,14 @@ class PengeluaranController extends Controller
         return Excel::download(new PengeluaranExportExcel, 'daftar_pengeluaran.xlsx');
     }
 
+    public function export_pdf_pengeluaran()
+    {
+        $data = Pengeluaran::all();
+        view()->share('data', $data);
+        $pdf = PDF::loadview('pengeluaran.print-daftar-pengeluaran');
+        return $pdf->download('daftar-pengeluaran.pdf');
+    }
+
 
 
     public function showsignature()
