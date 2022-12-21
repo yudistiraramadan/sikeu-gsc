@@ -78,9 +78,9 @@ class PemasukanController extends Controller
                 if ($data->type == 'DELETE') {
                     return '<p class="badge bg-danger">' . $data->type . '<div>';
                 } else if ($data->type == 'CREATE') {
-                    return '<p class="badge bg-success">' . $data->type . '<div>';
+                    return '<p class="badge" style="background-color:#54B435;">' . $data->type . '<div>';
                 } else if ($data->type == 'UPDATE') {
-                    return '<p class="badge " style="background-color: #5901C8;">' . $data->type . '<div>';
+                    return '<p class="badge " style="background-color: #F49D1A;">' . $data->type . '<div>';
                 } else {
                     return '<p class="badge " style="background-color: #607EAA;">' . $data->type . '<div>';
                 }
@@ -133,7 +133,7 @@ class PemasukanController extends Controller
             'activities' => 'Menambah pemasukan '. $pemasukan->name .' untuk '.$pemasukan->keperluan.'',
         ]);
         
-        return redirect()->route('pemasukan')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('pemasukan')->with('success', 'Pemasukan Berhasil Ditambahkan');
     }
 
     public function showpemasukan($id)
@@ -175,7 +175,7 @@ class PemasukanController extends Controller
             'type' => 'UPDATE',
             'activities' => 'Mengedit pemasukan '. $data->name .' untuk '.$data->keperluan.'',
         ]);
-        return redirect()->route('pemasukan')->with('success', 'Data berhasil diedit');
+        return redirect()->route('pemasukan')->with('success', 'Pemasukan berhasil diedit');
     }
 
     public function delete(Request $request)
@@ -187,7 +187,7 @@ class PemasukanController extends Controller
             'activities' => 'Menghapus pemasukan '. $data->name .' untuk '.$data->keperluan.'',
         ]);
         $data->delete();
-        return redirect()->route('pemasukan')->with('success', 'Pemaasukan berhasil dihapus');
+        return redirect()->route('pemasukan')->with('success', 'Pemasukan berhasil dihapus');
     }
 
 

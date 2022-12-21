@@ -54,6 +54,9 @@
             </td>
         </tr>
         <tr>
+            <td colspan="5" style="text-align: right;">(Novia Kintan Hapsari)</td>
+        </tr>
+        <tr>
             <td colspan="5">
                 <hr />
             </td>

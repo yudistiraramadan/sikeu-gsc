@@ -71,7 +71,7 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item {{ Request::is('daftar-pemasukan') ? 'active' : '' }}">
-                            <a href="{{ route('pemasukan') }}"> Daftar Pemasukan</a>
+                            <a href="{{ route('pemasukan') }}">Daftar Pemasukan</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="{{ route('activities_pemasukan') }}">Log Aktifitas</a>
