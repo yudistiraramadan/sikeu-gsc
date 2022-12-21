@@ -6,6 +6,8 @@ use PDF;
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PengeluaranExportExcel;
 
 class PengeluaranController extends Controller
 {
@@ -137,6 +139,11 @@ class PengeluaranController extends Controller
         view()->share('data',$data);
         $pdf = PDF::loadview('pengeluaran.print-pengeluaran');
         return $pdf->download('pengeluaran.pdf');
+    }
+
+    public function export_excel_pengeluaran()
+    {
+        return Excel::download(new PengeluaranExportExcel, 'daftar_pengeluaran.xlsx');
     }
 
 

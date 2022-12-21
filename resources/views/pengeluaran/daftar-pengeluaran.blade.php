@@ -23,7 +23,7 @@
                         <button type="button" class="btn btn-success tambah mb-4 mt-2">Tambah Pengeluaran</button>
                     </a>
                     &nbsp;
-                    <a href="#">
+                    <a href="{{ route('export_excel_pengeluaran') }}">
                         <button type="button" class="btn btn-primary mb-4 mt-2">Export Excel
                         </button>
                     </a>

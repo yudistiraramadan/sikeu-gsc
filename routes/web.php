@@ -63,6 +63,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function () {
     Route::post('/delete-pengeluaran/destroy', [PengeluaranController::class, 'delete'])->name('hapuspengeluaran');
     // FEATURE PENGELUARAN
     Route::get('/print-pengeluaran/{id}', [PengeluaranController::class, 'printpengeluaran'])->name('printpengeluaran');
+    Route::get('/export-excel-pengeluaran', [PengeluaranController::class, 'export_excel_pengeluaran'])->name('export_excel_pengeluaran');
 
     Route::get('/show-signature', [PengeluaranController::class, 'showsignature'])->name('showsignature');
     Route::post('/postsignature', [PengeluaranController::class, 'postsignature'])->name('postsignature');
