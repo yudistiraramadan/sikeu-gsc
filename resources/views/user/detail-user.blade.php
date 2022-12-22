@@ -87,6 +87,7 @@
                         <h6>Jenis Kelamin</h6>
                     </div>
                     <div class="col-lg-4">{{ $detail_user->gender }}</div>
+                    <br><br>
                     <a href="/daftar-user">
                         <button type="button" class="btn btn-warning">Kembali</button>
                     </a>

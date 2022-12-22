@@ -17261,9 +17261,9 @@ body .bi:before {
     padding: 0 2rem;
 }
 .sidebar-wrapper .menu .sidebar-title {
-    color: #25396f;
-    font-size: 1rem;
-    font-weight: 600;
+    color: #bcc3d3;
+    font-size: 11pt;
+    font-weight: 400;
     list-style: none;
     margin: 1.5rem 0 1rem;
     padding: 0 1rem;
@@ -17271,7 +17271,7 @@ body .bi:before {
 .sidebar-wrapper .menu .sidebar-link {
     align-items: center;
     border-radius: 0.5rem;
-    color: #505154;
+    color: #647279;
     display: block;
     display: flex;
     font-size: 1rem;
@@ -17309,7 +17309,7 @@ body .bi:before {
     content: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><path style="fill:none;stroke:%23fff;stroke-width:1" d="m6 9 6 6 6-6"/></svg>');
 }
 .sidebar-wrapper .menu .sidebar-item.active > .sidebar-link {
-    background-color: #435ebe;
+    background-color: #1a9bfc;
 }
 .sidebar-wrapper .menu .sidebar-item.active > .sidebar-link span {
     color: #fff;
@@ -17340,7 +17340,7 @@ body .bi:before {
     font-weight: 600;
 }
 .sidebar-wrapper .menu .submenu .submenu-item a {
-    color: #25396f;
+    color: #647279;
     display: block;
     font-size: 0.85rem;
     font-weight: 600;
@@ -17349,7 +17349,7 @@ body .bi:before {
     transition: all 0.3s;
 }
 .sidebar-wrapper .menu .submenu .submenu-item a:hover {
-    color: #435ebe;
+    color: #223640;
     margin-left: 0.3rem;
 }
 .sidebar-backdrop {

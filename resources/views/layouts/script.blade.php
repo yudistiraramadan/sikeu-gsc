@@ -29,4 +29,10 @@
 
 
 
+
 @stack('scripts')
+<script>
+    // $(window).load(function() {
+    //         $('.se-pre-con').fadeOut('slow');
+    //     });
+</script>

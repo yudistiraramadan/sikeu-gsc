@@ -45,11 +45,19 @@
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
-                <li class="sidebar-title">Menu</li>
+                {{--   --}}
+                
+                {{-- <li> --}}
+                <li class="sidebar-title">MENU</li>
+                {{-- <span>MENU</span> --}}
+                {{-- </li> --}}
                 {{-- <li class="sidebar-title"><h6>{{ $user->name }}</h6></li> --}}
 
                 <li class="sidebar-item has-sub {{ Request::is('dashboard-relawan', 'dashboard-pemasukan')  ? 'active' : '' }}">
                     <a href="#" class='sidebar-link'>
+                        {{-- <i class="bi bi-house"></i> --}}
+                        {{-- <i class="fa-solid fa-house"></i> --}}
+                        {{-- <i class="fa-solid fa-grid-2"></i> --}}
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
@@ -94,7 +102,7 @@
                     </ul>
                 </li>
 
-                <li class="sidebar-title">Users</li>
+                <li class="sidebar-title">USERS</li>
                 <li class="sidebar-item has-sub {{ Request::is('daftar-user') ? 'active' : '' }}">
                     <a href="{{ route('user') }}" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
@@ -148,7 +156,8 @@
 
                 <li class="sidebar-title">Gerak Sedekah Cilacap</li>
                 <a href="{{ route('logout') }}" class="sidebar-link">
-                    <i class="bi bi-box-arrow-left"></i>
+                    {{-- <i class="bi bi-box-arrow-left"></i> --}}
+                    <i class="fa-solid fa-right-from-bracket"></i>
                     <span>Logout</span>
                 </a>
             </ul>

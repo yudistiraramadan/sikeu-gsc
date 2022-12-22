@@ -4,6 +4,7 @@
 @include('layouts.header')
 
 <body>
+    {{-- <div class="se-pre-con slow-notice"></div> --}}
     <div id="app">
         @include('layouts.sidebar')
         <div id="main">
