@@ -65,6 +65,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function () {
     Route::get('/print-pengeluaran/{id}', [PengeluaranController::class, 'printpengeluaran'])->name('printpengeluaran');
     Route::get('/export-excel-pengeluaran', [PengeluaranController::class, 'export_excel_pengeluaran'])->name('export_excel_pengeluaran');
     Route::get('/export-pdf-pengeluaran', [PengeluaranController::class, 'export_pdf_pengeluaran'])->name('export_pdf_pengeluaran');
+    Route::get('/aktivitas-pengeluaran', [PengeluaranController::class, 'activities_pengeluaran'])->name('activities_pengeluaran');
 
     Route::get('/show-signature', [PengeluaranController::class, 'showsignature'])->name('showsignature');
     Route::post('/postsignature', [PengeluaranController::class, 'postsignature'])->name('postsignature');

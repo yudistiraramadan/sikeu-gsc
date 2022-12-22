@@ -94,7 +94,7 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item ">
-                            <a href="{{ route('pengeluaran') }}">Daftar Pengeluaran</a>
+                            <a href="{{ route('pengeluaran') }}">List Pengeluaran</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="extra-component-sweetalert.html">Log Aktifitas</a>

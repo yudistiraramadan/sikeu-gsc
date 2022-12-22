@@ -11,11 +11,11 @@ class LogPengeluaran extends Model
 
     protected $table = 'log_pengeluaran';
     protected $fillable = [
-        'pengeluaran_id', 'type', 'activities'
+        'user_id', 'type', 'activities'
     ];
 
-    public function pengeluaran()
+    public function user()
     {
-        return $this->belongsTo(Pengeluaran::class);
+        return $this->belongsTo(User::class);
     }
 }

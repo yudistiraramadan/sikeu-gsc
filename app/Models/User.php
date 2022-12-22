@@ -76,4 +76,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(LogPemasukan::class);
     }
+
+    public function log_pengeluaran()
+    {
+        return $this->belongsTo(LogPengeluaran::class);
+    }
 }

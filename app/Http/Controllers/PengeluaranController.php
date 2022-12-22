@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use PDF;
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
+use App\Models\LogPengeluaran;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PengeluaranExportExcel;
 
@@ -80,7 +82,12 @@ class PengeluaranController extends Controller
         $pengeluaran->terbilang = $data['terbilang'];
         $pengeluaran->keterangan = $data['keterangan'];
         $pengeluaran->date = $data['date'];
-        // $pengeluaran->signature = $data['signature'];
+        // $pengeluaran->signature = $data['signature'];'
+        LogPengeluaran::create([
+            'user_id' => Auth::id(),
+            'type' => 'CREATE',
+            'activities' => 'Menambah pengeluaran '. $pengeluaran->name_pengaju .' untuk '.$pengeluaran->keterangan.'',
+        ]);
         $pengeluaran->save();
         return redirect()->route('pengeluaran')->with('success', 'Pengeluaran berhasil ditambahkan');
     }
@@ -123,6 +130,12 @@ class PengeluaranController extends Controller
             $data->keterangan = $request->keterangan;
             $data->nominal = $request->nominal;
             $data->terbilang = $request->terbilang;
+
+            LogPengeluaran::create([
+                'user_id' => Auth::id(),
+                'type' => 'UPDATE',
+                'activities' => 'Mengedit pengeluaran '. $data->name_pengaju .' untuk '.$data->keterangan.'',
+            ]);
             $data->save();
             return redirect()->route('pengeluaran')->with('success', 'Pengeluaran berhasil diedit.');
     }
@@ -130,6 +143,11 @@ class PengeluaranController extends Controller
     public function delete(Request $request)
     {
         $data = Pengeluaran::find($request->id);
+        LogPengeluaran::create([
+            'user_id' => Auth::id(),
+            'type' => 'DELETE',
+            'activities' => 'Menghapus pengeluaran '. $data->name_pengaju .' untuk '.$data->keterangan.'',
+        ]);
         $data->delete();
     }
 
@@ -152,6 +170,44 @@ class PengeluaranController extends Controller
         view()->share('data', $data);
         $pdf = PDF::loadview('pengeluaran.print-daftar-pengeluaran');
         return $pdf->download('daftar-pengeluaran.pdf');
+    }
+
+    public function activities_pengeluaran(Request $request)
+    {
+        $activities = LogPengeluaran::join('users', 'log_pengeluaran.user_id', '=', 'users.id')
+        ->join('roles', 'users.role_id', '=', 'roles.id')
+        ->orderBy('log_pengeluaran.id', 'desc')
+        ->get(['log_pengeluaran.*', 'users.name', 'roles.role_name']);
+
+        if ($request->ajax()){
+            return datatables()->of($activities)
+            ->addColumn('role', function($data){
+                return '<p class="badge" style="background-color: #5901C8;">' . $data->role_name . '<div>';
+            })
+            ->addColumn('user_name', function($data){
+                return $data->name;
+            })
+            ->addColumn('information', function ($data){
+                return $data->activities;
+            })
+            ->addColumn('status_action', function ($data){
+                if ($data->type == 'DELETE') {
+                    return '<p class="badge bg-danger">' . $data->type . '<div>';
+                } else if ($data->type == 'CREATE') {
+                    return '<p class="badge" style="background-color:#54B435;">' . $data->type . '<div>';
+                } else if ($data->type == 'UPDATE') {
+                    return '<p class="badge " style="background-color: #F49D1A;">' . $data->type . '<div>';
+                } else {
+                    return '<p class="badge " style="background-color: #607EAA;">' . $data->type . '<div>';
+                }
+            })
+            ->addColumn('date_activity', function ($data){
+                return Carbon::parse($data->created_at)->diffForHumans();
+            })
+            ->rawColumns(['role', 'user_name', 'information', 'status_action', 'date_activity'])
+            ->make(true);
+        }
+        return view('pengeluaran.riwayat-pengeluaran');
     }
 
 

@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('log_pengeluaran', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pengeluaran_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('type');
             $table->string('activities');
             $table->timestamps();
 
-            $table->foreign('pengeluaran_id')->references('id')->on('pengeluaran')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
