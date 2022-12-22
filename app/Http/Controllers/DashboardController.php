@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\DetailUser;
 use App\Models\Pemasukan;
+use App\Models\DetailUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -33,6 +34,12 @@ class DashboardController extends Controller
     public function pemasukan_page()
     {
         $total_pemasukan = Pemasukan::sum('terbilang');
-        return view('dashboard.pemasukan', compact('total_pemasukan'));
+        $total_pemasukan_tahun = DB::select('SELECT YEAR(date) as year, SUM(terbilang) as total FROM pemasukan GROUP BY YEAR(date)');
+        // dd($total_pemasukan_tahun);
+
+        return view('dashboard.pemasukan', compact('total_pemasukan', 'total_pemasukan_tahun'));
+
+        
+        // DB::select('SELECT YEAR(created_at) as year, SUM(amount) as total FROM homestead.projects GROUP BY YEAR(created_at)');
     }
 }

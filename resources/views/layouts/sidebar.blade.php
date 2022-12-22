@@ -105,12 +105,14 @@
                 <li class="sidebar-title">USERS</li>
                 <li class="sidebar-item has-sub {{ Request::is('daftar-user') ? 'active' : '' }}">
                     <a href="{{ route('user') }}" class='sidebar-link'>
-                        <i class="bi bi-people-fill"></i>
-                        <span>Daftar Relawan</span>
+                        {{-- <i class="bi bi-people-fill"></i> --}}
+                        {{-- <i class="bi bi-person-fill-check"></i> --}}
+                        <i class="fa-solid fa-user-plus"></i>
+                        <span>Relawan</span>
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="{{ route('user') }}">Daftar Relawan</a>
+                            <a href="{{ route('user') }}">List Relawan</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="{{ route('activities') }}">Log Aktifitas</a>
@@ -118,24 +120,28 @@
                     </ul>
                 </li>
 
-                <li class="sidebar-title">Forms &amp; Tables</li>
+                <li class="sidebar-item has-sub {{ Request::is('daftar-donatur') ? 'active' : '' }}">
+                    <a href="{{ route('user') }}" class='sidebar-link'>
+                        <i class="bi bi-person-heart" style="font-size: 16pt;"></i>
+                        <span>Donatur</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route('user') }}">List Donatur</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('activities') }}">Log Aktifitas</a>
+                        </li>
+                    </ul>
+                </li>
 
-                <li class="sidebar-item  has-sub">
+                <li class="sidebar-title">App Tools</li>
+
+                <li class="sidebar-item">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-hexagon-fill"></i>
                         <span>Form Elements</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="form-element-input.html">Input</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="form-element-input-group.html">Input Group</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="form-element-select.html">Select</a>
-                        </li>
-                    </ul>
                 </li>
 
 

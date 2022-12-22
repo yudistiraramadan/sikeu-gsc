@@ -59,6 +59,9 @@
                                 @php
                                     echo number_format($total_pemasukan);
                                 @endphp
+                                @php
+                                    
+                                @endphp
                             </h4>
                         </div>
                     </div>
@@ -110,11 +113,11 @@
                 type: 'bar'
             },
             series: [{
-                name: 'sales',
-                data: [30, 40, 45, 50, 49, 60, 70, 91, 125]
+                name: 'pemasukan',
+                data: [100000000, 150000000, 185000000]
             }],
             xaxis: {
-                categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+                categories: [2020, 2021, 2022, 2023, 2024, 2025]
             }
         }
 
