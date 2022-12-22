@@ -21,20 +21,28 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('tambahpemasukan') }}">
-                    <button type="button" class="btn btn-success tambah mb-4 mt-2">Tambah Pemasukan</button>
-                </a>
-                &nbsp;
-                <a href="{{ route('export_excel_pemasukan') }}">
-                    <button type="button" class="btn btn-primary mb-4 mt-2">Export Excel
-                    </button>
-                </a>
-                &nbsp;
-                <a href="{{ route('export_pdf_pemasukan') }}">
-                    <button type="button" class="btn btn-danger mb-4 mt-2">Export PDF
-                        <i class="bi bi-printer-fill"></i>
-                    </button>
-                </a>
+                <div class="row">
+                    <div class="col-lg-10">
+                        <a href="{{ route('tambahpemasukan') }}">
+                            <button type="button" class="btn btn-success tambah mb-4 mt-2">Tambah Pemasukan</button>
+                        </a>
+                        &nbsp;
+                        <a href="{{ route('export_excel_pemasukan') }}">
+                            <button type="button" class="btn btn-primary mb-4 mt-2">Export Excel
+                            </button>
+                        </a>
+                        &nbsp;
+                        <a href="{{ route('export_pdf_pemasukan') }}">
+                            <button type="button" class="btn btn-danger mb-4 mt-2">Export PDF
+                                <i class="bi bi-printer-fill"></i>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 pull">
+                    <a href="#">yudis</a>
+                    </div>
+                </div>
+
                 <div class="responsive">
                     <div class="table-responsive">
                         <table class="table table-hover table-bordered table-responsive" id="dt-pemasukan">
