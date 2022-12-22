@@ -17281,7 +17281,8 @@ body .bi:before {
 }
 .sidebar-wrapper .menu .sidebar-link i,
 .sidebar-wrapper .menu .sidebar-link svg {
-    color: #7c8db5;
+    /* color: #7c8db5; */
+    color: #002152;
 }
 .sidebar-wrapper .menu .sidebar-link i:before {
     vertical-align: top;
@@ -17336,7 +17337,7 @@ body .bi:before {
     position: relative;
 }
 .sidebar-wrapper .menu .submenu .submenu-item.active > a {
-    color: #435ebe;
+    color: #223640;
     font-weight: 600;
 }
 .sidebar-wrapper .menu .submenu .submenu-item a {

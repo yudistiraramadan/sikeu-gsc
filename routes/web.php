@@ -71,22 +71,25 @@ Route::group(['middleware' => ['auth', 'ceklevel:1,2,3']], function () {
     Route::post('/postsignature', [PengeluaranController::class, 'postsignature'])->name('postsignature');
 });
 
+Route::group(['middleware' => ['auth', 'ceklevel:1,2']], function () {
+    // CRUD USER
+    Route::get('/daftar-user', [UserController::class, 'user'])->name('user');
+    Route::get('/tambah-user', [UserController::class, 'tambahuser'])->name('tambahuser');
+    Route::post('/insertuser', [UserController::class, 'insertuser'])->name('insertuser');
+    Route::get('/show-user/{id}', [UserController::class, 'showuser'])->name('showuser');
+    Route::post('/edit-user/{id}', [UserController::class, 'edituser'])->name('edituser');
+    Route::get('/delete-user/{id}', [UserController::class, 'deleteuser'])->name('deleteuser');
+    Route::get('/detail-user/{id}', [UserController::class, 'detailuser'])->name('detailuser');
+    // FEATUR USER
+    Route::get('/export_excel_user', [UserController::class, 'export_excel_user'])->name('export_excel_user');
+    Route::get('/export_pdf_user', [UserController::class, 'export_pdf_user'])->name('export_pdf_user');
+
+    Route::get('/aktifitas-user', [UserController::class, 'activities'])->name('activities');
+});
 
 
 
 
-Route::get('/daftar-user', [UserController::class, 'user'])->name('user');
-Route::get('/tambah-user', [UserController::class, 'tambahuser'])->name('tambahuser');
-Route::post('/insertuser', [UserController::class, 'insertuser'])->name('insertuser');
-Route::get('/show-user/{id}', [UserController::class, 'showuser'])->name('showuser');
-Route::post('/edit-user/{id}', [UserController::class, 'edituser'])->name('edituser');
-Route::get('/delete-user/{id}', [UserController::class, 'deleteuser'])->name('deleteuser');
-Route::get('/detail-user/{id}', [UserController::class, 'detailuser'])->name('detailuser');
-
-Route::get('/export_excel_user', [UserController::class, 'export_excel_user'])->name('export_excel_user');
-Route::get('/export_pdf_user', [UserController::class, 'export_pdf_user'])->name('export_pdf_user');
-
-Route::get('/aktifitas-user', [UserController::class, 'activities'])->name('activities');
 
 Route::get('/tes', function () {
     return view('layouts.tes');

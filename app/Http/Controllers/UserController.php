@@ -222,6 +222,7 @@ class UserController extends Controller
         $user->save();
 
         $detail_user = DetailUser::findOrFail($id);
+        // $detail_user->photo = $request->photo;
         $detail_user->phone = $request->phone;
         $detail_user->gender = $request->gender;
         $detail_user->address = $request->address;

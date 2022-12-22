@@ -59,9 +59,6 @@
                                 @php
                                     echo number_format($total_pemasukan);
                                 @endphp
-                                @php
-                                    
-                                @endphp
                             </h4>
                         </div>
                     </div>

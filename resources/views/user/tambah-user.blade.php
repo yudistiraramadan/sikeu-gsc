@@ -190,7 +190,7 @@
                             <label for="" class="form-label">Status :</label>
                             <div class="col-12">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="status" id="aktif"
+                                    <input class="form-check-input form-check-success" type="radio" name="status" id="aktif"
                                         value="aktif" value="{{ old('status') }}">
                                     <label class="form-check-label" for="aktif">
                                         Aktif
@@ -199,7 +199,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="status" id="nonaktif"
+                                    <input class="form-check-input form-check-danger" type="radio" name="status" id="nonaktif"
                                         value="nonaktif" value="{{ old('status') }}">
                                     <label class="form-check-label" for="nonaktif">
                                         Nonaktif

@@ -35,7 +35,7 @@ class DashboardController extends Controller
     {
         $total_pemasukan = Pemasukan::sum('terbilang');
         $total_pemasukan_tahun = DB::select('SELECT YEAR(date) as year, SUM(terbilang) as total FROM pemasukan GROUP BY YEAR(date)');
-        // dd($total_pemasukan_tahun);
+        dd($total_pemasukan_tahun);
 
         return view('dashboard.pemasukan', compact('total_pemasukan', 'total_pemasukan_tahun'));
 
