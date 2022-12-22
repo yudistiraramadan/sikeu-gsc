@@ -56,8 +56,7 @@ class PemasukanController extends Controller
 
     public function activities_pemasukan(Request $request)
     {
-        $activities = LogPemasukan::join('pemasukan', 'log_pemasukans.pemasukan_id', '=', 'pemasukan.id')
-        ->join('users', 'log_pemasukans.pemasukan_id', '=', 'users.id')
+        $activities = LogPemasukan::join('users', 'log_pemasukans.user_id', '=', 'users.id')
         ->join('roles', 'users.role_id', '=', 'roles.id')
         ->orderBy('log_pemasukans.id', 'desc')
         ->get(['log_pemasukans.*', 'users.name', 'roles.role_name']);
@@ -128,7 +127,7 @@ class PemasukanController extends Controller
         // dd($pemasukan);
         $pemasukan->save();
         LogPemasukan::create([
-            'pemasukan_id' => Auth::id(),
+            'user_id' => Auth::id(),
             'type' => 'CREATE',
             'activities' => 'Menambah pemasukan '. $pemasukan->name .' untuk '.$pemasukan->keperluan.'',
         ]);
@@ -171,7 +170,7 @@ class PemasukanController extends Controller
         $data->nominal =$request->nominal;
         $data->save();
         LogPemasukan::create([
-            'pemasukan_id' => Auth::id(),
+            'user_id' => Auth::id(),
             'type' => 'UPDATE',
             'activities' => 'Mengedit pemasukan '. $data->name .' untuk '.$data->keperluan.'',
         ]);
@@ -182,7 +181,7 @@ class PemasukanController extends Controller
     {
         $data = Pemasukan::find($request->get('id'));
         LogPemasukan::create([
-            'pemasukan_id' => Auth::id(),
+            'user_id' => Auth::id(),
             'type' => 'DELETE',
             'activities' => 'Menghapus pemasukan '. $data->name .' untuk '.$data->keperluan.'',
         ]);

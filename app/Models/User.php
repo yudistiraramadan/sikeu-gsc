@@ -46,31 +46,34 @@ class User extends Authenticatable
     ];
 
 
-       // One to Many
-       public function role()
-       {
-           return $this->hasOne(Role::class, 'id');
-       }
+    // One to Many
+    public function role()
+    {
+        return $this->hasOne(Role::class, 'id');
+    }
 
-       public function pemasukan()
-       {
+    public function pemasukan()
+    {
         return $this->hasMany(Pemasukan::class);
-       }
+    }
 
-       public function pengeluaran()
-       {
+    public function pengeluaran()
+    {
         return $this->hasMany(Pengeluaran::class);
-       }
-   
-       public function detail_user()
-       {
-           return $this->hasOne(DetailUser::class);
-       }
+    }
 
-       public function log_user()
-       {
+    public function detail_user()
+    {
+        return $this->hasOne(DetailUser::class);
+    }
+
+    public function log_user()
+    {
         return $this->hasMany(LogUser::class);
-       }
+    }
 
-       
+    public function log_pemasukan()
+    {
+        return $this->belongsTo(LogPemasukan::class);
+    }
 }

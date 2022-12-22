@@ -11,7 +11,7 @@ class LogPemasukan extends Model
 
     protected $table = 'log_pemasukans';
     protected $fillable = [
-        'pemasukan_id', 'type', 'activities'
+        'user_id', 'type', 'activities'
     ];
 
     public function user()
